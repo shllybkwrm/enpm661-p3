@@ -111,6 +111,8 @@ class Node:
         self.g=g
         self.h=h
         self.cost = g+h
+
+
 def distance_2(p1,p2):
     distance = math.sqrt( ((p1[0]-p2[0])**2)+((p1[1]-p2[1])**2) )
     return distance
@@ -122,12 +124,13 @@ def get_and_replace_min_cost(node):
         node_q.remove(costfinder[k])
         node_q.insert(0,costfinder[k])
         return node_q
+
 def generate_node_successor(coord):
     theta=np.linspace(0,2*np.pi,13)
     new_positions=[]
     updated=[]
     for t in theta:
-        thing=np.array([(coord[0]+np.cos(t)),(coord[1]+np.sin(t))])
+        thing=np.array([(coord[0]+np.cos(t)), (coord[1]+np.sin(t))])
         new_positions.append(thing)
     for i in range(0,len(new_positions)):
         for j in range(1,(len(new_positions)-1)):
@@ -139,18 +142,62 @@ def generate_node_successor(coord):
 
 
 def get_gscore(previous,current):
-    return previous.g + distance_2(previous.coord, current)
+    return (previous.g + distance_2(previous.coord, current))
     
 
 def get_hscore(end,current):
     return distance_2(current, end)
 
+# Not used?  Taking out to make things simpler
 #def get_fscore(current_score,gscore,hscore):
-#    return current_score + gscore + hscore
+#    return (current_score + gscore + hscore)
 
 
-start_point=[0,0]
-goal_point=[0,2]
+##### Input functions #####
+def get_parameters():
+    print("Please enter the rigid robot parameters.")
+    ans=(input("Enter the radius (default=3): "))
+    if ans=='':  radius=3
+    else:  radius=int(ans)
+    ans=(input("Enter the obstacle clearance (default=2): "))
+    if ans=='':  clearance=2
+    else:  clearance=int(ans)
+    ans=(input("Enter the robot step size (default=radius): "))
+    if ans=='':  step=radius
+    else:  step=int(ans)
+
+    return radius, clearance, step
+
+def get_start():
+    print("\nPlease enter the initial x and y coordinates of the robot.")
+    ans=(input("Enter the x coordinate (default=0): "))
+    if ans=='':  x=0
+    else:  x=int(ans)
+    ans=(input("Enter the y coordinate (default=0): "))
+    if ans=='':  y=0
+    else:  y=int(ans)
+
+    return [x, y]
+
+def get_goal():
+    print("\nPlease enter the x and y coordinates of the robot's goal.")
+    ans=(input("Enter the x coordinate (default=0): "))
+    if ans=='':  x=0
+    else:  x=int(ans)
+    ans=(input("Enter the y coordinate (default=2): "))
+    if ans=='':  y=2
+
+    return [x, y]
+
+
+
+# Get input parameters
+radius, clearance, step = get_parameters()  # NOTE:  Not yet used! ###
+start_point = get_start()
+goal_point = get_goal()
+#start_point=[0,0]
+#goal_point=[0,2]
+
 start_node=Node(0, start_point, 0, 0, 0)
 node_q=[start_node]  # Put node_start in the OPEN list
 visited_coord=[]
@@ -158,6 +205,7 @@ final_nodes = []  # closed
 final_nodes.append(node_q[0])  # Only writing data of nodes in seen
 visited_coord.append(node_q[0].coord)
 node_counter = 0  # To define a unique ID to all the nodes formed
+
 ##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING 
 while node_q: #while the OPEN list is not empty
 ##    node_q=get_and_replace_min_cost(node_q)
@@ -189,3 +237,4 @@ while node_q: #while the OPEN list is not empty
             else:
                 final_nodes.append(child_node)
         final_nodes.append(current_root)
+
