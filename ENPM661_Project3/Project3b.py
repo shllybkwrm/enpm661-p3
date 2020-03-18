@@ -6,7 +6,7 @@ from matplotlib.patches import Ellipse
 import matplotlib.pyplot as plt
 
 ########### GET ROBOT COORDINATE ##############
-robot_x_coord=100
+robot_x_coord=150
 robot_y_coord=100
 robot_height=10
 robot_breadth=6
@@ -104,13 +104,14 @@ plt.show()
 
 ####################### A STAR ################
 class Node:
-    def __init__(self, node_no, coord, parent, g, h):
-        self.coord = coord
-        self.parent = parent
+    def __init__(self, node_no, coord, parent, g=0, h=0, theta=0):
         self.node_no = node_no
+        self.parent = parent
+        self.coord = coord
         self.g=g
         self.h=h
         self.cost = g+h
+        self.theta = theta
 
 
 def distance_2(p1,p2):
@@ -125,13 +126,17 @@ def get_and_replace_min_cost(node):
         node_q.insert(0,costfinder[k])
         return node_q
 
+# Needs collision and bound checking
 def generate_node_successor(coord):
-    theta=np.linspace(0,2*np.pi,13)
     new_positions=[]
     updated=[]
-    for t in theta:
-        thing=np.array([(coord[0]+np.cos(t)), (coord[1]+np.sin(t))])
-        new_positions.append(thing)
+    thetas=np.linspace(0,2*np.pi,12, endpoint=False)
+    for t in thetas:
+        # NOTE:  Incorporated robot step size here
+        new_point=np.array([(coord[0] + step*np.cos(t)), (coord[1] + step*np.sin(t))])
+        new_point = np.round(new_point, decimals=1)
+        new_positions.append(new_point)
+    # Not sure I understand what is happening here? #####
     for i in range(0,len(new_positions)):
         for j in range(1,(len(new_positions)-1)):
             distance=distance_2(new_positions[j],new_positions[i])
@@ -139,11 +144,12 @@ def generate_node_successor(coord):
         if distance>1:
             updated.insert(0,new_positions[i]) 
     return updated
+    #return new_positions
 
 
 def get_gscore(previous,current):
     return (previous.g + distance_2(previous.coord, current))
-    
+    # Calculate g incrementally, so angle of approach is not needed
 
 def get_hscore(end,current):
     return distance_2(current, end)
@@ -155,50 +161,59 @@ def get_hscore(end,current):
 
 ##### Input functions #####
 def get_parameters():
-    print("Please enter the rigid robot parameters.")
+    print("\nPlease enter the rigid robot parameters.")
     ans=(input("Enter the radius (default=3): "))
     if ans=='':  radius=3
     else:  radius=int(ans)
     ans=(input("Enter the obstacle clearance (default=2): "))
     if ans=='':  clearance=2
     else:  clearance=int(ans)
-    ans=(input("Enter the robot step size (default=radius): "))
-    if ans=='':  step=radius
+    ans=(input("Enter the robot step size (1-10, default=1): "))
+    if ans=='':  step=1
+    elif int(ans)>10:  step=10
     else:  step=int(ans)
 
     return radius, clearance, step
 
 def get_start():
-    print("\nPlease enter the initial x and y coordinates of the robot.")
+    print("\nPlease enter the initial coordinates of the robot.")
     ans=(input("Enter the x coordinate (default=0): "))
     if ans=='':  x=0
     else:  x=int(ans)
     ans=(input("Enter the y coordinate (default=0): "))
     if ans=='':  y=0
     else:  y=int(ans)
+    #ans=(input("Enter the starting theta (30-deg increments, default=0): "))
+    #if ans=='':  theta_s=0
+    #else:  y=int(ans)
 
-    return [x, y]
+    return [x, y]#, theta_s
 
 def get_goal():
-    print("\nPlease enter the x and y coordinates of the robot's goal.")
-    ans=(input("Enter the x coordinate (default=0): "))
+    print("\nPlease enter the coordinates of the robot's goal.")
+    ans=(input("Enter the target x coordinate (default=0): "))
     if ans=='':  x=0
     else:  x=int(ans)
-    ans=(input("Enter the y coordinate (default=2): "))
+    ans=(input("Enter the target y coordinate (default=2): "))
     if ans=='':  y=2
+    #ans=(input("Enter the goal theta (30-deg increments, default=30): "))
+    #if ans=='':  theta_g=30
+    #else:  y=int(ans)
 
-    return [x, y]
-
+    return [x, y]#, theta_g
+# Note:  Uncomment thetas if we decide to add them in
 
 
 # Get input parameters
-radius, clearance, step = get_parameters()  # NOTE:  Not yet used! ###
+radius, clearance, step = get_parameters()  # NOTE:  Only step is being used! Need to incorporate r & c - see P2 ###
 start_point = get_start()
 goal_point = get_goal()
 #start_point=[0,0]
 #goal_point=[0,2]
+print("\nThe start point is ", start_point)
+print("The goal point is ", goal_point)
 
-start_node=Node(0, start_point, 0, 0, 0)
+start_node=Node(0, start_point, 0)
 node_q=[start_node]  # Put node_start in the OPEN list
 visited_coord=[]
 final_nodes = []  # closed
@@ -223,11 +238,12 @@ while node_q: #while the OPEN list is not empty
         print("temp",temp)
         node_counter+=1
         print("counter",node_counter)
-        # Note - g should be from previous node to current, plus the previous g
+        # Note - g should be from *previous* node to current, plus the previous g
         tempg=get_gscore(current_root,temp)
         temph=get_hscore(goal_point,temp)
         #temp_cost= (get_gscore(start_node, temp))+ (get_hscore(goal_point, temp))
         child_node = Node(node_counter, temp, current_root, tempg, temph)
+        # Need to check for duplicates somewhere here
         if child_node not in node_q:
             if (child_node.g) <=(child_node.cost):
                 node_q.append(child_node)
