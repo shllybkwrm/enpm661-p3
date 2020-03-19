@@ -230,51 +230,64 @@ def get_gscore(previous,current):
 def get_hscore(current):
     return distance_2(current, goal_point)
 
-# Not used?  Taking out to make things simpler
-#def get_fscore(current_score,gscore,hscore):
-#    return (current_score + gscore + hscore)
 
 
+def graph_search(start_point,goal_point):
+    start_node=Node(0, start_point, None,0,0,0,0)
+    node_q=[start_node]  # put the startNode on the openList with f=0
+    visited_nodes=[] # points visited
+    Children_nodes = []  # closed list
+    ##final_nodes.append(node_q[0])  # Only writing data of nodes in seen
+    ##visited_coord.append(node_q[0].coord)
+    node_counter = 0  # To define a unique ID to all the nodes formed
+
+    ##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING 
+    while node_q: #while the OPEN list is not empty
+        current_root = node_q[0]##############################change current root to equal node with smallest f value#############
+        print("current_root",current_root)
+        print("current_coord",current_root.coord)
+        current_value = 0
+        for value, thing in enumerate(node_q):#let the currentNode equal the node with the least f value
+            if thing.f < current_root.f:
+                current_root = thing
+                current_value = value
+        node_q.pop(current_value)
+        visited_nodes.append(current_root)
+        if int(current_root.coord[0])==goal_point[0] and int(current_root.coord[1])==goal_point[1]:
+            print("Goal reached:  ", current_root.coord, current_root.parent.coord, current_root.node_no)
+            return current_root
+
+        temp_coords, thetas =generate_node_successor(current_root.coord)
+        for temp in temp_coords:
+            print("temp",temp)
+            node_counter+=1
+            print("counter",node_counter)
+            # Note - g should be from *previous* node to current, plus the previous g
+            tempg=get_gscore(current_root,temp)
+            temph=get_hscore(goal_point,temp)
+            tempf= (get_gscore(start_node, temp))+ (get_hscore(goal_point, temp))
+            child_node = Node(node_counter, temp, current_root, tempf, tempg, temph,0)
+            Children_nodes.append(child_node)
+        for child in Children_nodes:
+            for visited in visited_nodes:
+                if child==visited:
+                    continue
+            for item in node_q:
+                if child ==node_q and child.g>item.g:
+                    continue
+            node_q.append(child)
+
+def path(node):  # To find the path from the goal node to the starting node
+    p = []  # Empty list
+    p.append(node)
+    parent_node = node.parent
+    while parent_node is not None:
+        p.append(parent_node.coord)
+        parent_node = parent_node.parent
+    print(list(reversed(p)))
+    return list(reversed(p))
 
 
-start_node=Node(0, start_point, parent=0, g=0, h=starth, theta=theta_s)
-node_q=[start_node]  # Put node_start in the OPEN list
-visited_coord=[]
-final_nodes = []  # closed
-final_nodes.append(node_q[0])  # Only writing data of nodes in seen
-visited_coord.append(node_q[0].coord)
-node_counter = 0  # To define a unique ID to all the nodes formed
-
-##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING 
-while node_q: #while the OPEN list is not empty
-##    node_q=get_and_replace_min_cost(node_q)
-    current_root = node_q.pop(0)
-    # Don't need to re-calculate these, nothing changed?  Also they are not used
-    #currentg=get_gscore(start_node, current_root.coord)
-    #currenth=get_hscore(current_root.coord)
-    #current_cost= get_gscore(start_node, current_root.coord) + get_hscore(current_root.coord)
-    if int(current_root.coord[0])==goal_point[0] and int(current_root.coord[1])==goal_point[1]:
-        print("Goal reached:  ", current_root.coord, current_root.node_no)
-        #print(child_node, final_nodes)  # not sure what "close" was?
-
-    temp_coords=generate_node_successor(current_root.coord)
-    for temp in temp_coords:
-        print("new point: ",temp)
-        node_counter+=1
-        print("node count: ",node_counter)
-        # Note - g should be from *previous* node to current, plus the previous g
-        tempg=get_gscore(current_root, temp)
-        temph=get_hscore(temp)
-        #temp_cost= get_gscore(start_node, temp) + get_hscore(temp)
-        child_node = Node(node_counter, temp, current_root, tempg, temph)
-        # Need to check for duplicates somewhere here
-        if child_node not in node_q:
-            if (child_node.g) <=(child_node.cost):
-                node_q.append(child_node)
-            elif child_node in final_nodes:
-                if (child_node.g) <=(child_node.cost):
-                    node_q.append(child_node)
-            else:
-                final_nodes.append(child_node)
-        final_nodes.append(current_root)
+goal=graph_search(start_point,goal_point)
+path=path(goal)
 
