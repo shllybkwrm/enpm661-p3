@@ -1,3 +1,7 @@
+# ENPM661 Project 3 Phase 2
+# Shelly Bagchi & Omololu Makinde
+
+
 import math
 import numpy as np
 from matplotlib.path import Path
@@ -12,7 +16,7 @@ h = 200
 
 ##### Input functions #####
 def get_parameters():
-    print("\nPlease enter the rigid robot parameters.")
+    print("Please enter the rigid robot parameters.")
     ans=(input("Enter the radius (default=3): "))
     if ans=='':  radius=3
     else:  radius=int(ans)
@@ -28,25 +32,25 @@ def get_parameters():
 
 def get_start():
     print("\nPlease enter the initial coordinates of the robot.")
-    ans=(input("Enter the x coordinate (default=0): "))
-    if ans=='':  x=0
+    ans=(input("Enter the x coordinate (default=50): "))
+    if ans=='':  x=50
     else:  x=int(ans)
-    ans=(input("Enter the y coordinate (default=0): "))
-    if ans=='':  y=0
+    ans=(input("Enter the y coordinate (default=30): "))
+    if ans=='':  y=30
     else:  y=int(ans)
-    ans=(input("Enter the starting theta (30-deg increments, default=30): "))
-    if ans=='':  theta_s=30
+    ans=(input("Enter the starting theta (30-deg increments, default=60): "))
+    if ans=='':  theta_s=60
     else:  theta_s=int(ans)
 
     return [x, y], theta_s
 
 def get_goal():
     print("\nPlease enter the coordinates of the robot's goal.")
-    ans=(input("Enter the target x coordinate (default=0): "))
-    if ans=='':  x=0
+    ans=(input("Enter the target x coordinate (default=150): "))
+    if ans=='':  x=60
     else:  x=int(ans)
-    ans=(input("Enter the target y coordinate (default=2): "))
-    if ans=='':  y=2
+    ans=(input("Enter the target y coordinate (default=150): "))
+    if ans=='':  y=40
     ans=(input("Enter the goal theta (30-deg increments, default=same as start): "))
     if ans=='':  theta_g=theta_s
     else:  theta_g=int(ans)
@@ -58,29 +62,30 @@ def get_goal():
 radius, clearance, step = get_parameters()  # NOTE:  Still need to incorporate clearance ###
 start_point, theta_s = get_start()
 goal_point, theta_g = get_goal()
-#start_point=[0,0]
-#goal_point=[0,2]
-print("\nThe start point is", start_point)
-print("The goal point is", goal_point)
-starth = get_hscore(start_point)
-print("The distance to goal is", starth, '\n')
-
+print()
 
 
 ########### SET ROBOT COORDINATE ##############
-robot_x_coord=w//2
-robot_y_coord=h//2
+robot_x_coord=start_point[0]
+robot_y_coord=start_point[1]
+goal_x_coord=goal_point[0]
+goal_y_coord=goal_point[1]
 robot_height=radius
 robot_breadth=radius
 x=np.linspace((robot_x_coord-robot_breadth/2),(robot_x_coord+robot_breadth/2),robot_breadth+1,dtype=int)
 y=np.linspace((robot_y_coord+robot_height/2),(robot_y_coord-robot_height/2),robot_height+1,dtype=int)
 x_1,y_1=np.meshgrid(x,y, indexing='xy')
 points = np.array(list(zip(x_1.flatten(),y_1.flatten())))
-########### PLOTTING THE ROBOT - change to circle ################
+########### PLOTTING THE ROBOT - change to circle? ################
 rcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
 rvertices = [((robot_x_coord-robot_breadth/2), (robot_y_coord-robot_height/2)), ((robot_x_coord-robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord-robot_height/2)), (0, 0)]
 robot = Path(rvertices,rcodes)
 robotpatch = PathPatch(robot, facecolor='green', edgecolor='green')
+########### PLOTTING THE GOAL - change to circle? ################
+gcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
+gvertices = [((goal_x_coord-robot_breadth/2), (goal_y_coord-robot_height/2)), ((goal_x_coord-robot_breadth/2), (goal_y_coord+robot_height/2)), ((goal_x_coord+robot_breadth/2), (goal_y_coord+robot_height/2)), ((goal_x_coord+robot_breadth/2), (goal_y_coord-robot_height/2)), (0, 0)]
+goal = Path(gvertices,gcodes)
+goalpatch = PathPatch(goal, facecolor='red', edgecolor='red')
 ########### Prepare Searchable Nodes ################
 xm=np.linspace(0,w,num=w,endpoint=False,dtype=int)
 ym=np.linspace(h,0,num=h,endpoint=False,dtype=int)
@@ -126,11 +131,11 @@ path = Path(vertices, codes)
 ####### CIRCLE OBSTACLE #####################
 circle=Path.circle((225,150),radius=25,readonly=False)
 ####### ELIPSE OBSTACLE ####################
-elipse=Ellipse((150,100),80,40,0,facecolor='None', edgecolor='green')
+elipse=Ellipse((150,100),80,40,0,facecolor='None', edgecolor='blue')
 ###### PATCHING THEM TOGETHER ###############
-pathpatch = PathPatch(path, facecolor='None', edgecolor='green')
-pathpatch2 = PathPatch(circle, facecolor='None', edgecolor='green')
-pathpatch3= Ellipse((150,100),80,40,0,facecolor='None', edgecolor='green')
+pathpatch = PathPatch(path, facecolor='None', edgecolor='blue')
+pathpatch2 = PathPatch(circle, facecolor='None', edgecolor='blue')
+pathpatch3= Ellipse((150,100),80,40,0,facecolor='None', edgecolor='blue')
 
 ####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
 inside_polygons = (path.contains_points(points, radius=1e-9))#true if it is inside the polygon,otherwise false
@@ -138,7 +143,8 @@ inside_elipse= (elipse.contains_points(points,radius=1e-9))
 inside_circle= (circle.contains_points(points,radius=1e-9))
 inside_obstacle=(any(inside_polygons==True)) or (any(inside_circle==True)) or (any(inside_elipse==True))
 if inside_obstacle:
-    print("inside the obstacle you are, you little thing")
+    print("error:  robot inside obstacle!")
+    #exit()
 ####################### REDUCING SEACH NODES BY SUBTRACTING OBSTACLES ################
 inside_polygons2 = np.where((path.contains_points(map, radius=1e-9)),20000,0)
 inside_elipse2= np.where((elipse.contains_points(map,radius=1e-9)),20000,0)
@@ -152,6 +158,7 @@ newmap=np.delete(newmap,2,axis=1)
 ###### PLOTTING #####################
 fig, ax = plt.subplots()
 ax.add_patch(robotpatch)
+ax.add_patch(goalpatch)
 ax.add_patch(pathpatch)
 ax.add_patch(pathpatch2)
 ax.add_patch(pathpatch3)
@@ -166,7 +173,7 @@ plt.show()
 
 ####################### A STAR ################
 class Node:
-    def __init__(self, node_no, coord, parent=None, g=0, h=0, theta=0):
+    def __init__(self, node_no, coord, parent=None, g=0, h=0, theta=theta_s):
         self.node_no = node_no
         self.parent = parent
         self.coord = coord
@@ -194,22 +201,26 @@ def distance_2(p1,p2):
 visited = np.zeros((w*2,h*2,12), dtype=bool)
 def generate_node_successor(coord):
     new_positions=[]
-    updated=[]
-    thetas=np.linspace(0, 2*np.pi, 12, endpoint=False)
+    degree_list=[]
+    #updated=[]
+    thetas=np.linspace(0, 360, 12, endpoint=False, dtype=int)
     for i,t in enumerate(thetas):
         # NOTE:  Incorporated robot step size here
-        new_point = np.array([(coord[0] + step*np.cos(t)), (coord[1] + step*np.sin(t))])
+        rad = np.deg2rad(t)
+        new_point = np.array([(coord[0] + step*np.cos(rad)), (coord[1] + step*np.sin(rad))])
         new_point = ( np.round(new_point*2, decimals=0) ) / 2
     
         # Check for duplicates
         a = int(new_point[0]*2)
         b = int(new_point[1]*2)
+        #deg = int(np.rad2deg(t))
         if visited[a, b, i]:
-            print("node already visited: ", new_point)
+            #print("node already visited: ", new_point, t)
             pass
         else:
             visited[a, b, i] = True
             new_positions.append(new_point)
+            #degree_list.append(deg)
     
     # This shouldn't be needed with the new duplicate checking
 #    for i in range(0,len(new_positions)):
@@ -233,10 +244,10 @@ def get_hscore(current):
 
 
 def graph_search(start_point,goal_point):
-    start_node=Node(0, start_point, None,0,0,0,0)
-    node_q=[start_node]  # put the startNode on the openList with f=0
-    visited_nodes=[] # points visited
-    Children_nodes = []  # closed list
+    start_node = Node(0, start_point, h=starth)  # rest are default values in Node
+    node_q = [start_node]  # put the startNode on the openList with f=0
+    explored_nodes = [] # points visited
+    child_nodes = []  # closed list
     ##final_nodes.append(node_q[0])  # Only writing data of nodes in seen
     ##visited_coord.append(node_q[0].coord)
     node_counter = 0  # To define a unique ID to all the nodes formed
@@ -244,50 +255,57 @@ def graph_search(start_point,goal_point):
     ##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING 
     while node_q: #while the OPEN list is not empty
         current_root = node_q[0]##############################change current root to equal node with smallest f value#############
-        print("current_root",current_root)
-        print("current_coord",current_root.coord)
+        print("current_root", current_root.coord, current_root.theta)
         current_value = 0
-        for value, thing in enumerate(node_q):#let the currentNode equal the node with the least f value
-            if thing.f < current_root.f:
+        for value, thing in enumerate(node_q):#let the currentNode equal the node with the lowest cost
+            if thing.cost < current_root.cost:
                 current_root = thing
                 current_value = value
         node_q.pop(current_value)
-        visited_nodes.append(current_root)
-        if int(current_root.coord[0])==goal_point[0] and int(current_root.coord[1])==goal_point[1]:
-            print("Goal reached:  ", current_root.coord, current_root.parent.coord, current_root.node_no)
+        explored_nodes.append(current_root)
+        if int(current_root.coord[0])==goal_point[0] and int(current_root.coord[1])==goal_point[1]:# and current_root.theta==theta_g:
+            print("Goal reached:  ", current_root.coord, current_root.theta)
             return current_root
 
-        temp_coords, thetas =generate_node_successor(current_root.coord)
-        for temp in temp_coords:
-            print("temp",temp)
+        child_coords, thetas = generate_node_successor(current_root.coord)
+        for child_point, theta in zip(child_coords, thetas):
+            print("child_point: ", child_point, theta)
             node_counter+=1
-            print("counter",node_counter)
+            print("node count: ", node_counter)
             # Note - g should be from *previous* node to current, plus the previous g
-            tempg=get_gscore(current_root,temp)
-            temph=get_hscore(goal_point,temp)
-            tempf= (get_gscore(start_node, temp))+ (get_hscore(goal_point, temp))
-            child_node = Node(node_counter, temp, current_root, tempf, tempg, temph,0)
-            Children_nodes.append(child_node)
-        for child in Children_nodes:
-            for visited in visited_nodes:
+            tempg=get_gscore(current_root,child_point)
+            temph=get_hscore(child_point)
+            child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, theta=theta)
+            child_nodes.append(child_node)
+        for child in child_nodes:
+            for visited in explored_nodes:
                 if child==visited:
                     continue
             for item in node_q:
-                if child ==node_q and child.g>item.g:
+                if child==node_q and child.g>item.g:
                     continue
             node_q.append(child)
 
+
 def path(node):  # To find the path from the goal node to the starting node
-    p = []  # Empty list
+    p = []
     p.append(node)
     parent_node = node.parent
     while parent_node is not None:
         p.append(parent_node.coord)
         parent_node = parent_node.parent
-    print(list(reversed(p)))
+
     return list(reversed(p))
 
 
-goal=graph_search(start_point,goal_point)
-path=path(goal)
+
+print("\nThe start is", start_point, theta_s)
+print("The goal is", goal_point, theta_g)
+starth = get_hscore(start_point)
+print("The distance to goal is", starth, '\n')
+
+goal_node=graph_search(start_point,goal_point)
+path=path(goal_node)
+print(path)
+
 
