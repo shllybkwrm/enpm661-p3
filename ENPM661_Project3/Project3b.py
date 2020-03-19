@@ -134,7 +134,7 @@ def generate_node_successor(coord):
     for t in thetas:
         # NOTE:  Incorporated robot step size here
         new_point=np.array([(coord[0] + step*np.cos(t)), (coord[1] + step*np.sin(t))])
-        new_point = np.round(new_point, decimals=1)
+        new_point = ( np.round(new_point*2, decimals=0) ) / 2
         new_positions.append(new_point)
     # Not sure I understand what is happening here? #####
     for i in range(0,len(new_positions)):
@@ -229,9 +229,9 @@ while node_q: #while the OPEN list is not empty
     #currentg=get_gscore(start_node, current_root.coord)
     #currenth=get_hscore(goal_point, current_root.coord)
     #current_cost= get_gscore(start_node, current_root.coord) + get_hscore(goal_point, current_root.coord)
-    if np.all((current_root.coord) == (goal_point)):
+    if int(current_root.coord[0])==goal_point[0] and int(current_root.coord[1])==goal_point[1]:
         print("Goal reached:  ", current_root.coord, current_root.node_no)
-        print(child_node, final_nodes)  # not sure what "close" was?
+        #print(child_node, final_nodes)  # not sure what "close" was?
 
     temp_coords=generate_node_successor(current_root.coord)
     for temp in temp_coords:
