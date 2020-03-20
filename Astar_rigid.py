@@ -247,7 +247,7 @@ def generate_node_successor(coord):
         new_positions.append(new_point)
         thetas.append(angle)
         # Plot vector on map
-        ax.quiver(coord[0], coord[1], q, v, units='xy', angles='xy', scale=1, color= 'k', width=0.025, headwidth=1, headlength=2)
+        #ax.quiver(coord[0], coord[1], q, v, units='xy', angles='xy', scale=1, color= 'k', width=0.025, headwidth=1, headlength=2)
         #plt.show(block=False)
     
     # This shouldn't be needed with the new duplicate checking?
@@ -270,6 +270,19 @@ def get_hscore(current):
     return distance_2(current, goal_point)
 
 
+# plot FROM parent to node at node angle (angle of arrival)
+def plot_vector(node, c='k', w=0.025):
+    if node.parent==None:  return
+    x=node.parent.coord[0]
+    y=node.parent.coord[1]
+    rad = np.deg2rad(node.theta)
+    q = step*np.cos(rad)
+    v = step*np.sin(rad)
+    # Plot vector
+    ax.quiver(x, y, q, v, units='xy', angles='xy', scale=1, color=c, width=w)
+  
+
+
 def graph_search(start_point,goal_point):
     start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s) 
     node_q = [start_node]  # put the startNode on the openList with f=0
@@ -289,11 +302,15 @@ def graph_search(start_point,goal_point):
                 current_index = index
         node_q.pop(current_index)
         explored_nodes.append(current_root)
+        plot_vector(current_root)
         print("current node: ", current_root.coord, current_root.theta, current_root.f)
+
+        # Check for goal
         if current_root.coord[0]==goal_point[0] and current_root.coord[1]==goal_point[1] and current_root.theta==theta_g:
             print("\nGoal reached:  ", current_root.coord, current_root.theta, current_root.f)
             return current_root
 
+        # Get child nodes
         child_coords,thetas = generate_node_successor(current_root.coord)
         # Having issues when no children found so check that here
         if child_coords==[]:
@@ -325,17 +342,6 @@ def graph_search(start_point,goal_point):
         print("node count: ", node_counter)
 
 
-# plot FROM parent to node at node angle (angle of arrival)
-def plot_vector(node):
-    x=node.parent.coord[0]
-    y=node.parent.coord[1]
-    rad = np.deg2rad(node.theta)
-    q = step*np.cos(rad)
-    v = step*np.sin(rad)
-    # Plot vector
-    ax.quiver(x, y, q, v, units='xy', angles='xy', scale=1, color= 'g', width=0.2, headwidth=1, headlength=2)
-  
-
 #def plot_path(path):
 #    for node in path:
 #        plot_vector(node)
@@ -348,7 +354,7 @@ def find_path(node):  # To find the path from the goal node to the starting node
     parent_node = node.parent
     while parent_node is not None:
         p.append(parent_node.coord)
-        if parent_node.parent!=None:  plot_vector(parent_node)
+        plot_vector(parent_node, 'g', w=0.2)
         parent_node = parent_node.parent
 
     return list(reversed(p))
