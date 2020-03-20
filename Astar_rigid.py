@@ -48,10 +48,10 @@ def get_start():
 def get_goal():
     print("\nPlease enter the coordinates of the robot's goal.")
     ans=(input("Enter the target x coordinate (default=150): "))
-    if ans=='':  x=110
+    if ans=='':  x=150
     else:  x=int(ans)
     ans=(input("Enter the target y coordinate (default=150): "))
-    if ans=='':  y=40
+    if ans=='':  y=150
     ans=(input("Enter the goal theta (30-deg increments, default=same as start): "))
     if ans=='':  theta_g=theta_s
     else:  theta_g=int(ans)
@@ -163,20 +163,21 @@ print(ax)
 ax.autoscale_view()
 plt.xlim(0,w)
 plt.ylim(0,h)
-#plt.show()
+#plt.show(block=False)
+#plt.pause(0.1)
 
 
 
 ####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
 def inside_obstacle(points):
-    effective_clearance = clearance*40
+    effective_clearance = (radius+clearance)*17
     inside_polygons = (path.contains_points(points, radius=effective_clearance))#true if it is inside the polygon,otherwise false
     inside_ellipse= (ellipse.contains_points(points,radius=effective_clearance))
     inside_circle= (circle.contains_points(points,radius=effective_clearance))
     return (any(inside_polygons==True)) or (any(inside_circle==True)) or (any(inside_ellipse==True))
 
 if inside_obstacle(robot_points) or inside_obstacle(goal_points):
-    print("error:  robot or goal starts inside obstacle!")
+    print("ERROR:  robot or goal starts inside obstacle!  Try again.")
     exit()
 
 
@@ -205,6 +206,9 @@ def distance_2(p1,p2):
 #        node_q.insert(0,costfinder[k])
 #        return node_q
 
+  
+   
+
 # No need to re-create this every time
 degree_list=np.linspace(0, 360, 12, endpoint=False, dtype=int)
 # Map for duplicate checking
@@ -220,7 +224,9 @@ def generate_node_successor(coord):
     for i,angle in enumerate(degree_list):
         # NOTE:  Incorporated robot step size here
         rad = np.deg2rad(angle)
-        new_point = np.array([(coord[0] + step*np.cos(rad)), (coord[1] + step*np.sin(rad))])
+        q = step*np.cos(rad)
+        v = step*np.sin(rad)
+        new_point = np.array([(coord[0] + q), (coord[1] + v)])
         new_point = ( np.round(new_point*2, decimals=0) ) / 2
     
         # Check for duplicates
@@ -231,15 +237,18 @@ def generate_node_successor(coord):
             continue
         if b<0 or b>h*2:
             continue
-        if inside_obstacle([new_point]):  # NOTE:  test this
+        if inside_obstacle([new_point]):  # NOTE:  test this more?
             continue
         if visited_matrix[a, b, i]:
             #print("node already visited: ", new_point, angle)
             continue
-        #else:
-        visited_matrix[a, b, i] = True
+        else:
+            visited_matrix[a, b, i] = True
         new_positions.append(new_point)
         thetas.append(angle)
+        # Plot vector on map
+        ax.quiver(coord[0], coord[1], q, v, units='xy', angles='xy', scale=1, color= 'k', width=0.025, headwidth=1, headlength=2)
+        #plt.show(block=False)
     
     # This shouldn't be needed with the new duplicate checking?
 #    for i in range(0,len(new_positions)):
@@ -259,7 +268,6 @@ def get_gscore(previous,current):
 
 def get_hscore(current):
     return distance_2(current, goal_point)
-
 
 
 def graph_search(start_point,goal_point):
@@ -282,7 +290,7 @@ def graph_search(start_point,goal_point):
         node_q.pop(current_index)
         explored_nodes.append(current_root)
         print("current node: ", current_root.coord, current_root.theta, current_root.f)
-        if current_root.coord[0]==goal_point[0] and current_root.coord[1]==goal_point[1]:# and current_root.theta==theta_g:
+        if current_root.coord[0]==goal_point[0] and current_root.coord[1]==goal_point[1] and current_root.theta==theta_g:
             print("\nGoal reached:  ", current_root.coord, current_root.theta, current_root.f)
             return current_root
 
@@ -304,28 +312,44 @@ def graph_search(start_point,goal_point):
         #for child in child_nodes:
             # Adjusted this to replace explored nodes if the node is found again with lower cost ###
             for i,explored in enumerate(explored_nodes):
-                if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
-                    print("Reached previously explored node with lower cost, replacing")
+                if child_node.coord[0]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
+                    #print("Reached previously explored node with lower cost, replacing")
                     explored_nodes[i] = child_node
                     #continue
             for item in node_q:
-                if child_node.coord[1]==item.coord[0] and child_node.coord[1]==item.coord[1] and child_node.g>item.g:
-                    print("Coordinates present with lower cost, not adding to queue")
+                if child_node.coord[0]==item.coord[0] and child_node.coord[1]==item.coord[1] and child_node.g>item.g:
+                    #print("Coordinates present with lower cost, not adding to queue")
                     continue
             node_q.append(child_node)
 
         print("node count: ", node_counter)
 
 
+# plot FROM parent to node at node angle (angle of arrival)
+def plot_vector(node):
+    x=node.parent.coord[0]
+    y=node.parent.coord[1]
+    rad = np.deg2rad(node.theta)
+    q = step*np.cos(rad)
+    v = step*np.sin(rad)
+    # Plot vector
+    ax.quiver(x, y, q, v, units='xy', angles='xy', scale=1, color= 'g', width=0.2, headwidth=1, headlength=2)
+  
+
+#def plot_path(path):
+#    for node in path:
+#        plot_vector(node)
+
 
 def find_path(node):  # To find the path from the goal node to the starting node
     p = []
     p.append(node)
+    plot_vector(node)
     parent_node = node.parent
     while parent_node is not None:
         p.append(parent_node.coord)
+        if parent_node.parent!=None:  plot_vector(parent_node)
         parent_node = parent_node.parent
-        # NOTE - plot here
 
     return list(reversed(p))
 
@@ -336,6 +360,9 @@ print("The goal is", goal_point, theta_g)
 starth = get_hscore(start_point)
 print("The distance to goal is", starth, '\n')
 
+#plot_vector(start_node)
+#plt.show(block=False)
+
 start_time = time.time()
 
 goal_node=graph_search(start_point,goal_point)
@@ -343,8 +370,10 @@ result=find_path(goal_node)
 print(result)
 
 end_time = time.time()
-print("Total execution time:", end_time-start_time)
+print("\nTotal execution time:", end_time-start_time)
 
 
+#plot_path(result)
 plt.show()
+
 
