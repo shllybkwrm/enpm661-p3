@@ -24,7 +24,7 @@ def get_parameters():
     if ans=='':  clearance=2
     else:  clearance=int(ans)
     ans=(input("Enter the robot step size (1-10, default=1): "))
-    if ans=='':  step=1
+    if ans=='' or int(ans)<1:  step=1
     elif int(ans)>10:  step=10
     else:  step=int(ans)
 
@@ -173,13 +173,13 @@ plt.show()
 
 ####################### A STAR ################
 class Node:
-    def __init__(self, node_no, coord, parent=None, g=0, h=0, theta=theta_s):
+    def __init__(self, node_no, coord, parent=None, g=0, h=0, f=0, theta=0):
         self.node_no = node_no
         self.parent = parent
         self.coord = coord
         self.g=g
         self.h=h
-        self.cost = g+h
+        self.f=f
         self.theta = theta
 
 
@@ -195,18 +195,21 @@ def distance_2(p1,p2):
 #        node_q.insert(0,costfinder[k])
 #        return node_q
 
-
-# Needs collision and bound checking
+# No need to re-create this every time
+degree_list=np.linspace(0, 360, 12, endpoint=False, dtype=int)
 # Map for duplicate checking
-visited = np.zeros((w*2,h*2,12), dtype=bool)
+visited_matrix = np.zeros((w*2,h*2,12), dtype=bool)
+i = np.where(degree_list==theta_s)
+visited_matrix[start_point[0], start_point[1], i] = True
+
+# Still needs collision and bound checking
 def generate_node_successor(coord):
     new_positions=[]
-    degree_list=[]
+    thetas=[]
     #updated=[]
-    thetas=np.linspace(0, 360, 12, endpoint=False, dtype=int)
-    for i,t in enumerate(thetas):
+    for i,angle in enumerate(degree_list):
         # NOTE:  Incorporated robot step size here
-        rad = np.deg2rad(t)
+        rad = np.deg2rad(angle)
         new_point = np.array([(coord[0] + step*np.cos(rad)), (coord[1] + step*np.sin(rad))])
         new_point = ( np.round(new_point*2, decimals=0) ) / 2
     
@@ -214,15 +217,15 @@ def generate_node_successor(coord):
         a = int(new_point[0]*2)
         b = int(new_point[1]*2)
         #deg = int(np.rad2deg(t))
-        if visited[a, b, i]:
-            #print("node already visited: ", new_point, t)
+        if visited_matrix[a, b, i]:
+            #print("node already visited: ", new_point, angle)
             pass
         else:
-            visited[a, b, i] = True
+            visited_matrix[a, b, i] = True
             new_positions.append(new_point)
-            #degree_list.append(deg)
+            thetas.append(angle)
     
-    # This shouldn't be needed with the new duplicate checking
+    # This shouldn't be needed with the new duplicate checking?
 #    for i in range(0,len(new_positions)):
 #        for j in range(1,(len(new_positions)-1)):
 #            distance=distance_2(new_positions[j],new_positions[i])
@@ -244,10 +247,10 @@ def get_hscore(current):
 
 
 def graph_search(start_point,goal_point):
-    start_node = Node(0, start_point, h=starth)  # rest are default values in Node
+    start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s) 
     node_q = [start_node]  # put the startNode on the openList with f=0
     explored_nodes = [] # points visited
-    child_nodes = []  # closed list
+    #child_nodes = []  # closed list
     ##final_nodes.append(node_q[0])  # Only writing data of nodes in seen
     ##visited_coord.append(node_q[0].coord)
     node_counter = 0  # To define a unique ID to all the nodes formed
@@ -255,36 +258,40 @@ def graph_search(start_point,goal_point):
     ##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING 
     while node_q: #while the OPEN list is not empty
         current_root = node_q[0]##############################change current root to equal node with smallest f value#############
-        print("current_root", current_root.coord, current_root.theta)
-        current_value = 0
-        for value, thing in enumerate(node_q):#let the currentNode equal the node with the lowest cost
-            if thing.cost < current_root.cost:
+        current_index = 0
+        for index,thing in enumerate(node_q):#let the currentNode equal the node with the lowest cost
+            if thing.f < current_root.f:
                 current_root = thing
-                current_value = value
-        node_q.pop(current_value)
+                current_index = index
+        node_q.pop(current_index)
         explored_nodes.append(current_root)
+        print("current_root", current_root.coord, current_root.theta, current_root.f)
         if int(current_root.coord[0])==goal_point[0] and int(current_root.coord[1])==goal_point[1]:# and current_root.theta==theta_g:
             print("Goal reached:  ", current_root.coord, current_root.theta)
             return current_root
 
-        child_coords, thetas = generate_node_successor(current_root.coord)
-        for child_point, theta in zip(child_coords, thetas):
+        child_coords,thetas = generate_node_successor(current_root.coord)
+        # Having issues when no children found so check that here
+        if child_coords==[]:
+            continue    
+        for child_point,theta in zip(child_coords, thetas):
             print("child_point: ", child_point, theta)
             node_counter+=1
             print("node count: ", node_counter)
-            # Note - g should be from *previous* node to current, plus the previous g
             tempg=get_gscore(current_root,child_point)
             temph=get_hscore(child_point)
-            child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, theta=theta)
-            child_nodes.append(child_node)
-        for child in child_nodes:
-            for visited in explored_nodes:
-                if child==visited:
+            child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, f=tempg+temph, theta=theta)
+            #child_nodes.append(child_node)
+        # Redundant line, removing for efficiency
+        #for child in child_nodes:
+            for explored in explored_nodes:
+                if child_node==explored:
                     continue
             for item in node_q:
-                if child==node_q and child.g>item.g:
+                if child_node==node_q and child_node.g>item.g:
                     continue
-            node_q.append(child)
+            node_q.append(child_node)
+
 
 
 def path(node):  # To find the path from the goal node to the starting node
