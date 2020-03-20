@@ -3,6 +3,7 @@
 
 
 import math
+import time
 import numpy as np
 from matplotlib.path import Path
 from matplotlib.patches import PathPatch
@@ -131,25 +132,26 @@ path = Path(vertices, codes)
 ####### CIRCLE OBSTACLE #####################
 circle=Path.circle((225,150),radius=25,readonly=False)
 ####### ELIPSE OBSTACLE ####################
-elipse=Ellipse((150,100),80,40,0,facecolor='None', edgecolor='blue')
+ellipse=Ellipse((150,100),80,40,0,facecolor='None', edgecolor='blue')
 ###### PATCHING THEM TOGETHER ###############
 pathpatch = PathPatch(path, facecolor='None', edgecolor='blue')
 pathpatch2 = PathPatch(circle, facecolor='None', edgecolor='blue')
 pathpatch3= Ellipse((150,100),80,40,0,facecolor='None', edgecolor='blue')
 
 ####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
-inside_polygons = (path.contains_points(points, radius=1e-9))#true if it is inside the polygon,otherwise false
-inside_elipse= (elipse.contains_points(points,radius=1e-9))
-inside_circle= (circle.contains_points(points,radius=1e-9))
-inside_obstacle=(any(inside_polygons==True)) or (any(inside_circle==True)) or (any(inside_elipse==True))
-if inside_obstacle:
-    print("error:  robot inside obstacle!")
-    #exit()
+def inside_obstacle():
+    inside_polygons = (path.contains_points(points, radius=1e-9))#true if it is inside the polygon,otherwise false
+    inside_ellipse= (ellipse.contains_points(points,radius=1e-9))
+    inside_circle= (circle.contains_points(points,radius=1e-9))
+    return (any(inside_polygons==True)) or (any(inside_circle==True)) or (any(inside_ellipse==True))
+if inside_obstacle():
+    print("error:  robot starts inside obstacle!")
+    exit()
 ####################### REDUCING SEACH NODES BY SUBTRACTING OBSTACLES ################
 inside_polygons2 = np.where((path.contains_points(map, radius=1e-9)),20000,0)
-inside_elipse2= np.where((elipse.contains_points(map,radius=1e-9)),20000,0)
+inside_ellipse2= np.where((ellipse.contains_points(map,radius=1e-9)),20000,0)
 inside_circle2= np.where((circle.contains_points(map,radius=1e-9)),20000,0)
-mask=(inside_polygons2+inside_elipse2+inside_circle2)
+mask=(inside_polygons2+inside_ellipse2+inside_circle2)
 reduced=np.array(list(zip(x_m.flatten(),y_m.flatten(),mask.flatten())))
 reduced2=np.vstack((x_m.flatten(),y_m.flatten(),mask)).T
 newmap=reduced[np.all(reduced<20000, axis=1),:]# if any value in reduced map is True remove it
@@ -217,13 +219,19 @@ def generate_node_successor(coord):
         a = int(new_point[0]*2)
         b = int(new_point[1]*2)
         #deg = int(np.rad2deg(t))
+        if a<0 or a>w*2:
+            continue
+        if b<0 or b>h*2:
+            continue
+        if inside_obstacle():  # NOTE:  Won't work until points are drawn??
+            continue
         if visited_matrix[a, b, i]:
             #print("node already visited: ", new_point, angle)
-            pass
-        else:
-            visited_matrix[a, b, i] = True
-            new_positions.append(new_point)
-            thetas.append(angle)
+            continue
+        #else:
+        visited_matrix[a, b, i] = True
+        new_positions.append(new_point)
+        thetas.append(angle)
     
     # This shouldn't be needed with the new duplicate checking?
 #    for i in range(0,len(new_positions)):
@@ -265,9 +273,9 @@ def graph_search(start_point,goal_point):
                 current_index = index
         node_q.pop(current_index)
         explored_nodes.append(current_root)
-        print("current_root", current_root.coord, current_root.theta, current_root.f)
-        if int(current_root.coord[0])==goal_point[0] and int(current_root.coord[1])==goal_point[1]:# and current_root.theta==theta_g:
-            print("Goal reached:  ", current_root.coord, current_root.theta)
+        print("current node: ", current_root.coord, current_root.theta, current_root.f)
+        if current_root.coord[0]==goal_point[0] and current_root.coord[1]==goal_point[1]:# and current_root.theta==theta_g:
+            print("\nGoal reached:  ", current_root.coord, current_root.theta)
             return current_root
 
         child_coords,thetas = generate_node_successor(current_root.coord)
@@ -284,17 +292,20 @@ def graph_search(start_point,goal_point):
             #child_nodes.append(child_node)
         # Redundant line, removing for efficiency
         #for child in child_nodes:
-            for explored in explored_nodes:
-                if child_node==explored:
-                    continue
+            # Probably not needed because of visited matrix
+            # Not sure this actually works anyway because of object addresses
+            #for explored in explored_nodes:
+            #    if child_node==explored:
+            #        continue
             for item in node_q:
-                if child_node==node_q and child_node.g>item.g:
+                if child_node.coord[1]==item.coord[0] and child_node.coord[1]==item.coord[1] and child_node.g>item.g:
+                    print("Coordinates present with lower cost, not adding to queue")
                     continue
             node_q.append(child_node)
 
 
 
-def path(node):  # To find the path from the goal node to the starting node
+def find_path(node):  # To find the path from the goal node to the starting node
     p = []
     p.append(node)
     parent_node = node.parent
@@ -311,8 +322,12 @@ print("The goal is", goal_point, theta_g)
 starth = get_hscore(start_point)
 print("The distance to goal is", starth, '\n')
 
-goal_node=graph_search(start_point,goal_point)
-path=path(goal_node)
-print(path)
+start_time = time.time()
 
+goal_node=graph_search(start_point,goal_point)
+result=find_path(goal_node)
+print(result)
+
+end_time = time.time()
+print("Total execution time:", end_time-start_time)
 
