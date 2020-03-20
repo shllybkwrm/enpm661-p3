@@ -139,12 +139,12 @@ pathpatch2 = PathPatch(circle, facecolor='None', edgecolor='blue')
 pathpatch3= Ellipse((150,100),80,40,0,facecolor='None', edgecolor='blue')
 
 ####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
-def inside_obstacle():
+def inside_obstacle(points):
     inside_polygons = (path.contains_points(points, radius=1e-9))#true if it is inside the polygon,otherwise false
     inside_ellipse= (ellipse.contains_points(points,radius=1e-9))
     inside_circle= (circle.contains_points(points,radius=1e-9))
     return (any(inside_polygons==True)) or (any(inside_circle==True)) or (any(inside_ellipse==True))
-if inside_obstacle():
+if inside_obstacle(points):
     print("error:  robot or goal starts inside obstacle!")
     exit()
 ####################### REDUCING SEACH NODES BY SUBTRACTING OBSTACLES ################
