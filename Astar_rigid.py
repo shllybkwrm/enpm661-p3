@@ -52,6 +52,7 @@ def get_goal():
     else:  x=int(ans)
     ans=(input("Enter the target y coordinate (default=150): "))
     if ans=='':  y=150
+    else:  y=int(ans)
     ans=(input("Enter the goal theta (30-deg increments, default=same as start): "))
     if ans=='':  theta_g=theta_s
     else:  theta_g=int(ans)
@@ -119,7 +120,7 @@ def obstacle_halfplane(map):
         ox=map[i][0]
         oy=map[i][1]
         crown=np.where(20<=ox>=25)
-        print(oy)
+        #print(oy)
 ########### PLOTTING THE MAP SPACE #############
 vertices = []
 codes = []
@@ -159,7 +160,7 @@ ax.add_patch(pathpatch)
 ax.add_patch(pathpatch2)
 ax.add_patch(pathpatch3)
 ax.set_title('Map Space')
-print(ax)
+#print(ax)
 ax.autoscale_view()
 plt.xlim(0,w)
 plt.ylim(0,h)
@@ -303,7 +304,7 @@ def graph_search(start_point,goal_point):
         node_q.pop(current_index)
         explored_nodes.append(current_root)
         plot_vector(current_root)
-        print("current node: ", current_root.coord, current_root.theta, current_root.f)
+        #print("current node: ", current_root.coord, current_root.theta, current_root.f)
 
         # Check for goal
         if current_root.coord[0]==goal_point[0] and current_root.coord[1]==goal_point[1] and current_root.theta==theta_g:
