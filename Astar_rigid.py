@@ -48,7 +48,7 @@ def get_start():
 def get_goal():
     print("\nPlease enter the coordinates of the robot's goal.")
     ans=(input("Enter the target x coordinate (default=150): "))
-    if ans=='':  x=60
+    if ans=='':  x=90
     else:  x=int(ans)
     ans=(input("Enter the target y coordinate (default=150): "))
     if ans=='':  y=40
@@ -145,7 +145,7 @@ def inside_obstacle():
     inside_circle= (circle.contains_points(points,radius=1e-9))
     return (any(inside_polygons==True)) or (any(inside_circle==True)) or (any(inside_ellipse==True))
 if inside_obstacle():
-    print("error:  robot starts inside obstacle!")
+    print("error:  robot or goal starts inside obstacle!")
     exit()
 ####################### REDUCING SEACH NODES BY SUBTRACTING OBSTACLES ################
 inside_polygons2 = np.where((path.contains_points(map, radius=1e-9)),20000,0)
@@ -275,7 +275,7 @@ def graph_search(start_point,goal_point):
         explored_nodes.append(current_root)
         print("current node: ", current_root.coord, current_root.theta, current_root.f)
         if current_root.coord[0]==goal_point[0] and current_root.coord[1]==goal_point[1]:# and current_root.theta==theta_g:
-            print("\nGoal reached:  ", current_root.coord, current_root.theta)
+            print("\nGoal reached:  ", current_root.coord, current_root.theta, current_root.f)
             return current_root
 
         child_coords,thetas = generate_node_successor(current_root.coord)
@@ -283,9 +283,9 @@ def graph_search(start_point,goal_point):
         if child_coords==[]:
             continue    
         for child_point,theta in zip(child_coords, thetas):
-            print("child_point: ", child_point, theta)
+            #print("child_point: ", child_point, theta)
             node_counter+=1
-            print("node count: ", node_counter)
+            #print("node count: ", node_counter)
             tempg=get_gscore(current_root,child_point)
             temph=get_hscore(child_point)
             child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, f=tempg+temph, theta=theta)
@@ -302,6 +302,8 @@ def graph_search(start_point,goal_point):
                     print("Coordinates present with lower cost, not adding to queue")
                     continue
             node_q.append(child_node)
+
+        print("node count: ", node_counter)
 
 
 
