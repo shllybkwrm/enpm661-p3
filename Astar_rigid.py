@@ -51,7 +51,7 @@ def get_goal():
     if ans=='':  x=150
     else:  x=int(ans)
     ans=(input("Enter the target y coordinate (default=150): "))
-    if ans=='':  y=75
+    if ans=='':  y=150
     else:  y=int(ans)
     ans=(input("Enter the goal theta (30-deg increments, default=same as start): "))
     if ans=='':  theta_g=theta_s
