@@ -51,7 +51,7 @@ def get_goal():
     if ans=='':  x=150
     else:  x=int(ans)
     ans=(input("Enter the target y coordinate (default=150): "))
-    if ans=='':  y=150
+    if ans=='':  y=75
     else:  y=int(ans)
     ans=(input("Enter the goal theta (30-deg increments, default=same as start): "))
     if ans=='':  theta_g=theta_s
@@ -171,13 +171,14 @@ plt.ylim(0,h)
 
 ####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
 def inside_obstacle(points):
-    effective_clearance = (radius+clearance)*17
+    effective_clearance = (radius+clearance)
     inside_polygons = (path.contains_points(points, radius=effective_clearance))#true if it is inside the polygon,otherwise false
     inside_ellipse= (ellipse.contains_points(points,radius=effective_clearance))
     inside_circle= (circle.contains_points(points,radius=effective_clearance))
     return (any(inside_polygons==True)) or (any(inside_circle==True)) or (any(inside_ellipse==True))
 
 if inside_obstacle(robot_points) or inside_obstacle(goal_points):
+    plt.show()
     print("ERROR:  robot or goal starts inside obstacle!  Try again.")
     exit()
 
@@ -304,7 +305,7 @@ def graph_search(start_point,goal_point):
         node_q.pop(current_index)
         explored_nodes.append(current_root)
         plot_vector(current_root)
-        #print("current node: ", current_root.coord, current_root.theta, current_root.f)
+        print("current node: ", current_root.coord, current_root.theta, current_root.f)
 
         # Check for goal
         if current_root.coord[0]==goal_point[0] and current_root.coord[1]==goal_point[1] and current_root.theta==theta_g:
