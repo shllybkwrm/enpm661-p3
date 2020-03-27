@@ -74,18 +74,18 @@ def get_goal():
 
 
 # Get input parameters
-clearance, u_l,u_r = get_parameters()  # NOTE:  Still need to incorporate clearance ###
+clearance, u_l,u_r = get_parameters()  #Changed from proj 3-2 
 start_point, theta_s = get_start()
-goal_point = get_goal()
+goal_point = get_goal()#Changed from proj 3-2 
 print()
 
 
-############# SET ROBOT COORDINATE ##############
-##robot_x_coord=start_point[0]
-##robot_y_coord=start_point[1]
-##goal_x_coord=goal_point[0]
-##goal_y_coord=goal_point[1]
-##robot_height=radius
+########### SET ROBOT COORDINATE ##############
+robot_x_coord=start_point[0]
+robot_y_coord=start_point[1]
+goal_x_coord=goal_point[0]
+goal_y_coord=goal_point[1]
+robot_diameter=2*r  #Changed from proj 3-2 
 ##robot_breadth=radius
 ##x=np.linspace((robot_x_coord-robot_breadth/2),(robot_x_coord+robot_breadth/2),robot_breadth+1,dtype=int)
 ##y=np.linspace((robot_y_coord+robot_height/2),(robot_y_coord-robot_height/2),robot_height+1,dtype=int)
