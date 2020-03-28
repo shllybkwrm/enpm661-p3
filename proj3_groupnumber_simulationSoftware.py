@@ -28,7 +28,7 @@ def get_parameters():
 ##    if ans=='':  radius=3
 ##    else:  radius=int(ans)
     ans=(input("Enter the obstacle clearance (default=2): "))
-    if ans=='':  clearance=2
+    if ans=='':  clearance=0.2
     else:  clearance=int(ans)
 ##    ans=(input("Enter the robot step size (1-10, default=1): "))
 ##    if ans=='' or int(ans)<1:  step=1
@@ -47,10 +47,11 @@ def get_parameters():
 def get_start():
     print("\nPlease enter the initial coordinates of the robot.")
     ans=(input("Enter the x coordinate (default=50): "))
-    if ans=='':  x=5
+    if ans=='':  x=7
     else:  x=int(ans)
     ans=(input("Enter the y coordinate (default=30): "))
-    if ans=='':  y=3
+    if ans=='':  y=5
+    
     else:  y=int(ans)
     ans=(input("Enter the starting theta (30-deg increments, default=60): "))
     if ans=='':  theta_s=45
@@ -60,11 +61,11 @@ def get_start():
 
 def get_goal():
     print("\nPlease enter the coordinates of the robot's goal.")
-    ans=(input("Enter the target x coordinate (default=150): "))
-    if ans=='':  x=8
+    ans=(input("Enter the target x coordinate (default=7): "))
+    if ans=='':  x=7
     else:  x=int(ans)
-    ans=(input("Enter the target y coordinate (default=150): "))
-    if ans=='':  y=9
+    ans=(input("Enter the target y coordinate (default=5): "))
+    if ans=='':  y=5
     return [x, y]
 
 def drotmatrix(point,angle):
@@ -86,10 +87,14 @@ goal_x_coord=goal_point[0]
 goal_y_coord=goal_point[1]
 robot_breadth=2*w_radius 
 robot_height=sep_dis
-x=np.linspace((robot_x_coord-robot_breadth/2),(robot_x_coord+robot_breadth/2),robot_breadth+1,dtype=int)
-y=np.linspace((robot_y_coord+robot_height/2),(robot_y_coord-robot_height/2),robot_height+1,dtype=int)
-x_1,y_1=np.meshgrid(x,y, indexing='xy')
-points = np.array(list(zip(x_1.flatten(),y_1.flatten())))
+def get_points(x_coord,y_coord):
+    x=np.linspace((robot_x_coord-robot_breadth/2),(robot_x_coord+robot_breadth/2),robot_breadth+1,dtype=int)
+    y=np.linspace((robot_y_coord+robot_height/2),(robot_y_coord-robot_height/2),robot_height+1,dtype=int)
+    x_1,y_1=np.meshgrid(x,y, indexing='xy')
+    return np.array(list(zip(x_1.flatten(),y_1.flatten())))
+robot_points = get_points(robot_x_coord,robot_y_coord)
+goal_points = get_points(goal_x_coord,goal_y_coord)
+print(robot_points==goal_points)
 ############# PLOTTING THE ROBOT - change to circle? ################
 rcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
 rvertices = [((robot_x_coord-robot_breadth/2), (robot_y_coord-robot_height/2)), ((robot_x_coord-robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord-robot_height/2)), (0, 0)]
@@ -134,6 +139,24 @@ vertices += [(8.45,5.25), (9.95,5.25), (9.95,3.75), (8.45,3.75), (0, 0)]
 vertices = np.array(vertices, float)
 path = Path(vertices, codes)
 pathpatch = PathPatch(path, facecolor='None', edgecolor='blue')
+####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
+def inside_obstacle(points):
+    effective_clearance = clearance
+    inside_polygons = (path.contains_points(points, radius=effective_clearance))#true if it is inside the polygon,otherwise false
+    inside_circle1= (circle1.contains_points(points,radius=effective_clearance))
+    inside_circle2= (circle2.contains_points(points,radius=effective_clearance))
+    inside_circle3= (circle3.contains_points(points,radius=effective_clearance))
+    inside_circle4= (circle4.contains_points(points,radius=effective_clearance))
+    return (all(inside_polygons==True)) or (all(inside_circle1==True)) or (all(inside_circle2==True)) or (all(inside_circle3==True)) or (all(inside_circle4==True))
+
+if inside_obstacle(goal_points):
+    print("error:  goal is inside obstacle!")
+    exit()
+elif inside_obstacle(robot_points):
+    print("error:  robot starts inside obstacle!")
+    exit()
+
+    
 ######## PLOTTING #####################
 fig, ax = plt.subplots()
 ax.add_patch(rotrobotpatch)
