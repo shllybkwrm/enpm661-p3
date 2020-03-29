@@ -11,9 +11,9 @@ from matplotlib.patches import Ellipse
 import matplotlib.pyplot as plt
 
 
-w = 10.2
+w = int(10.2)
 h = 10
-w_radius=0.1
+w_radius=int(0.1)
 sep_dis=1
 
 def convert_RPM_mps (RPM):
@@ -76,7 +76,7 @@ def drotmatrix(point,angle):
 ##    print(np.dot(b,R))
     return np.dot(R,b)
 # Get input parameters
-clearance, u_l,u_r = get_parameters()  #Changed from proj 3-2 
+clearance, RPM1,RPM2 = get_parameters()  #Changed from proj 3-2 
 start_point, theta_s = get_start()
 goal_point = get_goal()#Changed from proj 3-2 
 print()
@@ -155,7 +155,174 @@ if inside_obstacle(goal_points):
 elif inside_obstacle(robot_points):
     print("error:  robot starts inside obstacle!")
     exit()
+###########
+####################### A STAR ################
+class Node:
+    def __init__(self, node_no, coord, parent=None, g=0, h=0, f=0, theta=0):
+        self.node_no = node_no
+        self.parent = parent
+        self.coord = coord
+        self.g=g
+        self.h=h
+        self.f=f
+        self.theta = theta
 
+degree_list=np.linspace(0, 360, 12, endpoint=False, dtype=int)
+############ Map for duplicate checking
+visited_matrix = np.zeros((w*2,h*2,12), dtype=bool)
+i = np.where(degree_list==theta_s)
+visited_matrix[start_point[0], start_point[1], i] = True
+#########
+def distance_2(p1,p2):
+    distance = math.sqrt( ((p1[0]-p2[0])**2)+((p1[1]-p2[1])**2) )
+    return distance
+#########
+def generate_node_successor(coord):
+    actions=[[0,RPM1],[RPM1,0],[RPM1,RPM1],[0,RPM2],[RPM2,0],[RPM2,RPM2],[RPM1,RPM2],[RPM2,RPM1]]
+    for action in actions:
+        new_positions=[]
+        thetas=[]
+        t=0
+        r=w_radius
+        L=sep_dis
+        dt=0.1
+        X1=0
+        Y1=0
+        dtheta=0
+        for i,angle in enumerate(degree_list):
+            Theta0=np.deg2rad(angle)
+            Theta1=Theta0
+            while t<1:
+                t=t+dt
+                coord[0]=coord[0]+X1
+                coord[1]=coord[1]+Y1
+                dx=r*(action[0]+action[1])*math.cos(Theta1)*dt
+                dy=r*(action[0]+action[1])*math.sin(Theta1)*dt
+                dtheta=(r/L)*(action[1]-action[0])*dt
+                X1=X1+dx
+                Y1=Y1+dy
+                Theta1=Theta1+0.5*dtheta
+    ##            plt.quiver(coord[0], coord[1], X1, Y1,units='xy' ,scale=1,color= 'r',width =0.2, headwidth = 1,headlength=0)
+                Xn=coord[0]+X1
+                Yn=coord[1]+Y1
+                Thetan=180*(Theta1)/3.14
+                new_point=np.array([Xn,Yn])
+            return new_point,Thetan
+            new_point = ( np.round(new_point*2, decimals=0) ) / 2
+            # Check for duplicates
+            a = int(new_point[0]*2)
+            b = int(new_point[1]*2)
+            #deg = int(np.rad2deg(t))
+            if a<0 or a>w*2:
+                continue
+            if b<0 or b>h*2:
+                continue
+            if inside_obstacle([new_point]):  # NOTE:  test this
+                continue
+            if visited_matrix[a, b, i]:
+                #print("node already visited: ", new_point, angle)
+                continue
+            #else:
+            visited_matrix[a, b, i] = True
+            new_positions.append(new_point)
+            thetas.append(angle)
+            return new_positions, thetas
+    
+
+pos,angle=generate_node_successor(start_point)
+print("position ", pos,"angle ", angle)
+
+    
+
+
+def get_gscore(previous,current):
+    return (previous.g + distance_2(previous.coord, current))
+    # Calculate g incrementally, so angle of approach is not needed
+
+def get_hscore(current):
+    return distance_2(current, goal_point)
+
+def graph_search(start_point,goal_point):
+    start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s) 
+    node_q = [start_node]  # put the startNode on the openList with f=0
+    explored_nodes = [] # points visited
+    #child_nodes = []  # closed list
+    ##final_nodes.append(node_q[0])  # Only writing data of nodes in seen
+    ##visited_coord.append(node_q[0].coord)
+    node_counter = 0  # To define a unique ID to all the nodes formed
+
+    ##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING 
+    while node_q: #while the OPEN list is not empty
+        current_root = node_q[0]##############################change current root to equal node with smallest f value#############
+        current_index = 0
+        for index,thing in enumerate(node_q):#let the currentNode equal the node with the lowest cost
+            if thing.f < current_root.f:
+                current_root = thing
+                current_index = index
+        node_q.pop(current_index)
+        explored_nodes.append(current_root)
+        print("current node: ", current_root.coord, current_root.theta, current_root.f)
+        if current_root.coord[0]==goal_point[0] and current_root.coord[1]==goal_point[1]:# and current_root.theta==theta_g:
+            print("\nGoal reached:  ", current_root.coord, current_root.theta, current_root.f)
+            return current_root
+
+        child_coords,thetas = generate_node_successor(current_root.coord)
+        # Having issues when no children found so check that here
+        if child_coords==[]:
+            continue    
+        for child_point,theta in zip(child_coords, thetas):
+            #print("child_point: ", child_point, theta)
+            node_counter+=1
+            #print("node count: ", node_counter)
+            tempg=get_gscore(current_root,child_point)
+            temph=get_hscore(child_point)
+            child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, f=tempg+temph, theta=theta)
+            # NOTE:  Add plotting function here
+
+            #child_nodes.append(child_node)
+        # Redundant line, removing for efficiency
+        #for child in child_nodes:
+            # Adjusted this to replace explored nodes if the node is found again with lower cost ###
+            for i,explored in enumerate(explored_nodes):
+                if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
+                    print("Reached previously explored node with lower cost, replacing")
+                    explored_nodes[i] = child_node
+                    #continue
+            for item in node_q:
+                if (child_node.coord.tolist()==item.coord.tolist()) and child_node.g>item.g:
+                    print("Coordinates present with lower cost, not adding to queue")
+                    continue
+            node_q.append(child_node)
+
+        print("node count: ", node_counter)
+
+
+def find_path(node):  # To find the path from the goal node to the starting node
+    p = []
+    p.append(node)
+    parent_node = node.parent
+    while parent_node is not None:
+        p.append(parent_node.coord)
+        parent_node = parent_node.parent
+        # NOTE - plot here
+
+    return list(reversed(p))
+
+
+
+print("\nThe start is", start_point, theta_s)
+print("The goal is", goal_point)
+starth = get_hscore(start_point)
+print("The distance to goal is", starth, '\n')
+
+start_time = time.time()
+
+goal_node=graph_search(start_point,goal_point)
+result=find_path(goal_node)
+print(result)
+
+end_time = time.time()
+print("Total execution time:", end_time-start_time)
     
 ######## PLOTTING #####################
 fig, ax = plt.subplots()
