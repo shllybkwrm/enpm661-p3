@@ -11,16 +11,20 @@ from matplotlib.patches import Ellipse
 import matplotlib.pyplot as plt
 
 
+# Note:  These should be adjusted based on the robot radius
 w = 10.2
 h = 10
 w_radius=0.1
 sep_dis=1
 
+
 def convert_RPM_mps (RPM):
     V=(RPM*2*np.pi)/60
     return V
 
-####IF WE HAVE TIME WE SHOULD CHANGE THIS INTO A GUI AND GET ALL INPUTS ONE TIME
+
+
+#### IF WE HAVE TIME WE SHOULD CHANGE THIS INTO A GUI AND GET ALL INPUTS ONE TIME
 ##### Input functions #####
 def get_parameters():
 ##    print("Please enter the rigid robot parameters.")
@@ -45,28 +49,31 @@ def get_parameters():
     return clearance, RPM1, RPM2
 
 def get_start():
-    print("\nPlease enter the initial coordinates of the robot.")
+    print("\nEnter the initial coordinates of the robot.")
     ans=(input("Enter the x coordinate (default=50): "))
     if ans=='':  x=7
     else:  x=int(ans)
     ans=(input("Enter the y coordinate (default=30): "))
     if ans=='':  y=5
-    
     else:  y=int(ans)
     ans=(input("Enter the starting theta (30-deg increments, default=60): "))
-    if ans=='':  theta_s=45
+    if ans=='':  theta_s=60
     else:  theta_s=int(ans)
 
     return [x, y], theta_s
 
 def get_goal():
-    print("\nPlease enter the coordinates of the robot's goal.")
+    print("\nEnter the coordinates of the robot's goal.")
     ans=(input("Enter the target x coordinate (default=7): "))
     if ans=='':  x=7
     else:  x=int(ans)
     ans=(input("Enter the target y coordinate (default=5): "))
-    if ans=='':  y=5
+    if ans=='':  y=0
+    else:  y=int(ans)
+
     return [x, y]
+
+
 
 def drotmatrix(point,angle):
     R=np.array([[np.cos(np.deg2rad(angle)),-(np.sin(np.deg2rad(angle)))],[np.sin(np.deg2rad(angle)),np.cos(np.deg2rad(angle))]])
@@ -85,16 +92,19 @@ robot_x_coord=start_point[0]
 robot_y_coord=start_point[1]
 goal_x_coord=goal_point[0]
 goal_y_coord=goal_point[1]
-robot_breadth=2*w_radius 
-robot_height=sep_dis
+robot_breadth=2*w_radius
+robot_height= sep_dis
+
 def get_points(x_coord,y_coord):
-    x=np.linspace((robot_x_coord-robot_breadth/2),(robot_x_coord+robot_breadth/2),robot_breadth+1,dtype=int)
-    y=np.linspace((robot_y_coord+robot_height/2),(robot_y_coord-robot_height/2),robot_height+1,dtype=int)
+    x=np.linspace((robot_x_coord-robot_breadth/2),(robot_x_coord+robot_breadth/2),robot_breadth+1)
+    y=np.linspace((robot_y_coord+robot_height/2),(robot_y_coord-robot_height/2),robot_height+1)
     x_1,y_1=np.meshgrid(x,y, indexing='xy')
     return np.array(list(zip(x_1.flatten(),y_1.flatten())))
 robot_points = get_points(robot_x_coord,robot_y_coord)
 goal_points = get_points(goal_x_coord,goal_y_coord)
 print(robot_points==goal_points)
+
+
 ############# PLOTTING THE ROBOT - change to circle? ################
 rcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
 rvertices = [((robot_x_coord-robot_breadth/2), (robot_y_coord-robot_height/2)), ((robot_x_coord-robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord-robot_height/2)), (0, 0)]
@@ -147,7 +157,7 @@ def inside_obstacle(points):
     inside_circle2= (circle2.contains_points(points,radius=effective_clearance))
     inside_circle3= (circle3.contains_points(points,radius=effective_clearance))
     inside_circle4= (circle4.contains_points(points,radius=effective_clearance))
-    return (all(inside_polygons==True)) or (all(inside_circle1==True)) or (all(inside_circle2==True)) or (all(inside_circle3==True)) or (all(inside_circle4==True))
+    return (all(inside_polygons==True) or all(inside_circle1==True) or all(inside_circle2==True) or all(inside_circle3==True) or all(inside_circle4==True) )
 
 if inside_obstacle(goal_points):
     print("error:  goal is inside obstacle!")
@@ -156,6 +166,8 @@ elif inside_obstacle(robot_points):
     print("error:  robot starts inside obstacle!")
     exit()
 ###########
+
+
 ####################### A STAR ################
 class Node:
     def __init__(self, node_no, coord, parent=None, g=0, h=0, f=0, theta=0):
@@ -217,7 +229,7 @@ def generate_node_successor(coord):
                 continue
             if b<0 or b>h*2:
                 continue
-            if inside_obstacle([new_point]):  # NOTE:  test this
+            if inside_obstacle([new_point]):
                 continue
             if visited_matrix[a, b, i]:
                 #print("node already visited: ", new_point, angle)
@@ -242,6 +254,23 @@ def get_gscore(previous,current):
 def get_hscore(current):
     return distance_2(current, goal_point)
 
+
+
+# plot FROM parent to node at node angle (angle of arrival)
+def plot_vector(node, c='k', w=0.025):
+    if node.parent==None:  return
+    x=node.parent.coord[0]
+    y=node.parent.coord[1]
+    rad = np.deg2rad(node.theta)
+    q = step*np.cos(rad)
+    v = step*np.sin(rad)
+    # Plot vector
+    ax.quiver(x, y, q, v, units='xy', angles='xy', scale=1, color=c, width=w)
+  
+
+
+
+
 def graph_search(start_point,goal_point):
     start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s) 
     node_q = [start_node]  # put the startNode on the openList with f=0
@@ -261,6 +290,7 @@ def graph_search(start_point,goal_point):
                 current_index = index
         node_q.pop(current_index)
         explored_nodes.append(current_root)
+        plot_vector(current_root)
         print("current node: ", current_root.coord, current_root.theta, current_root.f)
         if current_root.coord[0]==goal_point[0] and current_root.coord[1]==goal_point[1]:# and current_root.theta==theta_g:
             print("\nGoal reached:  ", current_root.coord, current_root.theta, current_root.f)
@@ -268,7 +298,7 @@ def graph_search(start_point,goal_point):
 
         child_coords,thetas = generate_node_successor(current_root.coord)
         # Having issues when no children found so check that here
-        if child_coords==[]:
+        if child_coords.size==0 or thetas.size==0:
             continue    
         for child_point,theta in zip(child_coords, thetas):
             #print("child_point: ", child_point, theta)
@@ -304,7 +334,7 @@ def find_path(node):  # To find the path from the goal node to the starting node
     while parent_node is not None:
         p.append(parent_node.coord)
         parent_node = parent_node.parent
-        # NOTE - plot here
+        plot_vector(parent_node, 'g', w=0.2)
 
     return list(reversed(p))
 
