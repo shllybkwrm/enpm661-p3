@@ -18,11 +18,11 @@ h = 200
 ##### Input functions #####
 def get_parameters():
     print("Please enter the rigid robot parameters.")
-    ans=(input("Enter the radius (default=3): "))
-    if ans=='':  radius=3
+    ans=(input("Enter the radius (default=1): "))
+    if ans=='':  radius=1
     else:  radius=int(ans)
-    ans=(input("Enter the obstacle clearance (default=2): "))
-    if ans=='':  clearance=2
+    ans=(input("Enter the obstacle clearance (default=1): "))
+    if ans=='':  clearance=1
     else:  clearance=int(ans)
     ans=(input("Enter the robot step size (1-10, default=1): "))
     if ans=='' or int(ans)<1:  step=1
@@ -48,11 +48,7 @@ def get_start():
 def get_goal():
     print("\nPlease enter the coordinates of the robot's goal.")
     ans=(input("Enter the target x coordinate (default=150): "))
-<<<<<<< HEAD
-    if ans=='':  x=90
-=======
     if ans=='':  x=150
->>>>>>> bdf8e50d6618911bcd2054b1af2df3deaa7ce7bd
     else:  x=int(ans)
     ans=(input("Enter the target y coordinate (default=150): "))
     if ans=='':  y=150
@@ -65,7 +61,7 @@ def get_goal():
 
 
 # Get input parameters
-radius, clearance, step = get_parameters()  # NOTE:  Still need to incorporate clearance ###
+radius, clearance, step = get_parameters()
 start_point, theta_s = get_start()
 goal_point, theta_g = get_goal()
 print()
@@ -78,10 +74,13 @@ goal_x_coord=goal_point[0]
 goal_y_coord=goal_point[1]
 robot_height=radius
 robot_breadth=radius
-x=np.linspace((robot_x_coord-robot_breadth/2),(robot_x_coord+robot_breadth/2),robot_breadth+1,dtype=int)
-y=np.linspace((robot_y_coord+robot_height/2),(robot_y_coord-robot_height/2),robot_height+1,dtype=int)
-x_1,y_1=np.meshgrid(x,y, indexing='xy')
-points = np.array(list(zip(x_1.flatten(),y_1.flatten())))
+def get_points(x_coord,y_coord):
+    x=np.linspace((x_coord-robot_breadth/2),(x_coord+robot_breadth/2),robot_breadth+1,dtype=int)
+    y=np.linspace((y_coord+robot_height/2),(y_coord-robot_height/2),robot_height+1,dtype=int)
+    x_1,y_1=np.meshgrid(x,y, indexing='xy')
+    return np.array(list(zip(x_1.flatten(),y_1.flatten())))
+robot_points = get_points(robot_x_coord,robot_y_coord)
+goal_points = get_points(goal_x_coord,goal_y_coord)
 ########### PLOTTING THE ROBOT - change to circle? ################
 rcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
 rvertices = [((robot_x_coord-robot_breadth/2), (robot_y_coord-robot_height/2)), ((robot_x_coord-robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord-robot_height/2)), (0, 0)]
@@ -143,15 +142,6 @@ pathpatch = PathPatch(path, facecolor='None', edgecolor='blue')
 pathpatch2 = PathPatch(circle, facecolor='None', edgecolor='blue')
 pathpatch3= Ellipse((150,100),80,40,0,facecolor='None', edgecolor='blue')
 
-####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
-def inside_obstacle(points):
-    inside_polygons = (path.contains_points(points, radius=1e-9))#true if it is inside the polygon,otherwise false
-    inside_ellipse= (ellipse.contains_points(points,radius=1e-9))
-    inside_circle= (circle.contains_points(points,radius=1e-9))
-    return (any(inside_polygons==True)) or (any(inside_circle==True)) or (any(inside_ellipse==True))
-if inside_obstacle(points):
-    print("error:  robot or goal starts inside obstacle!")
-    exit()
 ####################### REDUCING SEACH NODES BY SUBTRACTING OBSTACLES ################
 inside_polygons2 = np.where((path.contains_points(map, radius=1e-9)),20000,0)
 inside_ellipse2= np.where((ellipse.contains_points(map,radius=1e-9)),20000,0)
@@ -174,9 +164,6 @@ ax.set_title('Map Space')
 ax.autoscale_view()
 plt.xlim(0,w)
 plt.ylim(0,h)
-<<<<<<< HEAD
-plt.show()
-=======
 #plt.show(block=False)
 #plt.pause(0.1)
 
@@ -194,7 +181,6 @@ if inside_obstacle(robot_points) or inside_obstacle(goal_points):
     plt.show()
     print("ERROR:  robot or goal starts inside obstacle!  Try again.")
     exit()
->>>>>>> bdf8e50d6618911bcd2054b1af2df3deaa7ce7bd
 
 
 
@@ -253,11 +239,7 @@ def generate_node_successor(coord):
             continue
         if b<0 or b>h*2:
             continue
-<<<<<<< HEAD
-        if inside_obstacle():  # NOTE:  Won't work until points are drawn??
-=======
         if inside_obstacle([new_point]):  # NOTE:  test this more?
->>>>>>> bdf8e50d6618911bcd2054b1af2df3deaa7ce7bd
             continue
         if visited_matrix[a, b, i]:
             #print("node already visited: ", new_point, angle)
@@ -342,19 +324,11 @@ def graph_search(start_point,goal_point):
             tempg=get_gscore(current_root,child_point)
             temph=get_hscore(child_point)
             child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, f=tempg+temph, theta=theta)
+            # NOTE:  Add plotting function here
+
             #child_nodes.append(child_node)
         # Redundant line, removing for efficiency
         #for child in child_nodes:
-<<<<<<< HEAD
-            # Probably not needed because of visited matrix
-            # Not sure this actually works anyway because of object addresses
-            #for explored in explored_nodes:
-            #    if child_node==explored:
-            #        continue
-            for item in node_q:
-                if (child_node.coord.tolist()==item.coord.tolist()) and child_node.g>item.g:
-                    print("Coordinates present with lower cost, not adding to queue")
-=======
             # Adjusted this to replace explored nodes if the node is found again with lower cost ###
             for i,explored in enumerate(explored_nodes):
                 if child_node.coord[0]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
@@ -364,7 +338,6 @@ def graph_search(start_point,goal_point):
             for item in node_q:
                 if child_node.coord[0]==item.coord[0] and child_node.coord[1]==item.coord[1] and child_node.g>item.g:
                     #print("Coordinates present with lower cost, not adding to queue")
->>>>>>> bdf8e50d6618911bcd2054b1af2df3deaa7ce7bd
                     continue
             node_q.append(child_node)
 
@@ -407,11 +380,6 @@ print(result)
 end_time = time.time()
 print("\nTotal execution time:", end_time-start_time)
 
-<<<<<<< HEAD
-=======
 
 #plot_path(result)
 plt.show()
-
-
->>>>>>> bdf8e50d6618911bcd2054b1af2df3deaa7ce7bd

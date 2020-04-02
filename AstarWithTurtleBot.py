@@ -11,17 +11,20 @@ from matplotlib.patches import Ellipse
 import matplotlib.pyplot as plt
 
 
-# Note:  Adjust values to be in cm/mm
+# Note:  Check these with TAs
 w = 10.2
 h = 10
 w_radius=0.1
 sep_dis=1
 
+
 def convert_RPM_mps (RPM):
     V=(RPM*2*np.pi)/60
     return V
 
-####IF WE HAVE TIME WE SHOULD CHANGE THIS INTO A GUI AND GET ALL INPUTS ONE TIME
+
+
+#### IF WE HAVE TIME WE SHOULD CHANGE THIS INTO A GUI AND GET ALL INPUTS ONE TIME
 ##### Input functions #####
 def get_parameters():
 ##    print("Please enter the rigid robot parameters.")
@@ -46,13 +49,12 @@ def get_parameters():
     return clearance, RPM1, RPM2
 
 def get_start():
-    print("\nPlease enter the initial coordinates of the robot.")
+    print("\nEnter the initial coordinates of the robot.")
     ans=(input("Enter the x coordinate (default=50): "))
     if ans=='':  x=7
     else:  x=int(ans)
     ans=(input("Enter the y coordinate (default=30): "))
     if ans=='':  y=5
-    
     else:  y=int(ans)
     ans=(input("Enter the starting theta (30-deg increments, default=60): "))
     if ans=='':  theta_s=60
@@ -61,15 +63,17 @@ def get_start():
     return [x, y], theta_s
 
 def get_goal():
-    print("\nPlease enter the coordinates of the robot's goal.")
+    print("\nEnter the coordinates of the robot's goal.")
     ans=(input("Enter the target x coordinate (default=7): "))
-    if ans=='':  x=8
+    if ans=='':  x=7
     else:  x=int(ans)
     ans=(input("Enter the target y coordinate (default=5): "))
-    if ans=='':  y=6
+    if ans=='':  y=0
     else:  y=int(ans)
 
     return [x, y]
+
+
 
 def drotmatrix(point,angle):
     R=np.array([[np.cos(np.deg2rad(angle)),-(np.sin(np.deg2rad(angle)))],[np.sin(np.deg2rad(angle)),np.cos(np.deg2rad(angle))]])
@@ -88,7 +92,7 @@ robot_x_coord=start_point[0]
 robot_y_coord=start_point[1]
 goal_x_coord=goal_point[0]
 goal_y_coord=goal_point[1]
-robot_breadth=2*w_radius 
+robot_breadth=2*w_radius
 robot_height= sep_dis
 
 def get_points(x_coord,y_coord):
@@ -118,14 +122,11 @@ for i in np.array(rvertices):
 rotcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
 rotrobot = Path(rotvertices,rotcodes)
 rotrobotpatch = PathPatch(rotrobot, facecolor='blue', edgecolor='blue')
-
 ########### PLOTTING THE GOAL - change to circle? ################
 gcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
 gvertices = [((goal_x_coord-robot_breadth/2), (goal_y_coord-robot_height/2)), ((goal_x_coord-robot_breadth/2), (goal_y_coord+robot_height/2)), ((goal_x_coord+robot_breadth/2), (goal_y_coord+robot_height/2)), ((goal_x_coord+robot_breadth/2), (goal_y_coord-robot_height/2)), (0, 0)]
 goal = Path(gvertices,gcodes)
 goalpatch = PathPatch(goal, facecolor='red', edgecolor='red')
-
-
 ######### CIRCLE OBSTACLES #####################
 circle1=Path.circle((5,5),radius=1,readonly=False)
 circle2=Path.circle((3,2),radius=1,readonly=False)
@@ -148,8 +149,6 @@ vertices += [(8.45,5.25), (9.95,5.25), (9.95,3.75), (8.45,3.75), (0, 0)]
 vertices = np.array(vertices, float)
 path = Path(vertices, codes)
 pathpatch = PathPatch(path, facecolor='None', edgecolor='blue')
-
-
 ####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
 def inside_obstacle(points):
     effective_clearance = clearance
@@ -169,7 +168,6 @@ elif inside_obstacle(robot_points):
 ###########
 
 
-
 ####################### A STAR ################
 class Node:
     def __init__(self, node_no, coord, parent=None, g=0, h=0, f=0, theta=0):
@@ -181,75 +179,82 @@ class Node:
         self.f=f
         self.theta = theta
 
-#degree_list=np.linspace(0, 360, 12, endpoint=False, dtype=int)
+degree_list=np.linspace(0, 360, 12, endpoint=False, dtype=int)
 ############ Map for duplicate checking
-visited_matrix = np.zeros((int(w),h,12), dtype=bool)
-#i = np.where(degree_list==theta_s)
+visited_matrix = np.zeros((int(w*2),h*2,12), dtype=bool)
+i = np.where(degree_list==theta_s)
 visited_matrix[start_point[0], start_point[1], i] = True
 #########
 def distance_2(p1,p2):
     distance = math.sqrt( ((p1[0]-p2[0])**2)+((p1[1]-p2[1])**2) )
     return distance
 #########
-def generate_node_successor(coord,th,action,action_count):    
-    new_positions=[]
-    thetas=[]
-    t=0
-    r=w_radius
-    L=sep_dis
-    dt=0.1
-    X1=0
-    Y1=0
-    dtheta=0
-    Theta0=3.14*th/180
-    Theta1=Theta0
-    while t<1:
-        t=t+dt
-        coord[0]=coord[0]+X1
-        coord[1]=coord[1]+Y1
-        dx=r*(action[0]+action[1])*math.cos(Theta1)*dt
-        dy=r*(action[0]+action[1])*math.sin(Theta1)*dt
-        dtheta=(r/L)*(action[1]-action[0])*dt
-        X1=X1+dx
-        Y1=Y1+dy
-        Theta1=Theta1+0.5*dtheta
-##            ax.quiver(coord[0], coord[1], X1, Y1,units='xy' ,scale=1,color= 'r',width =0.2, headwidth = 1,headlength=0)
-        Xn=coord[0]+X1
-        Yn=coord[1]+Y1
-        Thetan=180*(Theta1)/3.14
-        print("translational coordinates and angle from x" )
-        print (Xn,Yn,Thetan,"action_count ",action_count,action)
-        new_point=np.array([Xn,Yn])
-        new_positions.append(new_point)
-        new_point = ( np.round(new_point*2, decimals=0) ) / 2
-        # Check for duplicates
-        a = int(new_point[0]*2)
-        b = int(new_point[1]*2)
-        #deg = int(np.rad2deg(t))
-        if a<0 or a>w*2:
-            continue
-        if b<0 or b>h*2:
-            continue        
-        if inside_obstacle([new_point]):  # NOTE:  test this
-            continue
-##        for i,angle in enumerate(degree_list):
-##            if visited_matrix[a, b, i]:
-##                #print("node already visited: ", new_point, angle)
-##                continue
-##            else:
-##                visited_matrix[a, b, i] = True
-        new_positions.append(new_point)
-        thetas.append(Thetan)
-    return new_positions, thetas
-##    
-##actions=[[0,RPM1],[RPM1,0],[RPM1,RPM1],[0,RPM2],[RPM2,0],[RPM2,RPM2],[RPM1,RPM2],[RPM2,RPM1]]
-##action_count=0
-##for action in actions:
-##    action_count+=1
-##    pos,angle=generate_node_successor(start_point,theta_s)
-##    print("position ", pos,"angle ", angle)
+def generate_node_successor(coord):
+    actions=[[0,RPM1],[RPM1,0],[RPM1,RPM1],[0,RPM2],[RPM2,0],[RPM2,RPM2],[RPM1,RPM2],[RPM2,RPM1]]
+    for action in actions:
+        new_positions=[]
+        thetas=[]
+        t=0
+        r=int(w_radius)
+        L=sep_dis
+        dt=0.1
+        X1=0
+        Y1=0
+        dtheta=0
+        for i,angle in enumerate(degree_list):
+            Theta0=np.deg2rad(angle)
+            Theta1=Theta0
+            while t<1:
+                t=t+dt
+                coord[0]=coord[0]+X1
+                coord[1]=coord[1]+Y1
+                dx=r*(action[0]+action[1])*math.cos(Theta1)*dt
+                dy=r*(action[0]+action[1])*math.sin(Theta1)*dt
+                dtheta=(r/L)*(action[1]-action[0])*dt
+                X1=X1+dx
+                Y1=Y1+dy
+                Theta1=Theta1+0.5*dtheta
+    ##            plt.quiver(coord[0], coord[1], X1, Y1,units='xy' ,scale=1,color= 'r',width =0.2, headwidth = 1,headlength=0)
+                Xn=coord[0]+X1
+                Yn=coord[1]+Y1
+                Thetan=180*(Theta1)/3.14
+                new_point=np.array([Xn,Yn])
+            return new_point,Thetan
+            new_point = ( np.round(new_point*2, decimals=0) ) / 2
+            # Check for duplicates
+            a = int(new_point[0]*2)
+            b = int(new_point[1]*2)
+            #deg = int(np.rad2deg(t))
+            if a<0 or a>w*2:
+                continue
+            if b<0 or b>h*2:
+                continue
+            if inside_obstacle([new_point]):
+                continue
+            if visited_matrix[a, b, i]:
+                #print("node already visited: ", new_point, angle)
+                continue
+            #else:
+            visited_matrix[a, b, i] = True
+            new_positions.append(new_point)
+            thetas.append(angle)
+            return new_positions, thetas
+    
+
+pos,angle=generate_node_successor(start_point)
+print("position ", pos,"angle ", angle)
 
     
+
+
+def get_gscore(previous,current):
+    return (previous.g + distance_2(previous.coord, current))
+    # Calculate g incrementally, so angle of approach is not needed
+
+def get_hscore(current):
+    return distance_2(current, goal_point)
+
+
 
 # plot FROM parent to node at node angle (angle of arrival)
 def plot_vector(node, c='k', w=0.025):
@@ -261,17 +266,12 @@ def plot_vector(node, c='k', w=0.025):
     v = step*np.sin(rad)
     # Plot vector
     ax.quiver(x, y, q, v, units='xy', angles='xy', scale=1, color=c, width=w)
+  
 
 
-def get_gscore(previous,current):
-    return (previous.g + distance_2(previous.coord, current))
-    # Calculate g incrementally, so angle of approach is not needed
 
-def get_hscore(current):
-    return distance_2(current, goal_point)
 
 def graph_search(start_point,goal_point):
-    actions=[[0,RPM1],[RPM1,0],[RPM1,RPM1],[0,RPM2],[RPM2,0],[RPM2,RPM2],[RPM1,RPM2],[RPM2,RPM1]]
     start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s) 
     node_q = [start_node]  # put the startNode on the openList with f=0
     explored_nodes = [] # points visited
@@ -279,7 +279,6 @@ def graph_search(start_point,goal_point):
     ##final_nodes.append(node_q[0])  # Only writing data of nodes in seen
     ##visited_coord.append(node_q[0].coord)
     node_counter = 0  # To define a unique ID to all the nodes formed
-    action_count=0
 
     ##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING 
     while node_q: #while the OPEN list is not empty
@@ -296,38 +295,36 @@ def graph_search(start_point,goal_point):
         if current_root.coord[0]==goal_point[0] and current_root.coord[1]==goal_point[1]:# and current_root.theta==theta_g:
             print("\nGoal reached:  ", current_root.coord, current_root.theta, current_root.f)
             return current_root
-        
-        for action in actions:
-            action_count=action_count+1        
-            child_coords,thetas = generate_node_successor(current_root.coord,current_root.theta,action,action_count)
-            # Having issues when no children found so check that here
-            if child_coords==[]:
-                continue    
-            for child_point,theta in zip(child_coords, thetas):
-                #print("child_point: ", child_point, theta)
-                node_counter+=1
-                #print("node count: ", node_counter)
-                tempg=get_gscore(current_root,child_point)
-                temph=get_hscore(child_point)
-                child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, f=tempg+temph, theta=theta)
-                # NOTE:  Add plotting function here
 
-                #child_nodes.append(child_node)
-            # Redundant line, removing for efficiency
-            #for child in child_nodes:
-                # Adjusted this to replace explored nodes if the node is found again with lower cost ###
-                for i,explored in enumerate(explored_nodes):
-                    if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
-                        print("Reached previously explored node with lower cost, replacing")
-                        explored_nodes[i] = child_node
-                        #continue
-                for item in node_q:
-                    if (child_node.coord.tolist()==item.coord.tolist()) and child_node.g>item.g:
-                        print("Coordinates present with lower cost, not adding to queue")
-                        continue
-                node_q.append(child_node)
+        child_coords,thetas = generate_node_successor(current_root.coord)
+        # Having issues when no children found so check that here
+        if child_coords.size==0 or thetas.size==0:
+            continue    
+        for child_point,theta in zip(child_coords, thetas):
+            #print("child_point: ", child_point, theta)
+            node_counter+=1
+            #print("node count: ", node_counter)
+            tempg=get_gscore(current_root,child_point)
+            temph=get_hscore(child_point)
+            child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, f=tempg+temph, theta=theta)
+            # NOTE:  Add plotting function here
 
-            print("node count: ", node_counter)
+            #child_nodes.append(child_node)
+        # Redundant line, removing for efficiency
+        #for child in child_nodes:
+            # Adjusted this to replace explored nodes if the node is found again with lower cost ###
+            for i,explored in enumerate(explored_nodes):
+                if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
+                    print("Reached previously explored node with lower cost, replacing")
+                    explored_nodes[i] = child_node
+                    #continue
+            for item in node_q:
+                if (child_node.coord.tolist()==item.coord.tolist()) and child_node.g>item.g:
+                    print("Coordinates present with lower cost, not adding to queue")
+                    continue
+            node_q.append(child_node)
+
+        print("node count: ", node_counter)
 
 
 def find_path(node):  # To find the path from the goal node to the starting node
@@ -356,19 +353,19 @@ print(result)
 
 end_time = time.time()
 print("Total execution time:", end_time-start_time)
-##    
-########## PLOTTING #####################
-##fig, ax = plt.subplots()
-##ax.add_patch(rotrobotpatch)
-##ax.add_patch(goalpatch)
-##ax.add_patch(pathpatch)
-##ax.add_patch(pathpatch1)
-##ax.add_patch(pathpatch2)
+    
+######## PLOTTING #####################
+fig, ax = plt.subplots()
+ax.add_patch(rotrobotpatch)
+ax.add_patch(goalpatch)
+ax.add_patch(pathpatch)
+ax.add_patch(pathpatch1)
+ax.add_patch(pathpatch2)
+ax.add_patch(pathpatch3)
+ax.add_patch(pathpatch4)
 ##ax.add_patch(pathpatch3)
-##ax.add_patch(pathpatch4)
-####ax.add_patch(pathpatch3)
-##ax.set_title('Map Space')
-##ax.autoscale_view()
-##plt.xlim(0,w)
-##plt.ylim(0,h)
-##plt.show()
+ax.set_title('Map Space')
+ax.autoscale_view()
+plt.xlim(0,w)
+plt.ylim(0,h)
+plt.show()
