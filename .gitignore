@@ -351,3 +351,7 @@ MigrationBackup/
 *.sln
 *.pyproj
 ENPM661_Project3/ENPM661_Project3.py
+*.mkv
+*.zip
+ENPM661_Project3/AstarWithTurtleBot.py
+ENPM661_Project3/AstawithTurtleBot.py
