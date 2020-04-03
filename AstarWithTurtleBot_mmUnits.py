@@ -14,9 +14,8 @@ import matplotlib.pyplot as plt
 # The outer square is 10,200mm but I only used the inner
 w = 10000
 h = 10000
-w_radius=354/2
-sep_dis=15
-
+rob_radius=354/2
+w_radius=76/2
 # TB2 max speed:  .65 m/s
 
 def convert_RPM_mps (RPM):
@@ -95,8 +94,8 @@ robot_y_coord=start_point[1]+h//2
 goal_x_coord=goal_point[0]+w//2
 goal_y_coord=goal_point[1]+h//2
 
-robot_breadth=2*w_radius 
-robot_height= 2*w_radius
+robot_breadth=2*rob_radius 
+robot_height= 2*rob_radius
 
 def get_points(x_coord,y_coord):
     x=np.linspace((robot_x_coord-robot_breadth//2), (robot_x_coord+robot_breadth//2), robot_breadth+1, dtype=int)
@@ -228,7 +227,7 @@ def generate_node_successor(coord,thetaIn,action,action_id):
     thetas=[]
     t=0
     r=w_radius
-    L=sep_dis
+    L=rob_radius
     dt=0.1
     X1=0
     Y1=0
@@ -239,7 +238,7 @@ def generate_node_successor(coord,thetaIn,action,action_id):
         t=t+dt
         coord[0]=coord[0]+X1
         coord[1]=coord[1]+Y1
-        dx=r*(action[0]+action[1])*math.cos(ThetaRad)*dt
+        dx=r*(action[0]+action[1])*math.cos(ThetaRad)*dt  # CHECK THIS
         dy=r*(action[0]+action[1])*math.sin(ThetaRad)*dt
         dtheta=(r/L)*(action[1]-action[0])*dt
         X1+=dx
@@ -250,7 +249,7 @@ def generate_node_successor(coord,thetaIn,action,action_id):
     Xfinal=coord[0]+X1
     Yfinal=coord[1]+Y1
     ThetaDeg=np.rad2deg(ThetaRad)
-    print("Translational coordinates and final angle: \n", Xfinal,Yfinal,ThetaDeg, action, action_id)
+    print("final child coords & angle: ", Xfinal,Yfinal,ThetaDeg, "from action", action_id)
     new_point=np.array([Xfinal,Yfinal])
 
     ### Check for duplicates
@@ -281,7 +280,8 @@ def generate_node_successor(coord,thetaIn,action,action_id):
     thetas.append(ThetaDeg)
 
     return new_positions, thetas
-##    
+
+
 ##actions=[[0,RPM1],[RPM1,0],[RPM1,RPM1],[0,RPM2],[RPM2,0],[RPM2,RPM2],[RPM1,RPM2],[RPM2,RPM1]]
 ##action_count=0
 ##for action in actions:
@@ -289,15 +289,16 @@ def generate_node_successor(coord,thetaIn,action,action_id):
 ##    pos,angle=generate_node_successor(start_point,theta_s)
 ##    print("position ", pos,"angle ", angle)
 
-    
 
-# plot FROM parent to node at node angle (angle of arrival)
+### Plot FROM parent TO node at node angle (angle of arrival)
+# Change this to draw curves??
 def plot_vector(node, c='k', w=0.025):
-    step = sep_dis  ## Not sure about this - should prob be based on RPM
+    step = clearance  ## Not sure about this - should prob be based on RPM??
 
     if node.parent==None:  return
-    x=node.parent.coord[0]
-    y=node.parent.coord[1]
+    # Adjust for origin
+    x=node.parent.coord[0]+w//2
+    y=node.parent.coord[1]+h//2
     rad = np.deg2rad(node.theta)
     q = step*np.cos(rad)
     v = step*np.sin(rad)
@@ -334,7 +335,7 @@ def graph_search(start_point,goal_point):
         node_q.pop(current_index)
         explored_nodes.append(current_root)
         plot_vector(current_root)
-        print("current node: ", current_root.coord, current_root.theta, current_root.f)
+        print("> Current node & dist: ", current_root.coord, current_root.theta, current_root.f)
         # Incorporate radius for reaching goal (currently 100mm)
         coord_min = [current_root.coord[0]-spacing, current_root.coord[1]-spacing]
         coord_max = [current_root.coord[0]+spacing, current_root.coord[1]+spacing]
@@ -348,19 +349,18 @@ def graph_search(start_point,goal_point):
             # Having issues when no children found so check that here
             if len(child_coords)==0 or len(thetas)==0:
                 continue    
-            for child_point,theta in zip(child_coords, thetas):
+            for child_point,theta in zip(child_coords, thetas):  # Redundant line, since generate_node_successor now returns one child; remove later
                 #print("child_point: ", child_point, theta)
                 node_counter+=1
                 #print("node count: ", node_counter)
                 tempg=get_gscore(current_root,child_point)
                 temph=get_hscore(child_point)
                 child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, f=tempg+temph, theta=theta)
-                # NOTE:  Add plotting function here
 
                 #child_nodes.append(child_node)
             # Redundant line, removing for efficiency
             #for child in child_nodes:
-                # Adjusted this to replace explored nodes if the node is found again with lower cost ###
+                # Adjusted this to replace explored nodes if the node is found again with a lower cost ###
                 for i,explored in enumerate(explored_nodes):
                     if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
                         print("Reached previously explored node with lower cost, replacing")
