@@ -293,15 +293,16 @@ def generate_node_successor(coord,thetaIn,action,action_id):
 ### Plot FROM parent TO node at node angle (angle of arrival)
 # Change this to draw curves??
 def plot_vector(node, c='k', w=0.025):
-    step = clearance  ## Not sure about this - should prob be based on RPM??
-
     if node.parent==None:  return
     # Adjust for origin
     x=node.parent.coord[0]+w//2
     y=node.parent.coord[1]+h//2
+
+    d = distance_2(node.parent.coord,node.coord)
     rad = np.deg2rad(node.theta)
-    q = step*np.cos(rad)
-    v = step*np.sin(rad)
+    q = d*np.cos(rad)
+    v = d*np.sin(rad)
+
     # Plot vector
     ax.quiver(x, y, q, v, units='xy', angles='xy', scale=1, color=c, width=w)
 
