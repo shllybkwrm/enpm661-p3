@@ -14,13 +14,14 @@ import matplotlib.pyplot as plt
 # The outer square is 10,200mm but I only used the inner
 w = 10000
 h = 10000
-rob_radius=354/2
-w_radius=76/2
+rob_radius=354//2
+w_radius=76//2
+w_circ = np.pi*76
 # TB2 max speed:  .65 m/s
 
-def convert_RPM_mps (RPM):
-    V=(RPM*2*np.pi)/60
-    return V
+def convert_RPM_mmps (RPM):
+    return ( (RPM/60)*w_circ )
+    
 
 ####IF WE HAVE TIME WE SHOULD CHANGE THIS INTO A GUI AND GET ALL INPUTS ONE TIME
 ##### Input functions #####
@@ -37,14 +38,14 @@ def get_parameters():
 ##    elif int(ans)>10:  step=10
 ##    else:  step=int(ans)
     ans=(input("Enter the left wheel speed in RPM (default=5): "))
-    if ans=='':  RPM1=5
-    else:  RPM1=int(ans)
+    if ans=='':  RPM_L=5
+    else:  RPM_L=int(ans)
     ans=(input("Enter the right wheel speed in RPM (default=5): "))
-    if ans=='':  RPM2=5
-    else:  RPM2=int(ans) 
+    if ans=='':  RPM_R=5
+    else:  RPM_R=int(ans) 
 
 ##    return radius, clearance, step, RPM1, RPM2
-    return clearance, RPM1, RPM2
+    return clearance, RPM_L, RPM_R
 
 def get_start():
     print("\nPlease enter the initial coordinates of the robot.")
@@ -83,7 +84,7 @@ def drotmatrix(point,angle):
 
 
 # Get input parameters
-clearance, RPM1,RPM2 = get_parameters()  #Changed from proj 3-2 
+clearance, RPM_L, RPM_R = get_parameters()  #Changed from proj 3-2 
 start_point, theta_s = get_start()
 goal_point = get_goal()  #Changed from proj 3-2 
 print()
@@ -229,6 +230,8 @@ def generate_node_successor(coord,thetaIn,action,action_id):
     r=w_radius
     L=rob_radius
     dt=0.1
+    X0=coord[0]
+    Y0=coord[1]
     X1=0
     Y1=0
     dtheta=0
@@ -236,58 +239,57 @@ def generate_node_successor(coord,thetaIn,action,action_id):
 
     while t<1:
         t=t+dt
-        coord[0]=coord[0]+X1
-        coord[1]=coord[1]+Y1
-        dx=r*(action[0]+action[1])*math.cos(ThetaRad)*dt  # CHECK THIS
+        X0+=X1
+        Y0+=Y1
+
+        # Note:  These should be velocities, not RPM!
+        # Converted them in parent A* function
+        dx=r*(action[0]+action[1])*math.cos(ThetaRad)*dt
         dy=r*(action[0]+action[1])*math.sin(ThetaRad)*dt
         dtheta=(r/L)*(action[1]-action[0])*dt
+
         X1+=dx
         Y1+=dy
         ThetaRad+=0.5*dtheta
-        ### May want to plot here to show the discretized curve?
-    
-    Xfinal=coord[0]+X1
-    Yfinal=coord[1]+Y1
-    ThetaDeg=np.rad2deg(ThetaRad)
-    print("final child coords & angle: ", Xfinal,Yfinal,ThetaDeg, "from action", action_id)
-    new_point=np.array([Xfinal,Yfinal])
 
-    ### Check for duplicates
-    # Check bounds accounting for origin at center
-    if Xfinal<-w/2 or Xfinal>w/2:  
+        # Plot here to get a curve rather than vector
+        ax.quiver(X0, Y0, X1, Y1, units='xy', scale=1, color='k', width=0.2, headwidth=1, headlength=0)
+    
+    Xn=X0+X1
+    Yn=X0+Y1
+    ThetaDeg=np.rad2deg(ThetaRad)
+    print("final child coords & angle: ", Xn,Yn,ThetaDeg, "from action", action_id)
+    new_point=np.array([Xn,Yn])
+
+    ### Check bounds accounting for origin at center
+    if Xn<-w/2 or Xn>w/2:  
         return [],[]
-    if Yfinal<-h/2 or Yfinal>h/2:
+    if Yn<-h/2 or Yn>h/2:
         return [],[]
     # Check collisions
     if inside_obstacle([new_point]): 
         return [],[]
     
+    ### Check for duplicates
     # Discretize to nearest 100mm
     new_point = np.round(new_point/spacing, decimals=0)
-    x_dis = int(new_point[0])
-    y_dis = int(new_point[1])
-    # Adjust coords to be positive for matrix (already checked bounds so this should be ok)
-    if x_dis<0:  x_dis+=w_dis//2
-    if y_dis<0:  y_dis+=h_dis//2
+    # Adjust coords to be in [0,max] for visited matrix rather than center at origin (already checked bounds so this should be ok)
+    #if x_dis<0:  x_dis+=w_dis//2
+    #if y_dis<0:  y_dis+=h_dis//2
+    x_dis = int(new_point[0]) + w_dis//2
+    y_dis = int(new_point[1]) + h_dis//2
     if visited_matrix[x_dis, y_dis, action_id]:
-        print(">> Point already visited: ", Xfinal,Yfinal, ThetaDeg)
+        print(">> Point already visited: ", Xn,Yn,ThetaDeg)
         return [],[]
     else:
         visited_matrix[x_dis, y_dis, action_id] = True
         
     # Note:  append the originally calculated point, not the rounded version
-    new_positions.append([Xfinal,Yfinal])
+    new_positions.append([Xn,Yn])
     thetas.append(ThetaDeg)
 
     return new_positions, thetas
 
-
-##actions=[[0,RPM1],[RPM1,0],[RPM1,RPM1],[0,RPM2],[RPM2,0],[RPM2,RPM2],[RPM1,RPM2],[RPM2,RPM1]]
-##action_count=0
-##for action in actions:
-##    action_count+=1
-##    pos,angle=generate_node_successor(start_point,theta_s)
-##    print("position ", pos,"angle ", angle)
 
 
 ### Plot FROM parent TO node at node angle (angle of arrival)
@@ -314,8 +316,17 @@ def get_gscore(previous,current):
 def get_hscore(current):
     return distance_2(current, goal_point)
 
+
+##actions=[[0,RPM1],[RPM1,0],[RPM1,RPM1],[0,RPM2],[RPM2,0],[RPM2,RPM2],[RPM1,RPM2],[RPM2,RPM1]]
+
+
 def graph_search(start_point,goal_point):
-    actions=[[0,RPM1],[RPM1,0],[RPM1,RPM1],[0,RPM2],[RPM2,0],[RPM2,RPM2],[RPM1,RPM2],[RPM2,RPM1]]
+    #actions=[[0,RPM_L],[RPM_L,0],[RPM_L,RPM_L],[0,RPM_R],[RPM_R,0],[RPM_R,RPM_R],[RPM_L,RPM_R],[RPM_R,RPM_L]]
+    u_L = convert_RPM_mmps(RPM_L)
+    u_R = convert_RPM_mmps(RPM_R)
+    actions=[ [0,u_L], [u_L,0], [u_L,u_L], [0,u_R], [u_R,0], [u_R,u_R], [u_L,u_R], [u_R,u_L] ]
+
+
     start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s) 
     node_q = [start_node]  # put the startNode on the openList with f=0
     explored_nodes = [] # points visited
