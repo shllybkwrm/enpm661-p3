@@ -6,7 +6,8 @@ import time
 import numpy as np
 from matplotlib.path import Path
 from matplotlib.patches import PathPatch
-from matplotlib.patches import Ellipse
+from matplotlib.patches import Rectangle
+from matplotlib.collections import PatchCollection
 import matplotlib.pyplot as plt
 
 
@@ -17,10 +18,13 @@ h = 10000
 rob_radius=354//2
 w_radius=76//2
 w_circ = np.pi*76
-# TB2 max speed:  .65 m/s
 
+# TB2 max speed:  650 mm/s
 def convert_RPM_mmps (RPM):
-    return ( (RPM/60)*w_circ )
+    V =  (RPM/60)*w_circ
+    if V>650: return 650
+    elif V<0: return 0
+    else:  return V
     
 
 ####IF WE HAVE TIME WE SHOULD CHANGE THIS INTO A GUI AND GET ALL INPUTS ONE TIME
@@ -30,8 +34,8 @@ def get_parameters():
 ##    ans=(input("Enter the radius (default=3): "))
 ##    if ans=='':  radius=3
 ##    else:  radius=int(ans)
-    ans=(input("Enter the obstacle clearance (default=50mm): "))
-    if ans=='':  clearance=50
+    ans=(input("Enter the obstacle clearance in mm (default=10): "))
+    if ans=='':  clearance=10
     else:  clearance=int(ans)
 ##    ans=(input("Enter the robot step size (1-10, default=1): "))
 ##    if ans=='' or int(ans)<1:  step=1
@@ -48,27 +52,27 @@ def get_parameters():
     return clearance, RPM_L, RPM_R
 
 def get_start():
-    print("\nPlease enter the initial coordinates of the robot.")
-    ans=(input("Enter the x coordinate (default=1000mm): "))
-    if ans=='':  x=1000
+    print("\nPlease enter the initial coordinates of the robot.  The map origin is at the center.")
+    ans=(input("Enter the x coordinate in mm (default=2000): "))
+    if ans=='':  x=2000
     else:  x=int(ans)
-    ans=(input("Enter the y coordinate (default=1000mm): "))
-    if ans=='':  y=1000
+    ans=(input("Enter the y coordinate in mm (default=0): "))
+    if ans=='':  y=0
     
     else:  y=int(ans)
-    ans=(input("Enter the starting theta (30-deg increments, default=60): "))
-    if ans=='':  theta_s=60
+    ans=(input("Enter the starting theta in degrees (default=45): "))
+    if ans=='':  theta_s=45
     else:  theta_s=int(ans)
 
     return [x, y], theta_s
 
 def get_goal():
     print("\nPlease enter the coordinates of the robot's goal.")
-    ans=(input("Enter the target x coordinate (default=3000mm): "))
+    ans=(input("Enter the target x coordinate in mm (default=3000): "))
     if ans=='':  x=3000
     else:  x=int(ans)
-    ans=(input("Enter the target y coordinate (default=2000mm): "))
-    if ans=='':  y=2000
+    ans=(input("Enter the target y coordinate in mm (default=1500): "))
+    if ans=='':  y=1500
     else:  y=int(ans)
 
     return [x, y]
@@ -78,7 +82,7 @@ def drotmatrix(point,angle):
     R=np.array([[np.cos(np.deg2rad(angle)),-(np.sin(np.deg2rad(angle)))],[np.sin(np.deg2rad(angle)),np.cos(np.deg2rad(angle))]])
     b=np.array(point).transpose()
 ##    b=np.array(point)
-    print(np.dot(R,b))
+    #print(np.dot(R,b))
 ##    print(np.dot(b,R))
     return np.dot(R,b)
 
@@ -88,12 +92,16 @@ clearance, RPM_L, RPM_R = get_parameters()  #Changed from proj 3-2
 start_point, theta_s = get_start()
 goal_point = get_goal()  #Changed from proj 3-2 
 print()
+
+
+# NOTE:  Map goes from negative to positive with origin at center.  No need to change coords.
+
 ########### SET ROBOT COORDINATE ##############
 ### Adjusted to be in matplotlib coords
-robot_x_coord=start_point[0]+w//2
-robot_y_coord=start_point[1]+h//2
-goal_x_coord=goal_point[0]+w//2
-goal_y_coord=goal_point[1]+h//2
+robot_x_coord=start_point[0]#+w//2
+robot_y_coord=start_point[1]#+h//2
+goal_x_coord=goal_point[0]#+w//2
+goal_y_coord=goal_point[1]#+h//2
 
 robot_breadth=2*rob_radius 
 robot_height= 2*rob_radius
@@ -113,12 +121,12 @@ rcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
 rvertices = [((robot_x_coord-robot_breadth/2), (robot_y_coord-robot_height/2)), ((robot_x_coord-robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord-robot_height/2)), (0, 0)]
 robot = Path(rvertices,rcodes)
 robotpatch = PathPatch(robot, facecolor='green', edgecolor='green')
-print("vertices ",rvertices,"shape ", np.shape(rvertices))
+#print("vertices ",rvertices,"shape ", np.shape(rvertices))
 rotvertices=[]
 for i in np.array(rvertices):
     i=np.array(i)
     t=i-rvertices[0]
-    print("t",t)
+    #print("t",t)
     roti=drotmatrix(t,theta_s)
     rotvertices.append((roti+rvertices[0]))
 ##print("new vertices ",rotvertices,"shape ", np.shape(rotvertices))
@@ -133,39 +141,51 @@ goal = Path(gvertices,gcodes)
 goalpatch = PathPatch(goal, facecolor='red', edgecolor='red')
 
 
-######### CIRCLE OBSTACLES #####################
-circle1=Path.circle((5000,5000),radius=1000,readonly=False)
-circle2=Path.circle((3000,2000),radius=1000,readonly=False)
-circle3=Path.circle((7200,2000),radius=1000,readonly=False)
-circle4=Path.circle((7200,8000),radius=1000,readonly=False)
+########## CIRCLE OBSTACLES #####################
+#circle1=Path.circle((5000,5000),radius=1000,readonly=False)
+#circle2=Path.circle((3000,2000),radius=1000,readonly=False)
+#circle3=Path.circle((7200,2000),radius=1000,readonly=False)
+#circle4=Path.circle((7200,8000),radius=1000,readonly=False)
+circle1=Path.circle((0,0),radius=1000,readonly=False)
+circle2=Path.circle((-2000,-3000),radius=1000,readonly=False)
+circle3=Path.circle((2000,-3000),radius=1000,readonly=False)
+circle4=Path.circle((2000,3000),radius=1000,readonly=False)
 pathpatch1 = PathPatch(circle1, facecolor='None', edgecolor='blue')
 pathpatch2 = PathPatch(circle2, facecolor='None', edgecolor='blue')
 pathpatch3 = PathPatch(circle3, facecolor='None', edgecolor='blue')
 pathpatch4 = PathPatch(circle4, facecolor='None', edgecolor='blue')
+#circlepatches = PatchCollection([circle1,circle3,circle3,circle4], facecolor='None', edgecolor='blue')
 ############# RECTANGULAR OBSTACLES #############
-vertices = []
-codes = []
+square1 = Rectangle((-2500,2000), 1500, 1500, fill=False)
+square2 = Rectangle((-4750,-1000), 1500, 1500, fill=False)
+square3 = Rectangle((3250,-1000), 1500, 1500, fill=False)
+squarepatches = PatchCollection([square1,square2,square3], facecolor='None', edgecolor='blue')
 ########## POLYGON OBSTACLES ###################
-codes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
-vertices = [(250,5250), (1750,5250), (1750,3750), (250,3750),(0, 0)]
-codes += [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
-vertices += [(2250,8750), (3750,8750), (3750,7250), (2250,7250), (0, 0)]
-codes += [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
-vertices += [(8450,5250), (9950,5250), (9950,3750), (8450,3750), (0, 0)]
-vertices = np.array(vertices, float)
-path = Path(vertices, codes)
-pathpatch = PathPatch(path, facecolor='None', edgecolor='blue')
+#vertices = []
+#codes = []
+#codes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
+#vertices = [(250,5250), (1750,5250), (1750,3750), (250,3750),(0, 0)]
+#codes += [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
+#vertices += [(2250,8750), (3750,8750), (3750,7250), (2250,7250), (0, 0)]
+#codes += [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
+#vertices += [(8450,5250), (9950,5250), (9950,3750), (8450,3750), (0, 0)]
+#vertices = np.array(vertices, float)
+#polygon_path = Path(vertices, codes)
+#polygon_pathpatch = PathPatch(polygon_path, facecolor='None', edgecolor='blue')
 
 
 ####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
 def inside_obstacle(points):
     effective_clearance = clearance
-    inside_polygons = (path.contains_points(points, radius=effective_clearance))#true if it is inside the polygon,otherwise false
     inside_circle1= (circle1.contains_points(points,radius=effective_clearance))
     inside_circle2= (circle2.contains_points(points,radius=effective_clearance))
     inside_circle3= (circle3.contains_points(points,radius=effective_clearance))
     inside_circle4= (circle4.contains_points(points,radius=effective_clearance))
-    return (all(inside_polygons==True) or all(inside_circle1==True) or all(inside_circle2==True) or all(inside_circle3==True) or all(inside_circle4==True) )
+    inside_square1= (square1.get_path().contains_points(points,radius=effective_clearance))
+    inside_square2= (square1.get_path().contains_points(points,radius=effective_clearance))
+    inside_square3= (square1.get_path().contains_points(points,radius=effective_clearance))
+    #inside_polygons = (polygon_path.contains_points(points, radius=effective_clearance))#true if it is inside the polygon,otherwise false
+    return (all(inside_circle1==True) or all(inside_circle2==True) or all(inside_circle3==True) or all(inside_circle4==True) or all(inside_square1==True) or all(inside_square2==True) or all(inside_square3==True) )
 
 if inside_obstacle(goal_points):
     print(">> Error:  goal is inside obstacle!")
@@ -179,16 +199,19 @@ elif inside_obstacle(robot_points):
 ########## PLOTTING #####################
 fig, ax = plt.subplots()
 plt.axis('square')
-plt.xlim(0,w)
-plt.ylim(0,h)
+plt.xlim(-w/2,w/2)
+plt.ylim(-h/2,h/2)
 #ax.autoscale_view()
 ax.add_patch(rotrobotpatch)
 ax.add_patch(goalpatch)
-ax.add_patch(pathpatch)
 ax.add_patch(pathpatch1)
 ax.add_patch(pathpatch2)
 ax.add_patch(pathpatch3)
 ax.add_patch(pathpatch4)
+#ax.add_collection(circlepatches)
+ax.add_collection(squarepatches)
+#ax.add_patch(polygon_pathpatch)
+ax.set_aspect('equal')
 ax.set_title('Map Space')
 #plt.show()
 
@@ -226,15 +249,17 @@ visited_matrix[start_point[0]//spacing, start_point[1]//spacing, i] = True
 def generate_node_successor(coord,thetaIn,action,action_id):    
     new_positions=[]
     thetas=[]
-    t=0
     r=w_radius
     L=rob_radius
-    dt=0.1
+    t=0.0
+    dt=0.1  # e.g. 10 steps
     X0=coord[0]
     Y0=coord[1]
-    X1=0
-    Y1=0
-    dtheta=0
+    X1=0.0
+    Y1=0.0
+    dx=0.0
+    dy=0.0
+    dtheta=0.0
     ThetaRad=np.deg2rad(thetaIn)
 
     while t<1:
@@ -242,32 +267,40 @@ def generate_node_successor(coord,thetaIn,action,action_id):
         X0+=X1
         Y0+=Y1
 
-        # Note:  These should be velocities, not RPM!
-        # Converted them in parent A* function
-        dx=r*(action[0]+action[1])*math.cos(ThetaRad)*dt
-        dy=r*(action[0]+action[1])*math.sin(ThetaRad)*dt
+        # Note:  These should be rotational velocities of wheels...?
+        dx=(r/2)*(action[0]+action[1])*math.cos(ThetaRad)*dt
+        dy=(r/2)*(action[0]+action[1])*math.sin(ThetaRad)*dt
         dtheta=(r/L)*(action[1]-action[0])*dt
 
         X1+=dx
         Y1+=dy
         ThetaRad+=0.5*dtheta
 
+        # Check collisions at every point on path
+        if inside_obstacle([[X1,Y1]]): 
+            #print(">> Collides with obstacle!")
+            return [],[]
+
         # Plot here to get a curve rather than vector
-        ax.quiver(X0, Y0, X1, Y1, units='xy', scale=1, color='k', width=0.2, headwidth=1, headlength=0)
+        ax.quiver(X0, Y0, X1, Y1, units='xy', scale=1, color='b', width=0.2, headwidth=1, headlength=0)
     
     Xn=X0+X1
     Yn=X0+Y1
-    ThetaDeg=np.rad2deg(ThetaRad)
-    print("final child coords & angle: ", Xn,Yn,ThetaDeg, "from action", action_id)
+    ThetaDeg=np.rad2deg(ThetaRad) % 360
+    #print("Final child:  (%.2f, %.2f), %.2f deg" %(Xn,Yn,ThetaDeg), "from action", action_id)
     new_point=np.array([Xn,Yn])
+    
+    # Check collisions again
+    if inside_obstacle([new_point]): 
+        #print(">> Collides with obstacle!")
+        return [],[]
 
     ### Check bounds accounting for origin at center
-    if Xn<-w/2 or Xn>w/2:  
+    if Xn<=-w/2 or Xn>=w/2:
+        print(">> Out of bounds")
         return [],[]
-    if Yn<-h/2 or Yn>h/2:
-        return [],[]
-    # Check collisions
-    if inside_obstacle([new_point]): 
+    if Yn<=-h/2 or Yn>=h/2:
+        print(">> Out of bounds")
         return [],[]
     
     ### Check for duplicates
@@ -276,17 +309,19 @@ def generate_node_successor(coord,thetaIn,action,action_id):
     # Adjust coords to be in [0,max] for visited matrix rather than center at origin (already checked bounds so this should be ok)
     #if x_dis<0:  x_dis+=w_dis//2
     #if y_dis<0:  y_dis+=h_dis//2
-    x_dis = int(new_point[0]) + w_dis//2
-    y_dis = int(new_point[1]) + h_dis//2
+    x_dis = int(new_point[0]) + w_dis//2 -1
+    y_dis = int(new_point[1]) + h_dis//2 -1
     if visited_matrix[x_dis, y_dis, action_id]:
-        print(">> Point already visited: ", Xn,Yn,ThetaDeg)
+        print(">> Point already visited: ", x_dis,y_dis,action_id)
         return [],[]
     else:
         visited_matrix[x_dis, y_dis, action_id] = True
         
-    # Note:  append the originally calculated point, not the rounded version
+    # Note:  append the originally calculated point, not the discretized version
+    # Should we round these to ints??
     new_positions.append([Xn,Yn])
     thetas.append(ThetaDeg)
+    print("New child:  (%.2f, %.2f), %.2f deg" %(Xn,Yn,ThetaDeg), "from action", action_id)
 
     return new_positions, thetas
 
@@ -296,9 +331,8 @@ def generate_node_successor(coord,thetaIn,action,action_id):
 # Change this to draw curves??
 def plot_vector(node, c='k', w=0.025):
     if node.parent==None:  return
-    # Adjust for origin
-    x=node.parent.coord[0]+w//2
-    y=node.parent.coord[1]+h//2
+    x=node.parent.coord[0]
+    y=node.parent.coord[1]
 
     d = distance_2(node.parent.coord,node.coord)
     rad = np.deg2rad(node.theta)
@@ -321,10 +355,11 @@ def get_hscore(current):
 
 
 def graph_search(start_point,goal_point):
-    #actions=[[0,RPM_L],[RPM_L,0],[RPM_L,RPM_L],[0,RPM_R],[RPM_R,0],[RPM_R,RPM_R],[RPM_L,RPM_R],[RPM_R,RPM_L]]
-    u_L = convert_RPM_mmps(RPM_L)
-    u_R = convert_RPM_mmps(RPM_R)
-    actions=[ [0,u_L], [u_L,0], [u_L,u_L], [0,u_R], [u_R,0], [u_R,u_R], [u_L,u_R], [u_R,u_L] ]
+    actions=[[0,RPM_L],[RPM_L,0],[RPM_L,RPM_L],[0,RPM_R],[RPM_R,0],[RPM_R,RPM_R],[RPM_L,RPM_R],[RPM_R,RPM_L]]
+    #u_L = convert_RPM_mmps(RPM_L)
+    #u_R = convert_RPM_mmps(RPM_R)
+    #actions=[ [0,u_L], [u_L,0], [u_L,u_L], [0,u_R], [u_R,0], [u_R,u_R], [u_L,u_R], [u_R,u_L] ]
+    print("Action set: ", actions, '\n')
 
 
     start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s) 
@@ -338,6 +373,10 @@ def graph_search(start_point,goal_point):
 
     ##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING 
     while node_q: #while the OPEN list is not empty
+        
+        plt.show(block=False)
+        plt.pause(0.1)
+
         current_root = node_q[0]##############################change current root to equal node with smallest f value#############
         current_index = 0
         for index,thing in enumerate(node_q):#let the currentNode equal the node with the lowest cost
@@ -347,7 +386,8 @@ def graph_search(start_point,goal_point):
         node_q.pop(current_index)
         explored_nodes.append(current_root)
         plot_vector(current_root)
-        print("> Current node & dist: ", current_root.coord, current_root.theta, current_root.f)
+        print("> Exploring node (%.2f, %.2f) %.2f deg with score %.2f" %(current_root.coord[0], current_root.coord[1], current_root.theta, current_root.f))
+
         # Incorporate radius for reaching goal (currently 100mm)
         coord_min = [current_root.coord[0]-spacing, current_root.coord[1]-spacing]
         coord_max = [current_root.coord[0]+spacing, current_root.coord[1]+spacing]
