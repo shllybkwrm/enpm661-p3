@@ -54,8 +54,8 @@ def get_parameters():
 
 def get_start():
     print("\nEnter the initial coordinates of the robot.  The map origin is at the center.")
-    ans=(input("Enter the x coordinate in mm (default=2000): "))
-    if ans=='':  x=2000
+    ans=(input("Enter the x coordinate in mm (default=-2000): "))
+    if ans=='':  x=-2000
     else:  x=int(ans)
     ans=(input("Enter the y coordinate in mm (default=0): "))
     if ans=='':  y=0
@@ -164,14 +164,14 @@ square3 = Rectangle((3250,-1000), 1500, 1500, fill=False)
 squarepatches = PatchCollection([square1,square2,square3], facecolor='None', edgecolor='blue')
 ########## POLYGON OBSTACLES ###################
 # Only for obstacle check - for some reason the other version didn't work
-#codes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
-#vertices = [(-2500,2000), (-2500,3500), (-1000,3500), (-1000,2000),(0, 0)]
-#codes += [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
-#vertices += [(-4750,-1000), (-4750,500), (-3250,500), (-3250,-1000), (0, 0)]
-#codes += [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
-#vertices += [(3250,-1000), (3250,500), (4750,500), (4750,-1000), (0, 0)]
-#vertices = np.array(vertices, float)
-#polygon_path = Path(vertices, codes)
+codes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
+vertices = [(-2500,2000), (-2500,3500), (-1000,3500), (-1000,2000),(0, 0)]
+codes += [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
+vertices += [(-4750,-1000), (-4750,500), (-3250,500), (-3250,-1000), (0, 0)]
+codes += [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
+vertices += [(3250,-1000), (3250,500), (4750,500), (4750,-1000), (0, 0)]
+vertices = np.array(vertices, float)
+polygon_path = Path(vertices, codes)
 #polygon_pathpatch = PathPatch(polygon_path, facecolor='None', edgecolor='blue')
 
 
@@ -185,8 +185,8 @@ def inside_obstacle(points):
     inside_square1= (square1.get_path().contains_points(points,radius=effective_clearance))
     inside_square2= (square2.get_path().contains_points(points,radius=effective_clearance))
     inside_square3= (square3.get_path().contains_points(points,radius=effective_clearance))
-    #inside_polygons = (polygon_path.contains_points(points, radius=effective_clearance))
-    return (all(inside_circle1==True) or all(inside_circle2==True) or all(inside_circle3==True) or all(inside_circle4==True) or all(inside_square1==True) or all(inside_square2==True) or all(inside_square3==True) ) # or all(inside_polygons==True) )
+    inside_polygons = (polygon_path.contains_points(points, radius=effective_clearance))
+    return (all(inside_circle1==True) or all(inside_circle2==True) or all(inside_circle3==True) or all(inside_circle4==True) or all(inside_square1==True) or all(inside_square2==True) or all(inside_square3==True) or all(inside_polygons==True) )
 
 if inside_obstacle(goal_points):
     print(">> Error:  goal is inside obstacle!")
@@ -386,8 +386,8 @@ def graph_search(start_point,goal_point):
                 current_index = index
         node_q.pop(current_index)
         explored_nodes.append(current_root)
-        # Maybe change this to plot points?
-        plot_vector(current_root)
+        # Maybe change this to plot points explored from?
+        #plot_vector(current_root)
         print("> Exploring node (%.2f, %.2f) %.2f deg with score %.2f" %(current_root.coord[0], current_root.coord[1], current_root.theta, current_root.f))
 
         # Incorporate radius for reaching goal 
@@ -443,7 +443,7 @@ def find_path(node):  # To find the path from the goal node to the starting node
     parent_node = node.parent
     while parent_node is not None:
         p.append(parent_node.coord)
-        plot_vector(parent_node, 'g', w=0.4)
+        plot_vector(parent_node, 'g', w=0.5)
         parent_node = parent_node.parent
 
     return list(reversed(p))
