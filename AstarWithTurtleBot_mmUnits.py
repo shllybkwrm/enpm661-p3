@@ -54,11 +54,11 @@ def get_parameters():
 
 def get_start():
     print("\nEnter the initial coordinates of the robot.  The map origin is at the center.")
-    ans=(input("Enter the x coordinate in mm (default=-2000): "))
-    if ans=='':  x=-2000
+    ans=(input("Enter the x coordinate in mm (default=-4000): "))
+    if ans=='':  x=-4000
     else:  x=int(ans)
-    ans=(input("Enter the y coordinate in mm (default=0): "))
-    if ans=='':  y=0
+    ans=(input("Enter the y coordinate in mm (default=-3000): "))
+    if ans=='':  y=-3000
     
     else:  y=int(ans)
     ans=(input("Enter the starting theta in degrees (default=45): "))
