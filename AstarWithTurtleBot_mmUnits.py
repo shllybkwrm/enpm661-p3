@@ -39,10 +39,10 @@ def get_parameters():
 ##    if ans=='' or int(ans)<1:  step=1
 ##    elif int(ans)>10:  step=10
 ##    else:  step=int(ans)
-    ans=(input("Enter the left wheel speed in RPM (default=2, max=%.2f): "  %max_RPM))
+    ans=(input("Enter the left wheel speed in RPM (default=1, max=%.2f): "  %max_RPM))
     if ans=='':  RPM_L=2
     else:  RPM_L=int(ans)
-    ans=(input("Enter the right wheel speed in RPM (default=2, max=%.2f): " %max_RPM))
+    ans=(input("Enter the right wheel speed in RPM (default=1, max=%.2f): " %max_RPM))
     if ans=='':  RPM_R=2
     else:  RPM_R=int(ans) 
     ans=(input("Enter the obstacle clearance in mm (default=10): "))
@@ -69,11 +69,11 @@ def get_start():
 
 def get_goal():
     print("\nEnter the coordinates of the robot's goal.")
-    ans=(input("Enter the target x coordinate in mm (default=3000): "))
-    if ans=='':  x=3000
+    ans=(input("Enter the target x coordinate in mm (default=4000): "))
+    if ans=='':  x=4000
     else:  x=int(ans)
-    ans=(input("Enter the target y coordinate in mm (default=1500): "))
-    if ans=='':  y=1500
+    ans=(input("Enter the target y coordinate in mm (default=3000): "))
+    if ans=='':  y=3000
     else:  y=int(ans)
 
     return [x, y]
@@ -117,28 +117,30 @@ goal_points  = get_points( goal_x_coord, goal_y_coord)
 #print(robot_points==goal_points)
 
 
-############# PLOTTING THE ROBOT - change to circle? ################
-rcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
-rvertices = [((robot_x_coord-robot_breadth/2), (robot_y_coord-robot_height/2)), ((robot_x_coord-robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord-robot_height/2)), (0, 0)]
-robot = Path(rvertices,rcodes)
+############# PLOTTING THE ROBOT - changed to circle, can see rotation from plotted curves ################
+#rcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
+#rvertices = [((robot_x_coord-robot_breadth/2), (robot_y_coord-robot_height/2)), ((robot_x_coord-robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord+robot_height/2)), ((robot_x_coord+robot_breadth/2), (robot_y_coord-robot_height/2)), (0, 0)]
+#robot = Path(rvertices,rcodes)
+robot = Path.circle((robot_x_coord,robot_y_coord), radius=rob_radius)
 robotpatch = PathPatch(robot, facecolor='green', edgecolor='green')
 #print("vertices ",rvertices,"shape ", np.shape(rvertices))
-rotvertices=[]
-for i in np.array(rvertices):
-    i=np.array(i)
-    t=i-rvertices[0]
-    #print("t",t)
-    roti=drotmatrix(t,theta_s)
-    rotvertices.append((roti+rvertices[0]))
-##print("new vertices ",rotvertices,"shape ", np.shape(rotvertices))
-rotcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
-rotrobot = Path(rotvertices,rotcodes)
-rotrobotpatch = PathPatch(rotrobot, facecolor='blue', edgecolor='blue')
+#rotvertices=[]
+#for i in np.array(rvertices):
+#    i=np.array(i)
+#    t=i-rvertices[0]
+#    #print("t",t)
+#    roti=drotmatrix(t,theta_s)
+#    rotvertices.append((roti+rvertices[0]))
+###print("new vertices ",rotvertices,"shape ", np.shape(rotvertices))
+#rotcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
+#rotrobot = Path(rotvertices,rotcodes)
+#rotrobotpatch = PathPatch(rotrobot, facecolor='blue', edgecolor='blue')
 
-########### PLOTTING THE GOAL - change to circle? ################
-gcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
-gvertices = [((goal_x_coord-robot_breadth/2), (goal_y_coord-robot_height/2)), ((goal_x_coord-robot_breadth/2), (goal_y_coord+robot_height/2)), ((goal_x_coord+robot_breadth/2), (goal_y_coord+robot_height/2)), ((goal_x_coord+robot_breadth/2), (goal_y_coord-robot_height/2)), (0, 0)]
-goal = Path(gvertices,gcodes)
+########### PLOTTING THE GOAL - changed to circle ################
+#gcodes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
+#gvertices = [((goal_x_coord-robot_breadth/2), (goal_y_coord-robot_height/2)), ((goal_x_coord-robot_breadth/2), (goal_y_coord+robot_height/2)), ((goal_x_coord+robot_breadth/2), (goal_y_coord+robot_height/2)), ((goal_x_coord+robot_breadth/2), (goal_y_coord-robot_height/2)), (0, 0)]
+#goal = Path(gvertices,gcodes)
+goal = Path.circle((goal_x_coord,goal_y_coord), radius=rob_radius)
 goalpatch = PathPatch(goal, facecolor='red', edgecolor='red')
 
 
@@ -177,7 +179,7 @@ polygon_path = Path(vertices, codes)
 
 ####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
 def inside_obstacle(points):
-    effective_clearance = clearance
+    effective_clearance = clearance+rob_radius//2
     inside_circle1= (circle1.contains_points(points,radius=effective_clearance))
     inside_circle2= (circle2.contains_points(points,radius=effective_clearance))
     inside_circle3= (circle3.contains_points(points,radius=effective_clearance))
@@ -203,7 +205,7 @@ plt.axis('square')
 plt.xlim(-w/2,w/2)
 plt.ylim(-h/2,h/2)
 #ax.autoscale_view()
-ax.add_patch(rotrobotpatch)
+ax.add_patch(robotpatch)
 ax.add_patch(goalpatch)
 ax.add_patch(pathpatch1)
 ax.add_patch(pathpatch2)
@@ -241,7 +243,6 @@ w_dis = w//spacing
 h_dis = h//spacing
 visited_matrix = np.zeros((w_dis,h_dis,8), dtype=bool)
 
-# Might need to change this for new action set
 degree_list=np.linspace(0, 360, 12, endpoint=False, dtype=int)
 i = np.where(degree_list==theta_s)
 visited_matrix[start_point[0]//spacing, start_point[1]//spacing, i] = True
@@ -280,15 +281,15 @@ def generate_node_successor(coord,thetaIn,action,action_id):
         # Check collisions at every point on path
         if inside_obstacle([[X0+X1,Y0+Y1]]): 
             #print(">> Collides with obstacle!")
-            return [],[]
+            #return [],[]
+            # Make sure this new point isn't included
+            X1=0
+            Y1=0
+            break
 
         # Plot here to get a curve rather than vector
-        ax.quiver(X0, Y0, X1, Y1, units='xy', scale=1, color='b', width=0.25, headwidth=1, headlength=0)
+        ax.quiver(X0, Y0, X1, Y1, units='xy', scale=1, color='k', width=0.3, headwidth=1, headlength=0)
     
-    
-    plt.show(block=False)
-    plt.pause(0.01)
-
     Xn=X0+X1
     Yn=Y0+Y1
     ThetaDeg=np.rad2deg(ThetaRad) % 360
@@ -327,25 +328,12 @@ def generate_node_successor(coord,thetaIn,action,action_id):
     new_positions.append([Xn,Yn])
     thetas.append(ThetaDeg)
     print("New child:  (%.2f, %.2f), %.2f deg" %(Xn,Yn,ThetaDeg), "from action", action_id)
+        
+    plt.show(block=False)
+    plt.pause(0.01)
 
     return new_positions, thetas
 
-
-
-### Plot FROM parent TO node at node angle (angle of arrival)
-# Change this to draw curves??
-def plot_vector(node, c='k', w=0.3):
-    if node.parent==None:  return
-    x=node.parent.coord[0]
-    y=node.parent.coord[1]
-
-    d = distance_2(node.parent.coord,node.coord)
-    rad = np.deg2rad(node.theta)
-    q = d*np.cos(rad)
-    v = d*np.sin(rad)
-
-    # Plot vector
-    ax.quiver(x, y, q, v, units='xy', angles='xy', scale=1, color=c, width=w)
 
 
 def get_gscore(previous,current):
@@ -386,13 +374,12 @@ def graph_search(start_point,goal_point):
                 current_index = index
         node_q.pop(current_index)
         explored_nodes.append(current_root)
-        # Maybe change this to plot points explored from?
-        #plot_vector(current_root)
+        # Should we plot which points are explored from?
         print("> Exploring node (%.2f, %.2f) %.2f deg with score %.2f" %(current_root.coord[0], current_root.coord[1], current_root.theta, current_root.f))
 
-        # Incorporate radius for reaching goal 
-        coord_min = [current_root.coord[0]-rob_radius, current_root.coord[1]-rob_radius]
-        coord_max = [current_root.coord[0]+rob_radius, current_root.coord[1]+rob_radius]
+        # Incorporate radius for reaching goal - the radius around the goal point, plus accounting for the robot's own radius
+        coord_min = [current_root.coord[0]-rob_radius*2, current_root.coord[1]-rob_radius*2]
+        coord_max = [current_root.coord[0]+rob_radius*2, current_root.coord[1]+rob_radius*2]
         if coord_min[0]<=goal_point[0]<=coord_max[0] and coord_min[1]<=goal_point[1]<=coord_max[1]:
             print("\nGoal reached:  ", current_root.coord, current_root.theta, current_root.f)
             return current_root
@@ -412,8 +399,7 @@ def graph_search(start_point,goal_point):
                 child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, f=tempg+temph, theta=theta)
 
                 #child_nodes.append(child_node)
-            # Redundant line, removing for efficiency
-            #for child in child_nodes:
+
                 # Adjusted this to replace explored nodes if the node is found again with a lower cost ###
                 for i,explored in enumerate(explored_nodes):
                     if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
@@ -432,6 +418,27 @@ def graph_search(start_point,goal_point):
     return None
 
 
+### Plot FROM parent TO node at node angle (angle of arrival)
+# Change this to draw curves??
+def plot_vector(node, c='k', w=0.3):
+    x2=node.coord[0]
+    y2=node.coord[1]
+    ax.scatter(x2, y2, s=w*2, color=c)
+
+    if node.parent==None:  return
+    x1=node.parent.coord[0]
+    y1=node.parent.coord[1]
+
+    #d = distance_2(node.parent.coord,node.coord)
+    #rad = np.deg2rad(node.theta)
+    #q = d*np.cos(rad)
+    #v = d*np.sin(rad)
+    q = x2-x1
+    v = y2-y1
+
+    # Plot vector
+    ax.quiver(x1, y1, q, v, units='xy', angles='xy', scale=1, color=c, width=w, headwidth=w, headlength=w*2)
+
 
 def find_path(node):  # To find the path from the goal node to the starting node
     if node==None:
@@ -443,7 +450,7 @@ def find_path(node):  # To find the path from the goal node to the starting node
     parent_node = node.parent
     while parent_node is not None:
         p.append(parent_node.coord)
-        plot_vector(parent_node, 'g', w=0.5)
+        plot_vector(parent_node, c='b', w=10)
         parent_node = parent_node.parent
 
     return list(reversed(p))
