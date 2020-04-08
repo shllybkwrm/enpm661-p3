@@ -39,11 +39,11 @@ def get_parameters():
 ##    if ans=='' or int(ans)<1:  step=1
 ##    elif int(ans)>10:  step=10
 ##    else:  step=int(ans)
-    ans=(input("Enter the left wheel speed in RPM (default=1, max=%.2f): "  %max_RPM))
-    if ans=='':  RPM_L=2
+    ans=(input("Enter the left wheel speed in RPM (default=25, max=%.2f): "  %max_RPM))
+    if ans=='':  RPM_L=25
     else:  RPM_L=int(ans)
-    ans=(input("Enter the right wheel speed in RPM (default=1, max=%.2f): " %max_RPM))
-    if ans=='':  RPM_R=2
+    ans=(input("Enter the right wheel speed in RPM (default=25, max=%.2f): " %max_RPM))
+    if ans=='':  RPM_R=25
     else:  RPM_R=int(ans) 
     ans=(input("Enter the obstacle clearance in mm (default=10): "))
     if ans=='':  clearance=10
@@ -247,57 +247,54 @@ degree_list=np.linspace(0, 360, 12, endpoint=False, dtype=int)
 i = np.where(degree_list==theta_s)
 visited_matrix[start_point[0]//spacing, start_point[1]//spacing, i] = True
 
-
+# Note:  Function updated with corrections from new file from TAs
 def generate_node_successor(coord,thetaIn,action,action_id):    
     new_positions=[]
     thetas=[]
+
     r=w_radius
     L=rob_radius
     t=0.0
     dt=0.1  # e.g. 10 steps
-    X0=coord[0]
-    Y0=coord[1]
-    X1=0.0
-    Y1=0.0
-    dx=0.0
-    dy=0.0
-    dtheta=0.0
-    ThetaRad=np.deg2rad(thetaIn)
+    Xn=coord[0]
+    Yn=coord[1]
+    Thetan=np.deg2rad(thetaIn)
+
+    ### Convert RPM to rad/sec
+    UL = action[0]*(1/60)*2*np.pi
+    UR = action[1]*(1/60)*2*np.pi
+
+# Xs, Ys: Start point coordinates for plot function
+# Xn, Yn, Thetan: End point coordintes
 
     while t<1:
         t=t+dt
-        X0+=X1
-        Y0+=Y1
+        Xs = Xn
+        Ys = Yn
 
-        # Note:  These should be using the rotational velocities of the wheels...?
-        dx=r*(action[0]+action[1])*math.cos(ThetaRad)*dt
-        dy=r*(action[0]+action[1])*math.sin(ThetaRad)*dt
-        dtheta=(r/L)*(action[1]-action[0])*dt
-
-        X1+=dx
-        Y1+=dy
-        ThetaRad+=0.5*dtheta
+        # Note:  These are using the rotational velocities of the wheels in rad/sec
+        Xn += 0.5 * r * (UL + UR) * math.cos(Thetan) * dt
+        Yn += 0.5 * r * (UL + UR) * math.sin(Thetan) * dt
+        Thetan += (r / L) * (UR - UL) * dt
 
         # Check collisions at every point on path
-        if inside_obstacle([[X0+X1,Y0+Y1]]): 
+        if inside_obstacle([[Xn,Yn]]): 
             #print(">> Collides with obstacle!")
             #return [],[]
-            # Make sure this new point isn't included
-            X1=0
-            Y1=0
+            # Make sure this new point isn't included (roll back changes)
+            Xn = Xs
+            Yn = Ys
             break
 
         # Plot here to get a curve rather than vector
-        ax.quiver(X0, Y0, X1, Y1, units='xy', scale=1, color='k', width=0.3, headwidth=1, headlength=0)
-    
-    Xn=X0+X1
-    Yn=Y0+Y1
-    ThetaDeg=np.rad2deg(ThetaRad) % 360
+        #ax.quiver(Xs, Ys, Xn-Xs, Yn-Ys, units='xy', scale=1, color='k', width=1, headwidth=1, headlength=0)
+        ax.plot([Xs, Xn], [Ys, Yn], linewidth=0.25, color='k')
+
+    ThetaDeg=np.rad2deg(Thetan) % 360
     #print("New child:  (%.2f, %.2f), %.2f deg" %(Xn,Yn,ThetaDeg), "from action", action_id)
-    new_point=np.array([Xn,Yn])
     
     # Check collisions again just in case?
-    if inside_obstacle([new_point]): 
+    if inside_obstacle([[Xn,Yn]]): 
         #print(">> Collides with obstacle!")
         return [],[]
 
@@ -311,7 +308,7 @@ def generate_node_successor(coord,thetaIn,action,action_id):
     
     ### Check for duplicates
     # Discretize to nearest 100mm
-    new_point = np.round(new_point/spacing, decimals=0)
+    new_point = np.round(np.array([Xn,Yn])/spacing, decimals=0)
     # Adjust coords to be in [0,max] for visited matrix rather than center at origin (already checked bounds so this should be ok)
     #if x_dis<0:  x_dis+=w_dis//2
     #if y_dis<0:  y_dis+=h_dis//2
