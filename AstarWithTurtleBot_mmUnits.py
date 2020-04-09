@@ -179,7 +179,7 @@ polygon_path = Path(vertices, codes)
 
 ####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
 def inside_obstacle(points):
-    effective_clearance = clearance+rob_radius//2
+    effective_clearance = clearance+rob_radius
     inside_circle1= (circle1.contains_points(points,radius=effective_clearance))
     inside_circle2= (circle2.contains_points(points,radius=effective_clearance))
     inside_circle3= (circle3.contains_points(points,radius=effective_clearance))
