@@ -26,7 +26,7 @@ def convert_RPM_mmps (RPM):
     if V>650: return 650
     elif V<0: return 0
     else:  return V
-    
+
 
 ####IF WE HAVE TIME WE SHOULD CHANGE THIS INTO A GUI AND GET ALL INPUTS ONE TIME
 ##### Input functions #####
@@ -39,12 +39,12 @@ def get_parameters():
 ##    if ans=='' or int(ans)<1:  step=1
 ##    elif int(ans)>10:  step=10
 ##    else:  step=int(ans)
-    ans=(input("Enter the left wheel speed in RPM (default=25, max=%.2f): "  %max_RPM))
-    if ans=='':  RPM_L=25
+    ans=(input("Enter the left wheel speed in RPM (default=75, max=%.2f): "  %max_RPM))
+    if ans=='':  RPM_L=75
     else:  RPM_L=int(ans)
-    ans=(input("Enter the right wheel speed in RPM (default=25, max=%.2f): " %max_RPM))
-    if ans=='':  RPM_R=25
-    else:  RPM_R=int(ans) 
+    ans=(input("Enter the right wheel speed in RPM (default=75, max=%.2f): " %max_RPM))
+    if ans=='':  RPM_R=75
+    else:  RPM_R=int(ans)
     ans=(input("Enter the obstacle clearance in mm (default=10): "))
     if ans=='':  clearance=10
     else:  clearance=int(ans)
@@ -59,7 +59,7 @@ def get_start():
     else:  x=int(ans)
     ans=(input("Enter the y coordinate in mm (default=-3000): "))
     if ans=='':  y=-3000
-    
+
     else:  y=int(ans)
     ans=(input("Enter the starting theta in degrees (default=45): "))
     if ans=='':  theta_s=45
@@ -89,9 +89,9 @@ def drotmatrix(point,angle):
 
 
 # Get input parameters
-clearance, RPM_L, RPM_R = get_parameters()  #Changed from proj 3-2 
+clearance, RPM_L, RPM_R = get_parameters()  #Changed from proj 3-2
 start_point, theta_s = get_start()
-goal_point = get_goal()  #Changed from proj 3-2 
+goal_point = get_goal()  #Changed from proj 3-2
 print()
 
 
@@ -104,7 +104,7 @@ robot_y_coord=start_point[1]#+h//2
 goal_x_coord=goal_point[0]#+w//2
 goal_y_coord=goal_point[1]#+h//2
 
-robot_breadth=2*rob_radius 
+robot_breadth=2*rob_radius
 robot_height= 2*rob_radius
 
 def get_points(x_coord,y_coord):
@@ -248,7 +248,7 @@ i = np.where(degree_list==theta_s)
 visited_matrix[start_point[0]//spacing, start_point[1]//spacing, i] = True
 
 # Note:  Function updated with corrections from new file from TAs
-def generate_node_successor(coord,thetaIn,action,action_id):    
+def generate_node_successor(coord,thetaIn,action,action_id):
     new_positions=[]
     thetas=[]
 
@@ -278,7 +278,7 @@ def generate_node_successor(coord,thetaIn,action,action_id):
         Thetan += (r / L) * (UR - UL) * dt
 
         # Check collisions at every point on path
-        if inside_obstacle([[Xn,Yn]]): 
+        if inside_obstacle([[Xn,Yn]]):
             #print(">> Collides with obstacle!")
             #return [],[]
             # Make sure this new point isn't included (roll back changes)
@@ -292,9 +292,9 @@ def generate_node_successor(coord,thetaIn,action,action_id):
 
     ThetaDeg=np.rad2deg(Thetan) % 360
     #print("New child:  (%.2f, %.2f), %.2f deg" %(Xn,Yn,ThetaDeg), "from action", action_id)
-    
+
     # Check collisions again just in case?
-    if inside_obstacle([[Xn,Yn]]): 
+    if inside_obstacle([[Xn,Yn]]):
         #print(">> Collides with obstacle!")
         return [],[]
 
@@ -305,7 +305,7 @@ def generate_node_successor(coord,thetaIn,action,action_id):
     if Yn<=-h/2 or Yn>=h/2:
         #print(">> Out of bounds")
         return [],[]
-    
+
     ### Check for duplicates
     # Discretize to nearest 100mm
     new_point = np.round(np.array([Xn,Yn])/spacing, decimals=0)
@@ -319,15 +319,15 @@ def generate_node_successor(coord,thetaIn,action,action_id):
         return [],[]
     else:
         visited_matrix[x_dis, y_dis, action_id] = True
-        
+
     # Note:  append the originally calculated point, not the discretized version
     # Should we round these to ints??
     new_positions.append([Xn,Yn])
     thetas.append(ThetaDeg)
     print("New child:  (%.2f, %.2f), %.2f deg" %(Xn,Yn,ThetaDeg), "from action", action_id)
-        
-    plt.show(block=False)
-    plt.pause(0.01)
+
+    #plt.show(block=False)
+    #plt.pause(0.01)
 
     return new_positions, thetas
 
@@ -352,7 +352,7 @@ def graph_search(start_point,goal_point):
     print("Action set: ", actions, '\n')
 
 
-    start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s) 
+    start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s)
     node_q = [start_node]  # put the startNode on the openList with f=0
     explored_nodes = [] # points visited
     #child_nodes = []  # closed list
@@ -361,7 +361,7 @@ def graph_search(start_point,goal_point):
     node_counter = 0  # To define a unique ID to all the nodes formed
     action_count=0
 
-    ##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING 
+    ##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING
     while node_q: #while the OPEN list is not empty
         current_root = node_q[0]##############################change current root to equal node with smallest f value#############
         current_index = 0
@@ -374,19 +374,23 @@ def graph_search(start_point,goal_point):
         # Should we plot which points are explored from?
         print("> Exploring node (%.2f, %.2f) %.2f deg with score %.2f" %(current_root.coord[0], current_root.coord[1], current_root.theta, current_root.f))
 
+        # Animate plot
+        plt.show(block=False)
+        plt.pause(0.001)
+
         # Incorporate radius for reaching goal - the radius around the goal point, plus accounting for the robot's own radius
         coord_min = [current_root.coord[0]-rob_radius*2, current_root.coord[1]-rob_radius*2]
         coord_max = [current_root.coord[0]+rob_radius*2, current_root.coord[1]+rob_radius*2]
         if coord_min[0]<=goal_point[0]<=coord_max[0] and coord_min[1]<=goal_point[1]<=coord_max[1]:
             print("\nGoal reached:  ", current_root.coord, current_root.theta, current_root.f)
             return current_root
-        
+
         for action_id,action in enumerate(actions):
-            action_count=action_count+1        
+            action_count=action_count+1
             child_coords,thetas = generate_node_successor(current_root.coord,current_root.theta,action,action_id)
             # Having issues when no children found so check that here
             if len(child_coords)==0 or len(thetas)==0:
-                continue    
+                continue
             for child_point,theta in zip(child_coords, thetas):  # Redundant line, since generate_node_successor now returns one child; remove later
                 #print("child_point: ", child_point, theta)
                 node_counter+=1
@@ -469,4 +473,3 @@ end_time = time.time()
 print("Total execution time:", end_time-start_time)
 
 plt.show()
-

@@ -353,11 +353,9 @@ MigrationBackup/
 ENPM661_Project3/ENPM661_Project3.py
 *.mkv
 *.zip
-ENPM661_Project3/AstarWithTurtleBot.py
-ENPM661_Project3/AstawithTurtleBot.py
-ENPM661_Project3/AstawithTurtleBot+Lu+working.py
-ENPM661_Project3/AstarWithTurtleBot_mmUnits.py
-ENPM661_Project3/How to plot curves.py
-ENPM661_Project3/How to plot curves_modified.py
+ENPM661_Project3/*
 ENPM661 P3Ph3.mp4
 ENPM661 P3Ph3.avi
+ENPM661_Project3/project 3_astar redo search complete large map.py
+ENPM661_Project3/Project3b.py
+ENPM661_Project3/Project3bV390PERCENT.py
