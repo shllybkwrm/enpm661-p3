@@ -215,7 +215,7 @@ ax.add_patch(pathpatch4)
 ax.add_collection(squarepatches)
 #ax.add_patch(polygon_pathpatch)
 ax.set_aspect('equal')
-ax.set_title('Map Space')
+ax.set_title('Map Space (units=mm)')
 #plt.show()
 
 
