@@ -324,7 +324,7 @@ def generate_node_successor(coord,thetaIn,action,action_id):
     # Should we round these to ints??
     new_positions.append([Xn,Yn])
     thetas.append(ThetaDeg)
-    print("New child:  (%.2f, %.2f), %.2f deg" %(Xn,Yn,ThetaDeg), "from action", action_id)
+    #print("New child:  (%.2f, %.2f), %.2f deg" %(Xn,Yn,ThetaDeg), "from action", action_id)
 
     #plt.show(block=False)
     #plt.pause(0.01)
@@ -349,7 +349,7 @@ def graph_search(start_point,goal_point):
     #u_L = convert_RPM_mmps(RPM_L)
     #u_R = convert_RPM_mmps(RPM_R)
     #actions=[ [0,u_L], [u_L,0], [u_L,u_L], [0,u_R], [u_R,0], [u_R,u_R], [u_L,u_R], [u_R,u_L] ]
-    print("Action set: ", actions, '\n')
+    #print("Action set: ", actions, '\n')
 
 
     start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s)
@@ -404,16 +404,16 @@ def graph_search(start_point,goal_point):
                 # Adjusted this to replace explored nodes if the node is found again with a lower cost ###
                 for i,explored in enumerate(explored_nodes):
                     if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
-                        print("Reached previously explored node with lower cost, replacing...")
+                        #print("Reached previously explored node with lower cost, replacing...")
                         explored_nodes[i] = child_node
                         #continue
                 for item in node_q:
                     if (child_node.coord==item.coord) and child_node.g>item.g:
-                        print("Coordinates present with lower cost, not adding to queue.")
+                        #print("Coordinates present with lower cost, not adding to queue.")
                         continue
                 node_q.append(child_node)
 
-            print("node count: ", node_counter, "action count: ", action_count)
+            #print("node count: ", node_counter, "action count: ", action_count)
 
     print(">>>Error:  Queue emptied without finding goal (probably no valid children generated)")
     return None
@@ -458,7 +458,8 @@ def find_path(node):  # To find the path from the goal node to the starting node
 
 
 
-print("\nThe start is", start_point, theta_s)
+print("\nThe RPMs are", RPM_L, RPM_R)
+print("The start is", start_point, theta_s)
 print("The goal is", goal_point)
 starth = get_hscore(start_point)
 print("The distance to goal is", starth, '\n')
