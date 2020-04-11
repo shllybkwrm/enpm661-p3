@@ -241,7 +241,7 @@ def distance_2(p1,p2):
 
 ### Map for duplicate checking
 # Dicretize space; action space is now 8 not 12
-spacing=500
+spacing=100
 w_dis = w//spacing
 h_dis = h//spacing
 visited_matrix = np.zeros((w_dis,h_dis,8), dtype=bool)
@@ -412,18 +412,18 @@ def graph_search(start_point,goal_point):
 
                 #child_nodes.append(child_node)
                 
-                ### Commenting this for now for speed, not sure if this should be done or not
-                # Adjusted this to replace explored nodes if the node is found again with a lower cost ###
-                #for i,explored in enumerate(explored_nodes):
-                #    if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
-                #        #print("Reached previously explored node with lower cost, replacing...")
-                #        explored_nodes[i] = child_node
+                 #Adjusted this to replace explored nodes if the node is found again with a lower cost ###
+                for i,explored in enumerate(explored_nodes):
+                    if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
+                        #print("Reached previously explored node with lower cost, replacing...")
+                        explored_nodes[i] = child_node
                         #continue
 
                 for item in node_q:
                     if (child_node.coord==item.coord) and child_node.g>item.g:
                         #print("Coordinates present with lower cost-to-come, not adding to queue.")
                         continue
+                
                 node_q.append(child_node)
 
             #print("node count: ", node_counter, "action count: ", action_count)
