@@ -39,11 +39,11 @@ def get_parameters():
 ##    if ans=='' or int(ans)<1:  step=1
 ##    elif int(ans)>10:  step=10
 ##    else:  step=int(ans)
-    ans=(input("Enter the left wheel speed in RPM (default=75, max=%.2f): "  %max_RPM))
-    if ans=='':  RPM_L=75
+    ans=(input("Enter the left wheel speed in RPM (default=50, max=%.2f): "  %max_RPM))
+    if ans=='':  RPM_L=50
     else:  RPM_L=int(ans)
-    ans=(input("Enter the right wheel speed in RPM (default=75, max=%.2f): " %max_RPM))
-    if ans=='':  RPM_R=75
+    ans=(input("Enter the right wheel speed in RPM (default=50, max=%.2f): " %max_RPM))
+    if ans=='':  RPM_R=50
     else:  RPM_R=int(ans)
     ans=(input("Enter the obstacle clearance in mm (default=10): "))
     if ans=='':  clearance=10
@@ -240,17 +240,17 @@ def distance_2(p1,p2):
 
 
 ### Map for duplicate checking
-# Dicretize space to 100mm; action space is now 8 not 12
-spacing=100
+# Dicretize space; action space is now 8 not 12
+spacing=500
 w_dis = w//spacing
 h_dis = h//spacing
 visited_matrix = np.zeros((w_dis,h_dis,8), dtype=bool)
 
-degree_list=np.linspace(0, 360, 12, endpoint=False, dtype=int)
+degree_list=np.linspace(0, 360, 8, endpoint=False, dtype=int)
 i = np.where(degree_list==theta_s)
 visited_matrix[start_point[0]//spacing, start_point[1]//spacing, i] = True
 
-# Note:  Function updated with corrections from new file from TAs
+# Note:  Function updated with corrections from new TA code
 def generate_node_successor(coord,thetaIn,action,action_id):
     new_positions=[]
     thetas=[]
@@ -310,18 +310,22 @@ def generate_node_successor(coord,thetaIn,action,action_id):
         return [],[]
 
     ### Check for duplicates
-    # Discretize to nearest 100mm
+    # Discretize to grid
     new_point = np.round(np.array([Xn,Yn])/spacing, decimals=0)
     # Adjust coords to be in [0,max] for visited matrix rather than center at origin (already checked bounds so this should be ok)
     #if x_dis<0:  x_dis+=w_dis//2
     #if y_dis<0:  y_dis+=h_dis//2
     x_dis = int(new_point[0]) + w_dis//2 -1
     y_dis = int(new_point[1]) + h_dis//2 -1
-    if visited_matrix[x_dis, y_dis, action_id]:
+    # Find closest angle in degree list
+    temp = (degree_list -ThetaDeg )**2
+    degree_id = np.argmin(temp)
+    #if visited_matrix[x_dis, y_dis, action_id]:
+    if visited_matrix[x_dis, y_dis, degree_id]:
         #print(">> Child already visited: ", x_dis,y_dis,action_id)
         return [],[]
     else:
-        visited_matrix[x_dis, y_dis, action_id] = True
+        visited_matrix[x_dis, y_dis, degree_id] = True
 
     # Note:  append the originally calculated point, not the discretized version
     # Should we round these to ints??
@@ -407,18 +411,19 @@ def graph_search(start_point,goal_point):
                 child_node = Node(node_counter, child_point, theta=theta, parent=current_root, g=tempg, h=temph, f=tempg+temph)
 
                 #child_nodes.append(child_node)
-
-                # Adjusted this to replace explored nodes if the node is found again with a lower cost ###
-                for i,explored in enumerate(explored_nodes):
-                    if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
-                        #print("Reached previously explored node with lower cost, replacing...")
-                        explored_nodes[i] = child_node
-                        #continue
+                
                 ### Commenting this for now for speed, not sure if this should be done or not
-                #for item in node_q:
-                #    if (child_node.coord==item.coord) and child_node.g>item.g:
-                #        #print("Coordinates present with lower cost-to-come, not adding to queue.")
-                #        continue
+                # Adjusted this to replace explored nodes if the node is found again with a lower cost ###
+                #for i,explored in enumerate(explored_nodes):
+                #    if child_node.coord[1]==explored.coord[0] and child_node.coord[1]==explored.coord[1] and child_node.g<explored.g:
+                #        #print("Reached previously explored node with lower cost, replacing...")
+                #        explored_nodes[i] = child_node
+                        #continue
+
+                for item in node_q:
+                    if (child_node.coord==item.coord) and child_node.g>item.g:
+                        #print("Coordinates present with lower cost-to-come, not adding to queue.")
+                        continue
                 node_q.append(child_node)
 
             #print("node count: ", node_counter, "action count: ", action_count)
