@@ -461,12 +461,11 @@ def find_path(node):  # To find the path from the goal node to the starting node
     if node==None:
         print(">>> Error:  Goal node not found")
         return
-
     p = []
     p.append(node)
     parent_node = node.parent
     while parent_node is not None:
-        p.append(parent_node.coord)
+        p.append(parent_node)
         plot_vector(parent_node, c='b', w=10)
         parent_node = parent_node.parent
 
@@ -488,5 +487,20 @@ print('\n', result)
 
 end_time = time.time()
 print("Total execution time:", end_time-start_time)
+
+
+# Write to file
+f = open('coord_output.txt', 'w')
+g = open('theta_output.txt', 'w')
+f.write("[ ")
+g.write("[ ")
+for node in result:
+    f.write("[%f, %f], "%(node.coord[0], node.coord[1]))
+    g.write("%f, "%(node.theta))
+f.write(" ]")
+g.write(" ]")
+f.close()
+g.close()
+
 
 plt.show()
