@@ -228,7 +228,7 @@ class Node:
         self.theta = theta
         self.g=g
         self.h=h
-        self.f=g+h
+        self.f=f
 
     def __repr__(self):
         return repr((self.node_no, self.coord, self.theta, self.f))
