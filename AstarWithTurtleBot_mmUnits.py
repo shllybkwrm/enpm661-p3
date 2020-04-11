@@ -141,7 +141,9 @@ robotpatch = PathPatch(robot, facecolor='green', edgecolor='green')
 #gvertices = [((goal_x_coord-robot_breadth/2), (goal_y_coord-robot_height/2)), ((goal_x_coord-robot_breadth/2), (goal_y_coord+robot_height/2)), ((goal_x_coord+robot_breadth/2), (goal_y_coord+robot_height/2)), ((goal_x_coord+robot_breadth/2), (goal_y_coord-robot_height/2)), (0, 0)]
 #goal = Path(gvertices,gcodes)
 goal = Path.circle((goal_x_coord,goal_y_coord), radius=rob_radius)
+goalradius = Path.circle((goal_x_coord,goal_y_coord), radius=rob_radius*2)
 goalpatch = PathPatch(goal, facecolor='red', edgecolor='red')
+goalradiuspatch = PathPatch(goalradius, facecolor='None', edgecolor='red', linestyle='--')
 
 
 ########## CIRCLE OBSTACLES #####################
@@ -179,7 +181,7 @@ polygon_path = Path(vertices, codes)
 
 ####### CHECKING TO SEE IF ROBOT IS IN OBSTACLE ################
 def inside_obstacle(points):
-    effective_clearance = clearance+rob_radius
+    effective_clearance = clearance+rob_radius//2
     inside_circle1= (circle1.contains_points(points,radius=effective_clearance))
     inside_circle2= (circle2.contains_points(points,radius=effective_clearance))
     inside_circle3= (circle3.contains_points(points,radius=effective_clearance))
@@ -207,6 +209,7 @@ plt.ylim(-h/2,h/2)
 #ax.autoscale_view()
 ax.add_patch(robotpatch)
 ax.add_patch(goalpatch)
+ax.add_patch(goalradiuspatch)
 ax.add_patch(pathpatch1)
 ax.add_patch(pathpatch2)
 ax.add_patch(pathpatch3)
@@ -241,7 +244,7 @@ def distance_2(p1,p2):
 
 ### Map for duplicate checking
 # Dicretize space; action space is now 8 not 12
-spacing=100
+spacing=200
 w_dis = w//spacing
 h_dis = h//spacing
 visited_matrix = np.zeros((w_dis,h_dis,8), dtype=bool)
