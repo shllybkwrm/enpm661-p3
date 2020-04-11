@@ -221,14 +221,17 @@ ax.set_title('Map Space (units=mm)')
 
 ####################### A STAR ################
 class Node:
-    def __init__(self, node_no, coord, parent=None, g=0, h=0, f=0, theta=0):
+    def __init__(self, node_no, coord, theta=0, parent=None, g=0, h=0, f=0):
         self.node_no = node_no
         self.parent = parent
         self.coord = coord
+        self.theta = theta
         self.g=g
         self.h=h
-        self.f=f
-        self.theta = theta
+        self.f=g+h
+
+    def __repr__(self):
+        return repr((self.node_no, self.coord, self.theta, self.f))
 
 
 def distance_2(p1,p2):
@@ -352,7 +355,7 @@ def graph_search(start_point,goal_point):
     #print("Action set: ", actions, '\n')
 
 
-    start_node = Node(0, start_point, g=0, h=starth, f=0+starth, theta=theta_s)
+    start_node = Node(0, start_point, theta=theta_s, g=0, h=starth, f=0+starth)
     node_q = [start_node]  # put the startNode on the openList with f=0
     explored_nodes = [] # points visited
     #child_nodes = []  # closed list
@@ -363,13 +366,17 @@ def graph_search(start_point,goal_point):
 
     ##for i in range(1):#while node_q:  # UNCOMMENT FOR DEBUGGING
     while node_q: #while the OPEN list is not empty
-        current_root = node_q[0]##############################change current root to equal node with smallest f value#############
-        current_index = 0
-        for index,thing in enumerate(node_q):#let the currentNode equal the node with the lowest cost
-            if thing.f < current_root.f:
-                current_root = thing
-                current_index = index
-        node_q.pop(current_index)
+        #current_root = node_q[0]##############################change current root to equal node with smallest f value#############
+        #current_index = 0
+        #for index,thing in enumerate(node_q):#let the currentNode equal the node with the lowest cost
+        #    if thing.f < current_root.f:
+        #        current_root = thing
+        #        current_index = index
+        #node_q.pop(current_index)
+        
+        # Sort queue by f-score
+        node_q = sorted(node_q, key=lambda node: node.f)
+        current_root = node_q.pop(0)
         explored_nodes.append(current_root)
         # Should we plot which points are explored from?
         print("> Exploring node (%.2f, %.2f) %.2f deg with score %.2f" %(current_root.coord[0], current_root.coord[1], current_root.theta, current_root.f))
@@ -397,7 +404,7 @@ def graph_search(start_point,goal_point):
                 #print("node count: ", node_counter)
                 tempg=get_gscore(current_root,child_point)
                 temph=get_hscore(child_point)
-                child_node = Node(node_counter, child_point, parent=current_root, g=tempg, h=temph, f=tempg+temph, theta=theta)
+                child_node = Node(node_counter, child_point, theta=theta, parent=current_root, g=tempg, h=temph, f=tempg+temph)
 
                 #child_nodes.append(child_node)
 
@@ -407,10 +414,11 @@ def graph_search(start_point,goal_point):
                         #print("Reached previously explored node with lower cost, replacing...")
                         explored_nodes[i] = child_node
                         #continue
-                for item in node_q:
-                    if (child_node.coord==item.coord) and child_node.g>item.g:
-                        #print("Coordinates present with lower cost, not adding to queue.")
-                        continue
+                ### Commenting this for now for speed, not sure if this should be done or not
+                #for item in node_q:
+                #    if (child_node.coord==item.coord) and child_node.g>item.g:
+                #        #print("Coordinates present with lower cost-to-come, not adding to queue.")
+                #        continue
                 node_q.append(child_node)
 
             #print("node count: ", node_counter, "action count: ", action_count)
