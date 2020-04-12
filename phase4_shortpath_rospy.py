@@ -28,8 +28,9 @@ def move():
 			
 			t=0
 			dt=0.1
-			dx = (point[0]-prev_point[0])/10
-			dy = (point[1]-prev_point[1])/10
+			# First convert distances mm to meters, then take a tenth of that for running ten times
+			dx = ((point[0]-prev_point[0])/1000)/10
+			dy = ((point[1]-prev_point[1])/1000)/10
 
 			#Setting the current time for distance calculus
 			#t0 = rospy.Time.now().to_sec()
