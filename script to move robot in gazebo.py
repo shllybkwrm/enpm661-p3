@@ -6,7 +6,7 @@ from geometry_msgs.msg import Twist
 
 def main():
     rospy.init_node('robot_mover', anonymous=True)
-    velocity_publisher = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+    velocity_publisher = rospy.Publisher('/cmd_vel_mux/input/navi', Twist, queue_size=10)
     vel_msg = Twist()
     ##### get input
     print("let's make this turtlebot move")
