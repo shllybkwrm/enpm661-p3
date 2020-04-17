@@ -298,7 +298,7 @@ def main():
     # Feel free to add additional desired poses for the object.
     # Each additional pose will get its own pick and place.
     block_poses.append(Pose(
-        position=Point(x=0.75, y=-0.15, z=-0.129),
+        position=Point(x=0.75, y=-0.2, z=-0.129),
         orientation=overhead_orientation))
     # NEW - BLOCK 2 POSES
     block_poses.append(Pose(
