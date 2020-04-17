@@ -296,11 +296,25 @@ def main():
     block_poses.append(Pose(
         position=Point(x=0.75, y=-0.15, z=-0.129),
         orientation=overhead_orientation))
+    # NEW - BLOCK 2 POSES
+    block_poses.append(Pose(
+        position=Point(x=0.7, y=-0.35, z=-0.129),
+        orientation=overhead_orientation))
+    block_poses.append(Pose(
+        position=Point(x=0.75, y=0.15, z=-0.129),
+        orientation=overhead_orientation))
     # Move to the desired starting angles
     pnp.move_to_start(starting_joint_angles)
     idx = 0
     while not rospy.is_shutdown():
         print("\nPicking...")
+        pnp.pick(block_poses[idx])
+        print("\nPlacing...")
+        idx = (idx+1) % len(block_poses)
+        pnp.place(block_poses[idx])
+        # BLOCK 2
+        print("\nPicking...")
+        idx = (idx+1) % len(block_poses)
         pnp.pick(block_poses[idx])
         print("\nPlacing...")
         idx = (idx+1) % len(block_poses)
