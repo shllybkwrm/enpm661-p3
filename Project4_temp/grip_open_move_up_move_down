@@ -1,0 +1,8191 @@
+---
+header: 
+  seq: 17148
+  stamp: 
+    secs: 344
+    nsecs: 220000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704066363499
+    y: 0.150544866211
+    z: -0.0106013575079
+  orientation: 
+    x: -0.0276256744077
+    y: 0.999593203358
+    z: 0.00532572738593
+    w: 0.00467830543118
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17149
+  stamp: 
+    secs: 344
+    nsecs: 240000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703498978881
+    y: 0.150459379165
+    z: -0.00937579611179
+  orientation: 
+    x: -0.0283731872698
+    y: 0.999574766732
+    z: 0.00527254778149
+    w: 0.00417710395994
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17150
+  stamp: 
+    secs: 344
+    nsecs: 260000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70475847505
+    y: 0.150337178785
+    z: -0.00851598822608
+  orientation: 
+    x: -0.0278152943673
+    y: 0.999584703614
+    z: 0.00502131675368
+    w: 0.00561391827942
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17151
+  stamp: 
+    secs: 344
+    nsecs: 280000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704708404737
+    y: 0.150528336513
+    z: -0.00760383633455
+  orientation: 
+    x: -0.0275949287044
+    y: 0.999589368834
+    z: 0.00529027096243
+    w: 0.00562375832698
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17152
+  stamp: 
+    secs: 344
+    nsecs: 300000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703528644914
+    y: 0.150494928298
+    z: -0.00684396784874
+  orientation: 
+    x: -0.0281214362671
+    y: 0.999580685069
+    z: 0.00530732852576
+    w: 0.0044126094762
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17153
+  stamp: 
+    secs: 344
+    nsecs: 320000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70355993778
+    y: 0.150522896182
+    z: -0.00621074937948
+  orientation: 
+    x: -0.0277713101913
+    y: 0.999589527643
+    z: 0.00533648656872
+    w: 0.00458829682222
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17154
+  stamp: 
+    secs: 344
+    nsecs: 340000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704051581929
+    y: 0.150636829103
+    z: -0.0052828307286
+  orientation: 
+    x: -0.0276268707448
+    y: 0.999590319675
+    z: 0.00544570146275
+    w: 0.00512768571767
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17155
+  stamp: 
+    secs: 344
+    nsecs: 360000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703936628265
+    y: 0.150418303032
+    z: -0.00424081000536
+  orientation: 
+    x: -0.0277189860117
+    y: 0.99958937963
+    z: 0.00520910587488
+    w: 0.00505916608038
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17156
+  stamp: 
+    secs: 344
+    nsecs: 380000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703908160851
+    y: 0.150374852853
+    z: -0.00356810008009
+  orientation: 
+    x: -0.0278529467972
+    y: 0.999585348387
+    z: 0.00511784081556
+    w: 0.00521079178312
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17157
+  stamp: 
+    secs: 344
+    nsecs: 400000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703489699192
+    y: 0.15070230138
+    z: -0.00278778098527
+  orientation: 
+    x: -0.0274121503942
+    y: 0.999597275498
+    z: 0.00562363713931
+    w: 0.0047154568947
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17158
+  stamp: 
+    secs: 344
+    nsecs: 420000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703680511994
+    y: 0.150519188012
+    z: -0.00222598839305
+  orientation: 
+    x: -0.0276631903018
+    y: 0.999590567898
+    z: 0.00531029708075
+    w: 0.00502446180502
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17159
+  stamp: 
+    secs: 344
+    nsecs: 440000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703509902238
+    y: 0.150508714607
+    z: -0.00139734765877
+  orientation: 
+    x: -0.0275498059419
+    y: 0.999594006257
+    z: 0.00536535422628
+    w: 0.00490344990921
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17160
+  stamp: 
+    secs: 344
+    nsecs: 460000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70331703156
+    y: 0.150606740324
+    z: -0.000561767296893
+  orientation: 
+    x: -0.0275448516992
+    y: 0.999593746472
+    z: 0.00553033413807
+    w: 0.00479985035814
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17161
+  stamp: 
+    secs: 344
+    nsecs: 480000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703560186124
+    y: 0.150553913058
+    z: 0.000124606593888
+  orientation: 
+    x: -0.0274971841992
+    y: 0.999594136044
+    z: 0.00542716328474
+    w: 0.00510038694983
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17162
+  stamp: 
+    secs: 344
+    nsecs: 500000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703549343151
+    y: 0.150530657226
+    z: 0.000768839293334
+  orientation: 
+    x: -0.0273599540135
+    y: 0.999597670152
+    z: 0.00539567521025
+    w: 0.00517855494231
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17163
+  stamp: 
+    secs: 344
+    nsecs: 520000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703147877442
+    y: 0.150605412847
+    z: 0.00138584615843
+  orientation: 
+    x: -0.027476240819
+    y: 0.999595718099
+    z: 0.00553456017074
+    w: 0.00477757189385
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17164
+  stamp: 
+    secs: 344
+    nsecs: 540000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703137488941
+    y: 0.150631718691
+    z: 0.00190935348555
+  orientation: 
+    x: -0.0273752531214
+    y: 0.999597872157
+    z: 0.00555431842965
+    w: 0.00488252416552
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17165
+  stamp: 
+    secs: 344
+    nsecs: 560000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703224189043
+    y: 0.150628235124
+    z: 0.00251550588769
+  orientation: 
+    x: -0.0273226543082
+    y: 0.999598739987
+    z: 0.00552395138724
+    w: 0.00503165369159
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17166
+  stamp: 
+    secs: 344
+    nsecs: 580000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703072614422
+    y: 0.150570441693
+    z: 0.0032117508429
+  orientation: 
+    x: -0.0272839980462
+    y: 0.999600858389
+    z: 0.00549019221224
+    w: 0.00485439473655
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17167
+  stamp: 
+    secs: 344
+    nsecs: 600000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703031337898
+    y: 0.150608179126
+    z: 0.003863701678
+  orientation: 
+    x: -0.0272742949177
+    y: 0.999600262994
+    z: 0.00555135682645
+    w: 0.00496079602112
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17168
+  stamp: 
+    secs: 344
+    nsecs: 620000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703004882453
+    y: 0.150653001235
+    z: 0.00448598323502
+  orientation: 
+    x: -0.0272426579422
+    y: 0.99960053493
+    z: 0.00563826528424
+    w: 0.00498177877286
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17169
+  stamp: 
+    secs: 344
+    nsecs: 640000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703008984319
+    y: 0.150598641166
+    z: 0.00501395025895
+  orientation: 
+    x: -0.0271899429853
+    y: 0.999602201307
+    z: 0.00555564350637
+    w: 0.00502801835206
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17170
+  stamp: 
+    secs: 344
+    nsecs: 660000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702850040195
+    y: 0.150629362708
+    z: 0.00552952253739
+  orientation: 
+    x: -0.027161316989
+    y: 0.999603146336
+    z: 0.00559771794227
+    w: 0.00494754980069
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17171
+  stamp: 
+    secs: 344
+    nsecs: 680000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702695741638
+    y: 0.150668682514
+    z: 0.00603561638834
+  orientation: 
+    x: -0.0271288354342
+    y: 0.999604282776
+    z: 0.00568410758274
+    w: 0.00479531688534
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17172
+  stamp: 
+    secs: 344
+    nsecs: 700000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702757020468
+    y: 0.150649351711
+    z: 0.00653599229282
+  orientation: 
+    x: -0.0271039699665
+    y: 0.999604390326
+    z: 0.00562499468764
+    w: 0.00497966742427
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17173
+  stamp: 
+    secs: 344
+    nsecs: 720000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702647023752
+    y: 0.150653876514
+    z: 0.00712382347637
+  orientation: 
+    x: -0.0270444283212
+    y: 0.999606271505
+    z: 0.0056798726525
+    w: 0.00486208912588
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17174
+  stamp: 
+    secs: 344
+    nsecs: 740000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702678937302
+    y: 0.150623641453
+    z: 0.00758413874427
+  orientation: 
+    x: -0.0270789465084
+    y: 0.999605033134
+    z: 0.0056405773782
+    w: 0.00496913229758
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17175
+  stamp: 
+    secs: 344
+    nsecs: 760000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702649661439
+    y: 0.150682470393
+    z: 0.0079780085089
+  orientation: 
+    x: -0.0270106242682
+    y: 0.999606203637
+    z: 0.00569238403318
+    w: 0.00504584888
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17176
+  stamp: 
+    secs: 344
+    nsecs: 780000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702306640181
+    y: 0.150724115331
+    z: 0.00849853603831
+  orientation: 
+    x: -0.0269243538171
+    y: 0.999609855999
+    z: 0.0057952681582
+    w: 0.00465078784302
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17177
+  stamp: 
+    secs: 344
+    nsecs: 800000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702414273429
+    y: 0.150628318195
+    z: 0.00894966691564
+  orientation: 
+    x: -0.0270056896177
+    y: 0.999607447101
+    z: 0.00565385584779
+    w: 0.0048660397664
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17178
+  stamp: 
+    secs: 344
+    nsecs: 820000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702533854572
+    y: 0.150664632621
+    z: 0.00942009806142
+  orientation: 
+    x: -0.0268937174412
+    y: 0.999609232647
+    z: 0.00572917469896
+    w: 0.00502857104483
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17179
+  stamp: 
+    secs: 344
+    nsecs: 840000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702479239592
+    y: 0.150679335551
+    z: 0.00974069620685
+  orientation: 
+    x: -0.0269134315618
+    y: 0.999608706468
+    z: 0.00572100268024
+    w: 0.00503699155505
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17180
+  stamp: 
+    secs: 344
+    nsecs: 860000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702060730995
+    y: 0.150738161886
+    z: 0.0101784976567
+  orientation: 
+    x: -0.0268232181333
+    y: 0.999612514553
+    z: 0.00584822735594
+    w: 0.00459716807708
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17181
+  stamp: 
+    secs: 344
+    nsecs: 880000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702138227082
+    y: 0.15069287825
+    z: 0.0105657940221
+  orientation: 
+    x: -0.0269006744648
+    y: 0.999609980296
+    z: 0.0057822715323
+    w: 0.00477559866839
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17182
+  stamp: 
+    secs: 344
+    nsecs: 900000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702420070381
+    y: 0.150663549006
+    z: 0.0109319555156
+  orientation: 
+    x: -0.0268250459468
+    y: 0.999610619918
+    z: 0.00570034323301
+    w: 0.00515087797447
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17183
+  stamp: 
+    secs: 344
+    nsecs: 920000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702043384099
+    y: 0.150725818197
+    z: 0.0114661466362
+  orientation: 
+    x: -0.0266550050758
+    y: 0.999616492437
+    z: 0.00585929356071
+    w: 0.00469546913575
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17184
+  stamp: 
+    secs: 344
+    nsecs: 940000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70200298855
+    y: 0.150667209227
+    z: 0.0118184239426
+  orientation: 
+    x: -0.0268746057844
+    y: 0.999610648447
+    z: 0.00577246610008
+    w: 0.00479434144411
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17185
+  stamp: 
+    secs: 344
+    nsecs: 960000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702092003645
+    y: 0.150717730074
+    z: 0.0121969723562
+  orientation: 
+    x: -0.0266924208287
+    y: 0.999614469463
+    z: 0.00586842875008
+    w: 0.00489782149036
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17186
+  stamp: 
+    secs: 344
+    nsecs: 980000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702326744089
+    y: 0.15064726043
+    z: 0.0122752679549
+  orientation: 
+    x: -0.0267571127915
+    y: 0.999612341749
+    z: 0.0057312005867
+    w: 0.00513580352919
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17187
+  stamp: 
+    secs: 345
+    nsecs:         0
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701623766156
+    y: 0.150785309647
+    z: 0.0126172878731
+  orientation: 
+    x: -0.0265793572845
+    y: 0.999618937455
+    z: 0.00594852120363
+    w: 0.0044869526167
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17188
+  stamp: 
+    secs: 345
+    nsecs:  20000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70121692895
+    y: 0.150836835532
+    z: 0.0132085612726
+  orientation: 
+    x: -0.026785248319
+    y: 0.999614341139
+    z: 0.00608802617361
+    w: 0.00408110275014
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17189
+  stamp: 
+    secs: 345
+    nsecs:  40000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702272387332
+    y: 0.150589207072
+    z: 0.0136302782987
+  orientation: 
+    x: -0.0266374655175
+    y: 0.999615062994
+    z: 0.00567676993141
+    w: 0.00528635507497
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17190
+  stamp: 
+    secs: 345
+    nsecs:  60000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702368767738
+    y: 0.150660946183
+    z: 0.0140764236544
+  orientation: 
+    x: -0.0264614035108
+    y: 0.999618323653
+    z: 0.00579994257359
+    w: 0.0054186536711
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17191
+  stamp: 
+    secs: 345
+    nsecs:  80000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701508429853
+    y: 0.150750876822
+    z: 0.0142838733294
+  orientation: 
+    x: -0.0267066914835
+    y: 0.999615249008
+    z: 0.00596163128219
+    w: 0.00453492378044
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17192
+  stamp: 
+    secs: 345
+    nsecs: 100000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701374778443
+    y: 0.150791910571
+    z: 0.0143717051412
+  orientation: 
+    x: -0.0265757717181
+    y: 0.999618890687
+    z: 0.00600187550236
+    w: 0.00444738449219
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17193
+  stamp: 
+    secs: 345
+    nsecs: 120000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701727367046
+    y: 0.150818554788
+    z: 0.0147104779359
+  orientation: 
+    x: -0.0264646759417
+    y: 0.999619932478
+    z: 0.00601616793551
+    w: 0.00483913653308
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17194
+  stamp: 
+    secs: 345
+    nsecs: 140000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701755800319
+    y: 0.150684046136
+    z: 0.0151870311104
+  orientation: 
+    x: -0.02655867011
+    y: 0.999618011864
+    z: 0.00585931646309
+    w: 0.00491282095007
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17195
+  stamp: 
+    secs: 345
+    nsecs: 160000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701637024675
+    y: 0.150663073206
+    z: 0.0155070057503
+  orientation: 
+    x: -0.0265717769231
+    y: 0.999618080743
+    z: 0.00585518820917
+    w: 0.00483219346498
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17196
+  stamp: 
+    secs: 345
+    nsecs: 180000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701587739953
+    y: 0.150817712457
+    z: 0.0156831553304
+  orientation: 
+    x: -0.0264269148196
+    y: 0.999620794776
+    z: 0.00605782810939
+    w: 0.00481534461578
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17197
+  stamp: 
+    secs: 345
+    nsecs: 200000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701507471693
+    y: 0.150803179407
+    z: 0.0158504624982
+  orientation: 
+    x: -0.0264496835108
+    y: 0.99962067498
+    z: 0.00602220863694
+    w: 0.00475955863744
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17198
+  stamp: 
+    secs: 345
+    nsecs: 220000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701309776373
+    y: 0.15075241314
+    z: 0.016183572758
+  orientation: 
+    x: -0.0264884153256
+    y: 0.999620732038
+    z: 0.00598778763066
+    w: 0.00457190684505
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17199
+  stamp: 
+    secs: 345
+    nsecs: 240000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70144014036
+    y: 0.150747829493
+    z: 0.0165011215438
+  orientation: 
+    x: -0.0264526901341
+    y: 0.999620747332
+    z: 0.00599089233986
+    w: 0.00476716864861
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17200
+  stamp: 
+    secs: 345
+    nsecs: 260000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701612313604
+    y: 0.150764911841
+    z: 0.0167568027169
+  orientation: 
+    x: -0.0263729830814
+    y: 0.999621773236
+    z: 0.00598906786587
+    w: 0.00499072151211
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17201
+  stamp: 
+    secs: 345
+    nsecs: 280000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701358392239
+    y: 0.150766674196
+    z: 0.0170110250181
+  orientation: 
+    x: -0.0263684359105
+    y: 0.999622952773
+    z: 0.00602440609871
+    w: 0.00472910219168
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17202
+  stamp: 
+    secs: 345
+    nsecs: 300000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701230901768
+    y: 0.150762587774
+    z: 0.01718354862
+  orientation: 
+    x: -0.0264408655976
+    y: 0.999621439104
+    z: 0.00601164489611
+    w: 0.00466039008538
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17203
+  stamp: 
+    secs: 345
+    nsecs: 320000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701249377348
+    y: 0.150818334714
+    z: 0.0174438071234
+  orientation: 
+    x: -0.0262953465199
+    y: 0.999624604543
+    z: 0.00610685357303
+    w: 0.0046809276588
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17204
+  stamp: 
+    secs: 345
+    nsecs: 340000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70136530476
+    y: 0.150759020101
+    z: 0.0176903148366
+  orientation: 
+    x: -0.0263469377558
+    y: 0.999623007694
+    z: 0.00601539079631
+    w: 0.00484731203049
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17205
+  stamp: 
+    secs: 345
+    nsecs: 360000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701272672148
+    y: 0.150745530894
+    z: 0.0179398287452
+  orientation: 
+    x: -0.0263400128913
+    y: 0.999623520079
+    z: 0.00601699380899
+    w: 0.00477677834242
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17206
+  stamp: 
+    secs: 345
+    nsecs: 380000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701168055265
+    y: 0.150798197528
+    z: 0.0181301531627
+  orientation: 
+    x: -0.0262947485904
+    y: 0.999624621478
+    z: 0.00609054831398
+    w: 0.00470186697848
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17207
+  stamp: 
+    secs: 345
+    nsecs: 400000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701169002454
+    y: 0.150805186517
+    z: 0.0183050667586
+  orientation: 
+    x: -0.0262800941939
+    y: 0.999624879186
+    z: 0.0060955673266
+    w: 0.00472245923169
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17208
+  stamp: 
+    secs: 345
+    nsecs: 420000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701145047131
+    y: 0.150780822838
+    z: 0.0185299121848
+  orientation: 
+    x: -0.0262651804018
+    y: 0.999625391323
+    z: 0.0060705270208
+    w: 0.00472927298612
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17209
+  stamp: 
+    secs: 345
+    nsecs: 440000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701095560673
+    y: 0.150783475847
+    z: 0.0187672187785
+  orientation: 
+    x: -0.0262805297724
+    y: 0.99962499069
+    z: 0.00609181238434
+    w: 0.00470123009862
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17210
+  stamp: 
+    secs: 345
+    nsecs: 460000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70116990991
+    y: 0.150774783012
+    z: 0.0189158012724
+  orientation: 
+    x: -0.0262442523312
+    y: 0.999625600879
+    z: 0.00606799266021
+    w: 0.00480382673704
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17211
+  stamp: 
+    secs: 345
+    nsecs: 480000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701067310542
+    y: 0.150823146732
+    z: 0.0191000129943
+  orientation: 
+    x: -0.0261946951577
+    y: 0.999626837871
+    z: 0.00614151523403
+    w: 0.0047227898126
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17212
+  stamp: 
+    secs: 345
+    nsecs: 500000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700915671375
+    y: 0.150816290606
+    z: 0.0193181874061
+  orientation: 
+    x: -0.0262441683293
+    y: 0.999626077738
+    z: 0.00615344372087
+    w: 0.00459167348776
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17213
+  stamp: 
+    secs: 345
+    nsecs: 520000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701035211549
+    y: 0.150772603144
+    z: 0.0194976641849
+  orientation: 
+    x: -0.0262257673108
+    y: 0.9996262565
+    z: 0.00608587032758
+    w: 0.00474537945699
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17214
+  stamp: 
+    secs: 345
+    nsecs: 540000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701084412978
+    y: 0.150805419917
+    z: 0.0196850358827
+  orientation: 
+    x: -0.0261418609895
+    y: 0.999627824285
+    z: 0.00612911319231
+    w: 0.00482182445842
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17215
+  stamp: 
+    secs: 345
+    nsecs: 560000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700921129783
+    y: 0.150815545956
+    z: 0.0198596758753
+  orientation: 
+    x: -0.0261824035206
+    y: 0.999627316602
+    z: 0.00616043749533
+    w: 0.00466461776828
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17216
+  stamp: 
+    secs: 345
+    nsecs: 580000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700876669463
+    y: 0.150797333264
+    z: 0.0199921069789
+  orientation: 
+    x: -0.0261941306662
+    y: 0.999627224114
+    z: 0.00613723346145
+    w: 0.00464916058881
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17217
+  stamp: 
+    secs: 345
+    nsecs: 600000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70093702686
+    y: 0.150822814358
+    z: 0.0201407127427
+  orientation: 
+    x: -0.0261250781901
+    y: 0.999628463172
+    z: 0.00616297048859
+    w: 0.00473642276165
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17218
+  stamp: 
+    secs: 345
+    nsecs: 620000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70086915332
+    y: 0.150827944997
+    z: 0.0203481981063
+  orientation: 
+    x: -0.0261164177796
+    y: 0.999628832049
+    z: 0.00618162123441
+    w: 0.00468171092274
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17219
+  stamp: 
+    secs: 345
+    nsecs: 640000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700845133111
+    y: 0.150784154529
+    z: 0.0205194028854
+  orientation: 
+    x: -0.026160309603
+    y: 0.999627970412
+    z: 0.00613323365935
+    w: 0.00468427327538
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17220
+  stamp: 
+    secs: 345
+    nsecs: 660000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700878069399
+    y: 0.150813598011
+    z: 0.0206596075189
+  orientation: 
+    x: -0.0261012919269
+    y: 0.999628996139
+    z: 0.00617383948129
+    w: 0.00474092228366
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17221
+  stamp: 
+    secs: 345
+    nsecs: 680000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700823736582
+    y: 0.150842391543
+    z: 0.020794459202
+  orientation: 
+    x: -0.0260785028841
+    y: 0.999629517241
+    z: 0.00621584245314
+    w: 0.00470140934529
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17222
+  stamp: 
+    secs: 345
+    nsecs: 700000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700756428472
+    y: 0.150813362807
+    z: 0.0209218215114
+  orientation: 
+    x: -0.026117992268
+    y: 0.999628949088
+    z: 0.00617402360131
+    w: 0.00465790272407
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17223
+  stamp: 
+    secs: 345
+    nsecs: 720000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700735164908
+    y: 0.150818374346
+    z: 0.021079558218
+  orientation: 
+    x: -0.0260687274471
+    y: 0.999630192063
+    z: 0.00618957999375
+    w: 0.00464646796161
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17224
+  stamp: 
+    secs: 345
+    nsecs: 740000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700782677989
+    y: 0.150827955987
+    z: 0.0212293920926
+  orientation: 
+    x: -0.0260540755088
+    y: 0.999630148221
+    z: 0.00620211750607
+    w: 0.00472076859128
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17225
+  stamp: 
+    secs: 345
+    nsecs: 760000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700757623498
+    y: 0.150818176657
+    z: 0.0213717144501
+  orientation: 
+    x: -0.026060021285
+    y: 0.999630054335
+    z: 0.00619754390105
+    w: 0.00471383186015
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17226
+  stamp: 
+    secs: 345
+    nsecs: 780000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700716613483
+    y: 0.150811474201
+    z: 0.021469751741
+  orientation: 
+    x: -0.026061083829
+    y: 0.999630231651
+    z: 0.00618803756878
+    w: 0.00468274170501
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17227
+  stamp: 
+    secs: 345
+    nsecs: 800000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700646588145
+    y: 0.150857727458
+    z: 0.0215981182248
+  orientation: 
+    x: -0.0260132919564
+    y: 0.999631283881
+    z: 0.00625803334864
+    w: 0.0046305449284
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17228
+  stamp: 
+    secs: 345
+    nsecs: 820000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700642167463
+    y: 0.15083789748
+    z: 0.0217379558219
+  orientation: 
+    x: -0.0260393361726
+    y: 0.999630664082
+    z: 0.00623592971112
+    w: 0.00464774983208
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17229
+  stamp: 
+    secs: 345
+    nsecs: 840000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700692312427
+    y: 0.150806673805
+    z: 0.021871659013
+  orientation: 
+    x: -0.0260276153043
+    y: 0.999630930517
+    z: 0.00619405299823
+    w: 0.00471165607535
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17230
+  stamp: 
+    secs: 345
+    nsecs: 860000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700688839347
+    y: 0.150827245468
+    z: 0.021965609109
+  orientation: 
+    x: -0.0259946526717
+    y: 0.999631548736
+    z: 0.00623105827633
+    w: 0.00471367339443
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17231
+  stamp: 
+    secs: 345
+    nsecs: 880000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700727833478
+    y: 0.150822801923
+    z: 0.0219177047754
+  orientation: 
+    x: -0.0260456284781
+    y: 0.999630142857
+    z: 0.00620466872977
+    w: 0.0047649569306
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17232
+  stamp: 
+    secs: 345
+    nsecs: 900000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700634380534
+    y: 0.150859956181
+    z: 0.0218612053391
+  orientation: 
+    x: -0.0260018143189
+    y: 0.999631521756
+    z: 0.00624927547756
+    w: 0.00465541825082
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17233
+  stamp: 
+    secs: 345
+    nsecs: 920000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700542611424
+    y: 0.150874228344
+    z: 0.0218428791862
+  orientation: 
+    x: -0.0260307489177
+    y: 0.999631126285
+    z: 0.00626742824717
+    w: 0.00455311058394
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17234
+  stamp: 
+    secs: 345
+    nsecs: 940000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700626985243
+    y: 0.150842487568
+    z: 0.0218619998159
+  orientation: 
+    x: -0.0260389890201
+    y: 0.999630776877
+    z: 0.00622153661269
+    w: 0.00464472317211
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17235
+  stamp: 
+    secs: 345
+    nsecs: 960000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700719709587
+    y: 0.150833276345
+    z: 0.0218986116719
+  orientation: 
+    x: -0.0260124981251
+    y: 0.999631057109
+    z: 0.00621042891451
+    w: 0.00474659642099
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17236
+  stamp: 
+    secs: 345
+    nsecs: 980000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700675814258
+    y: 0.150840815006
+    z: 0.0219065589382
+  orientation: 
+    x: -0.026027834812
+    y: 0.999630782958
+    z: 0.00622619999971
+    w: 0.00469936281243
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17237
+  stamp: 
+    secs: 346
+    nsecs:         0
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700613139166
+    y: 0.150844639674
+    z: 0.0218777939497
+  orientation: 
+    x: -0.026024001836
+    y: 0.999631123103
+    z: 0.00623611647464
+    w: 0.00463464163042
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17238
+  stamp: 
+    secs: 346
+    nsecs:  20000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700619273634
+    y: 0.150850434994
+    z: 0.0218591480514
+  orientation: 
+    x: -0.0260173665854
+    y: 0.999631217735
+    z: 0.00624497032514
+    w: 0.00463955937236
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17239
+  stamp: 
+    secs: 346
+    nsecs:  40000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700646521559
+    y: 0.150838136502
+    z: 0.0218720120682
+  orientation: 
+    x: -0.0260120155832
+    y: 0.999631301387
+    z: 0.00623210784219
+    w: 0.00466874343314
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17240
+  stamp: 
+    secs: 346
+    nsecs:  60000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700655577581
+    y: 0.150821609135
+    z: 0.0218899484999
+  orientation: 
+    x: -0.0260213894167
+    y: 0.999631108689
+    z: 0.00621586934739
+    w: 0.00467940197005
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17241
+  stamp: 
+    secs: 346
+    nsecs:  80000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700655104358
+    y: 0.150826842887
+    z: 0.0218892157921
+  orientation: 
+    x: -0.0260129175594
+    y: 0.999631258661
+    z: 0.00622619689829
+    w: 0.00468073711967
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17242
+  stamp: 
+    secs: 346
+    nsecs: 100000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700642622713
+    y: 0.150836287939
+    z: 0.0218785723434
+  orientation: 
+    x: -0.0260041874192
+    y: 0.999631460943
+    z: 0.00624000839924
+    w: 0.00466763589409
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17243
+  stamp: 
+    secs: 346
+    nsecs: 120000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700628857796
+    y: 0.150829389989
+    z: 0.0218735335581
+  orientation: 
+    x: -0.0260151021324
+    y: 0.999631302979
+    z: 0.00623170316399
+    w: 0.00465171387056
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17244
+  stamp: 
+    secs: 346
+    nsecs: 140000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700636932778
+    y: 0.150824650608
+    z: 0.0218766708415
+  orientation: 
+    x: -0.026012659745
+    y: 0.999631359557
+    z: 0.00622609368105
+    w: 0.00466071686322
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17245
+  stamp: 
+    secs: 346
+    nsecs: 160000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700652242156
+    y: 0.150829331235
+    z: 0.0218821616679
+  orientation: 
+    x: -0.0260077882153
+    y: 0.999631375778
+    z: 0.006231470301
+    w: 0.00467720961522
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17246
+  stamp: 
+    secs: 346
+    nsecs: 180000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700649734708
+    y: 0.150828513526
+    z: 0.0218837637108
+  orientation: 
+    x: -0.0260109442506
+    y: 0.999631319099
+    z: 0.00622935595132
+    w: 0.00467458870276
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17247
+  stamp: 
+    secs: 346
+    nsecs: 200000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700639095839
+    y: 0.150828162649
+    z: 0.0218804285307
+  orientation: 
+    x: -0.0260153754874
+    y: 0.999631267175
+    z: 0.00622792911998
+    w: 0.00466292008699
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17248
+  stamp: 
+    secs: 346
+    nsecs: 220000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700638979267
+    y: 0.150834060368
+    z: 0.0218769594698
+  orientation: 
+    x: -0.026012103862
+    y: 0.999631317638
+    z: 0.00623380701902
+    w: 0.00466249940615
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17249
+  stamp: 
+    secs: 346
+    nsecs: 240000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70064371811
+    y: 0.150835021827
+    z: 0.0218779214727
+  orientation: 
+    x: -0.0260123471333
+    y: 0.999631294165
+    z: 0.00623306121609
+    w: 0.0046671693265
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17250
+  stamp: 
+    secs: 346
+    nsecs: 260000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700645097355
+    y: 0.15083132305
+    z: 0.0218809111171
+  orientation: 
+    x: -0.0260177159098
+    y: 0.999631186781
+    z: 0.00622699699487
+    w: 0.00466833831571
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17251
+  stamp: 
+    secs: 346
+    nsecs: 280000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700645673364
+    y: 0.150833679541
+    z: 0.0218813888679
+  orientation: 
+    x: -0.0260159021509
+    y: 0.999631215962
+    z: 0.00622928260642
+    w: 0.00466914854331
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17252
+  stamp: 
+    secs: 346
+    nsecs: 300000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700644845189
+    y: 0.15083766237
+    z: 0.0218797464376
+  orientation: 
+    x: -0.0260145437167
+    y: 0.999631229848
+    z: 0.00623349629575
+    w: 0.0046681207577
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17253
+  stamp: 
+    secs: 346
+    nsecs: 320000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700642145494
+    y: 0.150835980164
+    z: 0.0218787957717
+  orientation: 
+    x: -0.0260172480417
+    y: 0.99963119123
+    z: 0.00623074525212
+    w: 0.00466499075517
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17254
+  stamp: 
+    secs: 346
+    nsecs: 340000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700642445731
+    y: 0.150834789209
+    z: 0.0218791808745
+  orientation: 
+    x: -0.0260177841099
+    y: 0.999631185206
+    z: 0.0062292564458
+    w: 0.0046652800972
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17255
+  stamp: 
+    secs: 346
+    nsecs: 360000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70064545709
+    y: 0.150836358547
+    z: 0.0218799221509
+  orientation: 
+    x: -0.026015519527
+    y: 0.999631214773
+    z: 0.00623145803697
+    w: 0.00466863221003
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17256
+  stamp: 
+    secs: 346
+    nsecs: 380000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700645444438
+    y: 0.150835596225
+    z: 0.0218803292169
+  orientation: 
+    x: -0.026015877822
+    y: 0.999631209222
+    z: 0.00623081051694
+    w: 0.00466868832467
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17257
+  stamp: 
+    secs: 346
+    nsecs: 400000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643247043
+    y: 0.150834002522
+    z: 0.0218800219988
+  orientation: 
+    x: -0.0260170232226
+    y: 0.999631198932
+    z: 0.00622940185321
+    w: 0.00466638794117
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17258
+  stamp: 
+    secs: 346
+    nsecs: 420000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643124195
+    y: 0.150834757676
+    z: 0.0218793998659
+  orientation: 
+    x: -0.0260152127973
+    y: 0.999631235821
+    z: 0.00623103443649
+    w: 0.00466639945386
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17259
+  stamp: 
+    secs: 346
+    nsecs: 440000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643914393
+    y: 0.150834706864
+    z: 0.02187939933
+  orientation: 
+    x: -0.0260145739776
+    y: 0.999631245749
+    z: 0.00623144784476
+    w: 0.00466728193849
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17260
+  stamp: 
+    secs: 346
+    nsecs: 460000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643751684
+    y: 0.15083288863
+    z: 0.0218799121384
+  orientation: 
+    x: -0.0260154505938
+    y: 0.999631234775
+    z: 0.00622963857687
+    w: 0.00466716135318
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17261
+  stamp: 
+    secs: 346
+    nsecs: 480000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70064377046
+    y: 0.150832709524
+    z: 0.0218800714731
+  orientation: 
+    x: -0.0260148260373
+    y: 0.999631248521
+    z: 0.00622993607474
+    w: 0.00466730147755
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17262
+  stamp: 
+    secs: 346
+    nsecs: 500000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643943691
+    y: 0.150833473598
+    z: 0.0218798056617
+  orientation: 
+    x: -0.0260138599207
+    y: 0.999631264708
+    z: 0.00623118668511
+    w: 0.00466755002087
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17263
+  stamp: 
+    secs: 346
+    nsecs: 520000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643356259
+    y: 0.150832853523
+    z: 0.021879655663
+  orientation: 
+    x: -0.026014406987
+    y: 0.999631257783
+    z: 0.00623050028398
+    w: 0.00466690021448
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17264
+  stamp: 
+    secs: 346
+    nsecs: 540000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643130455
+    y: 0.150832386821
+    z: 0.021879702399
+  orientation: 
+    x: -0.0260147256324
+    y: 0.99963125395
+    z: 0.00622997085281
+    w: 0.00466665188663
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17265
+  stamp: 
+    secs: 346
+    nsecs: 560000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643789942
+    y: 0.150833023003
+    z: 0.0218797725087
+  orientation: 
+    x: -0.0260140637833
+    y: 0.99963126311
+    z: 0.00623072111752
+    w: 0.00466737759996
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17266
+  stamp: 
+    secs: 346
+    nsecs: 580000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643936153
+    y: 0.150833146786
+    z: 0.021879845594
+  orientation: 
+    x: -0.0260142916296
+    y: 0.999631256861
+    z: 0.00623068247049
+    w: 0.00466749745693
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17267
+  stamp: 
+    secs: 346
+    nsecs: 600000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643490509
+    y: 0.150832871298
+    z: 0.0218798397097
+  orientation: 
+    x: -0.0260148869897
+    y: 0.999631247199
+    z: 0.00623013406261
+    w: 0.00466698059667
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17268
+  stamp: 
+    secs: 346
+    nsecs: 620000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70064352455
+    y: 0.15083336476
+    z: 0.0218797250564
+  orientation: 
+    x: -0.0260146959557
+    y: 0.99963124946
+    z: 0.00623055745947
+    w: 0.00466699589152
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17269
+  stamp: 
+    secs: 346
+    nsecs: 640000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643786587
+    y: 0.150833789869
+    z: 0.0218796858365
+  orientation: 
+    x: -0.0260146495409
+    y: 0.999631247783
+    z: 0.00623084138269
+    w: 0.00466723478946
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17270
+  stamp: 
+    secs: 346
+    nsecs: 660000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70064371549
+    y: 0.150833586645
+    z: 0.0218797743654
+  orientation: 
+    x: -0.0260151330118
+    y: 0.999631238721
+    z: 0.00623036623327
+    w: 0.00466711512631
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17271
+  stamp: 
+    secs: 346
+    nsecs: 680000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643715586
+    y: 0.150833686195
+    z: 0.021879812294
+  orientation: 
+    x: -0.0260152111571
+    y: 0.999631236815
+    z: 0.00623035629806
+    w: 0.00466710105626
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17272
+  stamp: 
+    secs: 346
+    nsecs: 700000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643867495
+    y: 0.150834074928
+    z: 0.0218797625965
+  orientation: 
+    x: -0.0260149999981
+    y: 0.999631239206
+    z: 0.00623073781594
+    w: 0.00466725671747
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17273
+  stamp: 
+    secs: 346
+    nsecs: 720000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643773028
+    y: 0.150834014715
+    z: 0.0218797420596
+  orientation: 
+    x: -0.0260152036592
+    y: 0.999631235446
+    z: 0.00623058238259
+    w: 0.00466713439155
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17274
+  stamp: 
+    secs: 346
+    nsecs: 740000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643660357
+    y: 0.150833859408
+    z: 0.0218797550062
+  orientation: 
+    x: -0.0260153437919
+    y: 0.999631233625
+    z: 0.00623038208765
+    w: 0.0046670105472
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17275
+  stamp: 
+    secs: 346
+    nsecs: 760000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643796111
+    y: 0.150833990701
+    z: 0.0218797573826
+  orientation: 
+    x: -0.0260151305944
+    y: 0.999631237155
+    z: 0.00623058708848
+    w: 0.00466716927009
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17276
+  stamp: 
+    secs: 346
+    nsecs: 780000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643846858
+    y: 0.150833971063
+    z: 0.0218797693661
+  orientation: 
+    x: -0.0260150874946
+    y: 0.999631237839
+    z: 0.00623061152932
+    w: 0.00466723040718
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17277
+  stamp: 
+    secs: 346
+    nsecs: 800000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643716863
+    y: 0.150833753312
+    z: 0.0218797825194
+  orientation: 
+    x: -0.0260151885732
+    y: 0.999631237026
+    z: 0.00623041718507
+    w: 0.00466710048057
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17278
+  stamp: 
+    secs: 346
+    nsecs: 820000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643701068
+    y: 0.150833734432
+    z: 0.0218797652082
+  orientation: 
+    x: -0.026015060451
+    y: 0.999631239879
+    z: 0.00623049308345
+    w: 0.00466710223475
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17279
+  stamp: 
+    secs: 346
+    nsecs: 840000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643759729
+    y: 0.150833755863
+    z: 0.0218797520293
+  orientation: 
+    x: -0.0260149220724
+    y: 0.999631242436
+    z: 0.00623060338526
+    w: 0.00466717872277
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17280
+  stamp: 
+    secs: 346
+    nsecs: 860000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700643713601
+    y: 0.150833599183
+    z: 0.0218797696219
+  orientation: 
+    x: -0.0260149737544
+    y: 0.999631242076
+    z: 0.0062304769251
+    w: 0.00466713645846
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17281
+  stamp: 
+    secs: 346
+    nsecs: 880000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70066400572
+    y: 0.150835305935
+    z: 0.0218461487554
+  orientation: 
+    x: -0.0260297950076
+    y: 0.999630868258
+    z: 0.00622877341439
+    w: 0.00466683822734
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17282
+  stamp: 
+    secs: 346
+    nsecs: 900000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705136350719
+    y: 0.150943400648
+    z: 0.0192113732047
+  orientation: 
+    x: -0.0274953325072
+    y: 0.999566099066
+    z: 0.00592685636239
+    w: 0.00874600836077
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17283
+  stamp: 
+    secs: 346
+    nsecs: 920000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.707207997731
+    y: 0.151134261949
+    z: 0.0141582108668
+  orientation: 
+    x: -0.0259306768302
+    y: 0.999590105328
+    z: 0.00555095912496
+    w: 0.0107892623331
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17284
+  stamp: 
+    secs: 346
+    nsecs: 940000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700618339237
+    y: 0.152113264498
+    z: 0.0096799429715
+  orientation: 
+    x: -0.0277962328786
+    y: 0.999584778267
+    z: 0.00701678840699
+    w: 0.00289916792652
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17285
+  stamp: 
+    secs: 346
+    nsecs: 960000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.700387535072
+    y: 0.151918566488
+    z: 0.00520239387403
+  orientation: 
+    x: -0.0284051731457
+    y: 0.9995726325
+    z: 0.00649447698616
+    w: 0.00234952432427
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17286
+  stamp: 
+    secs: 346
+    nsecs: 980000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705362665824
+    y: 0.15166774557
+    z: 0.00255982589842
+  orientation: 
+    x: -0.0267611817395
+    y: 0.999597257163
+    z: 0.00592136804168
+    w: 0.007355271836
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17287
+  stamp: 
+    secs: 347
+    nsecs:         0
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706006562301
+    y: 0.150997037493
+    z: 0.000953910854883
+  orientation: 
+    x: -0.028388806211
+    y: 0.999555036647
+    z: 0.00520566349562
+    w: 0.00753030304881
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17288
+  stamp: 
+    secs: 347
+    nsecs:  20000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704967936164
+    y: 0.150614968098
+    z: -0.0022694973348
+  orientation: 
+    x: -0.028384480876
+    y: 0.999564712637
+    z: 0.00490628915526
+    w: 0.00637454488467
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17289
+  stamp: 
+    secs: 347
+    nsecs:  40000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704434212362
+    y: 0.1516017231
+    z: -0.00612229548375
+  orientation: 
+    x: -0.0277186537798
+    y: 0.999580784108
+    z: 0.00630554090073
+    w: 0.00549294357731
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17290
+  stamp: 
+    secs: 347
+    nsecs:  60000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704763103871
+    y: 0.151385312031
+    z: -0.00954438900512
+  orientation: 
+    x: -0.027972904645
+    y: 0.999574846654
+    z: 0.00598025384359
+    w: 0.00564615848538
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17291
+  stamp: 
+    secs: 347
+    nsecs:  80000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704960740071
+    y: 0.150434682591
+    z: -0.0120854139714
+  orientation: 
+    x: -0.0284373173296
+    y: 0.999567818726
+    z: 0.00496453605146
+    w: 0.00555410952595
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17292
+  stamp: 
+    secs: 347
+    nsecs: 100000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705960735136
+    y: 0.150455822527
+    z: -0.0147277573151
+  orientation: 
+    x: -0.0284447140128
+    y: 0.999561640982
+    z: 0.00507132790342
+    w: 0.00645799927879
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17293
+  stamp: 
+    secs: 347
+    nsecs: 120000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706067300285
+    y: 0.150827334365
+    z: -0.0174223415658
+  orientation: 
+    x: -0.0276232458804
+    y: 0.999581400258
+    z: 0.00566064901741
+    w: 0.00647592456092
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17294
+  stamp: 
+    secs: 347
+    nsecs: 140000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705211605827
+    y: 0.150484556529
+    z: -0.0199970673912
+  orientation: 
+    x: -0.0287277891757
+    y: 0.999559093926
+    z: 0.00536481412909
+    w: 0.0052488711799
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17295
+  stamp: 
+    secs: 347
+    nsecs: 160000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706416130931
+    y: 0.150156843889
+    z: -0.0231248910943
+  orientation: 
+    x: -0.0285360506365
+    y: 0.999559642956
+    z: 0.00479710980073
+    w: 0.00657280193888
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17296
+  stamp: 
+    secs: 347
+    nsecs: 180000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70619561028
+    y: 0.150702122631
+    z: -0.0257023662402
+  orientation: 
+    x: -0.0278504276035
+    y: 0.999577621344
+    z: 0.00559236311575
+    w: 0.00613661678157
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17297
+  stamp: 
+    secs: 347
+    nsecs: 200000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705450955864
+    y: 0.150490408276
+    z: -0.02815071722
+  orientation: 
+    x: -0.0288869880788
+    y: 0.999555063314
+    z: 0.00530254426556
+    w: 0.00520579931948
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17298
+  stamp: 
+    secs: 347
+    nsecs: 220000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706186326713
+    y: 0.150182951222
+    z: -0.0306091032171
+  orientation: 
+    x: -0.0286089969991
+    y: 0.999561180422
+    z: 0.00487106597145
+    w: 0.00593671622048
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17299
+  stamp: 
+    secs: 347
+    nsecs: 240000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706739923119
+    y: 0.150519904167
+    z: -0.0328544488261
+  orientation: 
+    x: -0.0284085966702
+    y: 0.999562019953
+    z: 0.00525683342525
+    w: 0.00640980545818
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17300
+  stamp: 
+    secs: 347
+    nsecs: 260000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706231661205
+    y: 0.150515067372
+    z: -0.0350055317115
+  orientation: 
+    x: -0.0287859299604
+    y: 0.999555181757
+    z: 0.00528088268078
+    w: 0.00573769438006
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17301
+  stamp: 
+    secs: 347
+    nsecs: 280000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70633165031
+    y: 0.150297594504
+    z: -0.0374356381505
+  orientation: 
+    x: -0.028813586552
+    y: 0.999555309101
+    z: 0.00490512549426
+    w: 0.00590770860972
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17302
+  stamp: 
+    secs: 347
+    nsecs: 300000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706470419994
+    y: 0.15059131242
+    z: -0.0397346515615
+  orientation: 
+    x: -0.0287842572947
+    y: 0.999554190577
+    z: 0.00526976367353
+    w: 0.00592589427026
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17303
+  stamp: 
+    secs: 347
+    nsecs: 320000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706617679186
+    y: 0.150597460082
+    z: -0.0420581584459
+  orientation: 
+    x: -0.0287544901417
+    y: 0.999554635315
+    z: 0.00520669766719
+    w: 0.00604984431544
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17304
+  stamp: 
+    secs: 347
+    nsecs: 340000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706375795514
+    y: 0.15047485169
+    z: -0.0442383094297
+  orientation: 
+    x: -0.0289512435627
+    y: 0.99955130898
+    z: 0.00506867671688
+    w: 0.00577189123627
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17305
+  stamp: 
+    secs: 347
+    nsecs: 360000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705843565583
+    y: 0.150541199398
+    z: -0.0460212101742
+  orientation: 
+    x: -0.028854799033
+    y: 0.999556383624
+    z: 0.00524254322024
+    w: 0.00519155753767
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17306
+  stamp: 
+    secs: 347
+    nsecs: 380000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706748594809
+    y: 0.150489041774
+    z: -0.0480717108574
+  orientation: 
+    x: -0.0290561567018
+    y: 0.999545875534
+    z: 0.00512072442516
+    w: 0.00612867372734
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17307
+  stamp: 
+    secs: 347
+    nsecs: 400000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.707331031258
+    y: 0.150419707303
+    z: -0.0502415114467
+  orientation: 
+    x: -0.0286431623897
+    y: 0.999554360777
+    z: 0.00498998517743
+    w: 0.00676381166053
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17308
+  stamp: 
+    secs: 347
+    nsecs: 420000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70604419236
+    y: 0.150529053416
+    z: -0.0522503142038
+  orientation: 
+    x: -0.0289291640926
+    y: 0.999552993143
+    z: 0.00528673588716
+    w: 0.00538217304274
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17309
+  stamp: 
+    secs: 347
+    nsecs: 440000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705721291706
+    y: 0.150513136822
+    z: -0.0543764061031
+  orientation: 
+    x: -0.0291006112705
+    y: 0.999549539366
+    z: 0.00529566683731
+    w: 0.00508219332099
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17310
+  stamp: 
+    secs: 347
+    nsecs: 460000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70644960816
+    y: 0.150510311845
+    z: -0.0562187792347
+  orientation: 
+    x: -0.0285472397818
+    y: 0.999560954113
+    z: 0.00529981066512
+    w: 0.00590475407758
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17311
+  stamp: 
+    secs: 347
+    nsecs: 480000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706430472411
+    y: 0.150356510915
+    z: -0.0577185206446
+  orientation: 
+    x: -0.028821762092
+    y: 0.99955396529
+    z: 0.0051762290209
+    w: 0.00586371518084
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17312
+  stamp: 
+    secs: 347
+    nsecs: 500000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705685980278
+    y: 0.150217904459
+    z: -0.0589741928271
+  orientation: 
+    x: -0.028822248444
+    y: 0.99955816238
+    z: 0.00520158889385
+    w: 0.00506966343593
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17313
+  stamp: 
+    secs: 347
+    nsecs: 520000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706892873883
+    y: 0.150208778175
+    z: -0.0610336201251
+  orientation: 
+    x: -0.0289348308979
+    y: 0.999547529472
+    z: 0.00503868856348
+    w: 0.00649026226646
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17314
+  stamp: 
+    secs: 347
+    nsecs: 540000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706718482565
+    y: 0.150474245978
+    z: -0.0629446258378
+  orientation: 
+    x: -0.0281509995243
+    y: 0.999568994702
+    z: 0.00543576536264
+    w: 0.00630860616844
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17315
+  stamp: 
+    secs: 347
+    nsecs: 560000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705177404257
+    y: 0.150387460387
+    z: -0.0646702486399
+  orientation: 
+    x: -0.0289422209304
+    y: 0.999555118939
+    z: 0.00543809171899
+    w: 0.004726437264
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17316
+  stamp: 
+    secs: 347
+    nsecs: 580000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705451913814
+    y: 0.150255409505
+    z: -0.0664142696499
+  orientation: 
+    x: -0.028896351157
+    y: 0.999555630935
+    z: 0.00526080356144
+    w: 0.00508581386484
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17317
+  stamp: 
+    secs: 347
+    nsecs: 600000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706381708744
+    y: 0.150417974682
+    z: -0.0678317084074
+  orientation: 
+    x: -0.0281305088238
+    y: 0.99957051321
+    z: 0.00544419059018
+    w: 0.00615015317973
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17318
+  stamp: 
+    secs: 347
+    nsecs: 620000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705928188497
+    y: 0.150275985588
+    z: -0.0690211969964
+  orientation: 
+    x: -0.0286996491879
+    y: 0.999557902667
+    z: 0.00534836066922
+    w: 0.00563244086794
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17319
+  stamp: 
+    secs: 347
+    nsecs: 640000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705649432801
+    y: 0.150069708945
+    z: -0.0705383366138
+  orientation: 
+    x: -0.0287667788357
+    y: 0.99955816461
+    z: 0.00514064952284
+    w: 0.00543338927968
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17320
+  stamp: 
+    secs: 347
+    nsecs: 660000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705938745196
+    y: 0.150411474336
+    z: -0.0722548140509
+  orientation: 
+    x: -0.0282996881262
+    y: 0.999567070931
+    z: 0.00552985284596
+    w: 0.00584970848294
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17321
+  stamp: 
+    secs: 347
+    nsecs: 680000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705443600648
+    y: 0.150521124481
+    z: -0.0736910534639
+  orientation: 
+    x: -0.0283053171823
+    y: 0.999568607527
+    z: 0.00569796958772
+    w: 0.00537968469086
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17322
+  stamp: 
+    secs: 347
+    nsecs: 700000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704468430003
+    y: 0.150299132128
+    z: -0.074451257104
+  orientation: 
+    x: -0.0285920110455
+    y: 0.999566082904
+    z: 0.00561899824304
+    w: 0.00430925412078
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17323
+  stamp: 
+    secs: 347
+    nsecs: 720000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706469499447
+    y: 0.150025557328
+    z: -0.0760240223046
+  orientation: 
+    x: -0.028758013264
+    y: 0.999551926679
+    z: 0.00504275352497
+    w: 0.00659493607536
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17324
+  stamp: 
+    secs: 347
+    nsecs: 740000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706429704927
+    y: 0.150414439903
+    z: -0.0774331660064
+  orientation: 
+    x: -0.0275409538714
+    y: 0.999583185519
+    z: 0.00558454127713
+    w: 0.00661543547041
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17325
+  stamp: 
+    secs: 347
+    nsecs: 760000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70361287425
+    y: 0.150533264308
+    z: -0.0783204516866
+  orientation: 
+    x: -0.0286425994148
+    y: 0.999565099628
+    z: 0.00603091465325
+    w: 0.00358345832222
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17326
+  stamp: 
+    secs: 347
+    nsecs: 780000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705100789836
+    y: 0.150047272821
+    z: -0.0801215954156
+  orientation: 
+    x: -0.0289437836215
+    y: 0.999553037976
+    z: 0.0051614929301
+    w: 0.00541670141249
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17327
+  stamp: 
+    secs: 347
+    nsecs: 800000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.706369412125
+    y: 0.15049981694
+    z: -0.0814333562635
+  orientation: 
+    x: -0.027241488082
+    y: 0.999589417378
+    z: 0.00571194205282
+    w: 0.00680233131225
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17328
+  stamp: 
+    secs: 347
+    nsecs: 820000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70445410275
+    y: 0.150504494984
+    z: -0.082341543876
+  orientation: 
+    x: -0.0284646463358
+    y: 0.999566259384
+    z: 0.00588523850818
+    w: 0.00473507940165
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17329
+  stamp: 
+    secs: 347
+    nsecs: 840000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704096663499
+    y: 0.150048855586
+    z: -0.083661629962
+  orientation: 
+    x: -0.0286827477727
+    y: 0.999563988072
+    z: 0.00535036140161
+    w: 0.00452850556856
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17330
+  stamp: 
+    secs: 347
+    nsecs: 860000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705292106863
+    y: 0.150463596649
+    z: -0.0848739350376
+  orientation: 
+    x: -0.0275997911021
+    y: 0.999584624769
+    z: 0.00581665351653
+    w: 0.00591574156363
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17331
+  stamp: 
+    secs: 347
+    nsecs: 880000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.705042440616
+    y: 0.150505889849
+    z: -0.0857965773251
+  orientation: 
+    x: -0.0279565260829
+    y: 0.999575810098
+    z: 0.00592473498777
+    w: 0.00561516086338
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17332
+  stamp: 
+    secs: 347
+    nsecs: 900000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70434373978
+    y: 0.150020953293
+    z: -0.0868864114789
+  orientation: 
+    x: -0.0283132949107
+    y: 0.999572016625
+    z: 0.00537561467229
+    w: 0.00502430880287
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17333
+  stamp: 
+    secs: 347
+    nsecs: 920000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704233820139
+    y: 0.150328766189
+    z: -0.0879296930856
+  orientation: 
+    x: -0.0279219845379
+    y: 0.999580701324
+    z: 0.00584760177415
+    w: 0.00495881779175
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17334
+  stamp: 
+    secs: 347
+    nsecs: 940000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704634868546
+    y: 0.150515420543
+    z: -0.0889420701795
+  orientation: 
+    x: -0.0276606219597
+    y: 0.999584086861
+    z: 0.00604483678607
+    w: 0.00547752092361
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17335
+  stamp: 
+    secs: 347
+    nsecs: 960000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704570700482
+    y: 0.150163626389
+    z: -0.0899166143087
+  orientation: 
+    x: -0.0279258189553
+    y: 0.999579122069
+    z: 0.00561148724412
+    w: 0.00549896079826
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17336
+  stamp: 
+    secs: 347
+    nsecs: 980000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704050745458
+    y: 0.150162507209
+    z: -0.0908361309203
+  orientation: 
+    x: -0.0279758331243
+    y: 0.999579936702
+    z: 0.0057241179931
+    w: 0.00495352172782
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17337
+  stamp: 
+    secs: 348
+    nsecs:         0
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704251543633
+    y: 0.150413933476
+    z: -0.0920108341762
+  orientation: 
+    x: -0.0276407045269
+    y: 0.999585722873
+    z: 0.00597762897496
+    w: 0.0053518253434
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17338
+  stamp: 
+    secs: 348
+    nsecs:  20000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704010820754
+    y: 0.150461730097
+    z: -0.09291515312
+  orientation: 
+    x: -0.0275330644793
+    y: 0.999589168691
+    z: 0.00607766226376
+    w: 0.0051464761519
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17339
+  stamp: 
+    secs: 348
+    nsecs:  40000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703729239587
+    y: 0.150180764538
+    z: -0.0937199632253
+  orientation: 
+    x: -0.027917263712
+    y: 0.999581566776
+    z: 0.00576483014886
+    w: 0.00490759437825
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17340
+  stamp: 
+    secs: 348
+    nsecs:  60000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703875552855
+    y: 0.150254128488
+    z: -0.0944708303594
+  orientation: 
+    x: -0.0275858479713
+    y: 0.99958879397
+    z: 0.00588553424622
+    w: 0.00515988838406
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17341
+  stamp: 
+    secs: 348
+    nsecs:  80000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.704127977274
+    y: 0.15035950527
+    z: -0.095347038052
+  orientation: 
+    x: -0.0274703604334
+    y: 0.999589533694
+    z: 0.00601253542762
+    w: 0.00547657229283
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17342
+  stamp: 
+    secs: 348
+    nsecs: 100000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703897162588
+    y: 0.150274874939
+    z: -0.0963151819185
+  orientation: 
+    x: -0.0275713892405
+    y: 0.999588350616
+    z: 0.00591425718734
+    w: 0.00528860751617
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17343
+  stamp: 
+    secs: 348
+    nsecs: 120000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703319820395
+    y: 0.150326208623
+    z: -0.0972055300134
+  orientation: 
+    x: -0.0275033469556
+    y: 0.999591933938
+    z: 0.00601853865603
+    w: 0.0048279089249
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17344
+  stamp: 
+    secs: 348
+    nsecs: 140000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703207317035
+    y: 0.150433916527
+    z: -0.0979539848031
+  orientation: 
+    x: -0.0274908253731
+    y: 0.999591720035
+    z: 0.00619910931631
+    w: 0.00471368237202
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17345
+  stamp: 
+    secs: 348
+    nsecs: 160000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703730971669
+    y: 0.150282947059
+    z: -0.0987182927501
+  orientation: 
+    x: -0.0273470071588
+    y: 0.999593692025
+    z: 0.00595241006353
+    w: 0.00540008133202
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17346
+  stamp: 
+    secs: 348
+    nsecs: 180000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703355616794
+    y: 0.150301490299
+    z: -0.0991598331188
+  orientation: 
+    x: -0.0273195379292
+    y: 0.999595827192
+    z: 0.00612907351478
+    w: 0.00492539999694
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17347
+  stamp: 
+    secs: 348
+    nsecs: 200000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703524678336
+    y: 0.150198094399
+    z: -0.100090127187
+  orientation: 
+    x: -0.0275482342262
+    y: 0.999588827053
+    z: 0.00589311938682
+    w: 0.00534254308905
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17348
+  stamp: 
+    secs: 348
+    nsecs: 220000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703265923928
+    y: 0.150451632686
+    z: -0.100920842759
+  orientation: 
+    x: -0.0270606148248
+    y: 0.999601093891
+    z: 0.00627116057874
+    w: 0.00510379881551
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17349
+  stamp: 
+    secs: 348
+    nsecs: 240000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702850079602
+    y: 0.150426947723
+    z: -0.101685500259
+  orientation: 
+    x: -0.027289315913
+    y: 0.999596816738
+    z: 0.00624607229737
+    w: 0.00474170702157
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17350
+  stamp: 
+    secs: 348
+    nsecs: 260000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702680741476
+    y: 0.150320124059
+    z: -0.102139877939
+  orientation: 
+    x: -0.0272807151453
+    y: 0.9995982174
+    z: 0.00622296553091
+    w: 0.0045211781351
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17351
+  stamp: 
+    secs: 348
+    nsecs: 280000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703392165438
+    y: 0.150194131436
+    z: -0.10279488771
+  orientation: 
+    x: -0.0271695338291
+    y: 0.999598135315
+    z: 0.00598525822106
+    w: 0.00543700192653
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17352
+  stamp: 
+    secs: 348
+    nsecs: 300000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.703367577595
+    y: 0.150354516043
+    z: -0.103524419801
+  orientation: 
+    x: -0.0270419742472
+    y: 0.999600162875
+    z: 0.00618093308773
+    w: 0.00548106515501
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17353
+  stamp: 
+    secs: 348
+    nsecs: 320000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702448400382
+    y: 0.150438429268
+    z: -0.104221632786
+  orientation: 
+    x: -0.0270569603737
+    y: 0.999603053368
+    z: 0.00638663269044
+    w: 0.00456809762339
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17354
+  stamp: 
+    secs: 348
+    nsecs: 340000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702417314004
+    y: 0.150345521399
+    z: -0.105006135155
+  orientation: 
+    x: -0.0272473668674
+    y: 0.999598522484
+    z: 0.00623532454363
+    w: 0.00463633198619
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17355
+  stamp: 
+    secs: 348
+    nsecs: 360000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702774791825
+    y: 0.150394797204
+    z: -0.105554141055
+  orientation: 
+    x: -0.0268128429471
+    y: 0.999607701695
+    z: 0.00630861678492
+    w: 0.00507104719142
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17356
+  stamp: 
+    secs: 348
+    nsecs: 380000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702669775699
+    y: 0.150355566412
+    z: -0.105959656914
+  orientation: 
+    x: -0.0269558232866
+    y: 0.999604320925
+    z: 0.00631007906038
+    w: 0.00497675413483
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17357
+  stamp: 
+    secs: 348
+    nsecs: 400000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702566002751
+    y: 0.150231119827
+    z: -0.106514503849
+  orientation: 
+    x: -0.0270840730583
+    y: 0.999601859262
+    z: 0.00617144198225
+    w: 0.00494866143103
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17358
+  stamp: 
+    secs: 348
+    nsecs: 420000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702510053728
+    y: 0.150379129482
+    z: -0.107118393662
+  orientation: 
+    x: -0.0267719914019
+    y: 0.999608839419
+    z: 0.00638483232428
+    w: 0.00496614013069
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17359
+  stamp: 
+    secs: 348
+    nsecs: 440000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702351339601
+    y: 0.15044823743
+    z: -0.107682382409
+  orientation: 
+    x: -0.0268353844
+    y: 0.99960709871
+    z: 0.00646483681881
+    w: 0.00486993200664
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17360
+  stamp: 
+    secs: 348
+    nsecs: 460000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70227759188
+    y: 0.150300773797
+    z: -0.108217764805
+  orientation: 
+    x: -0.0268759687352
+    y: 0.999607210007
+    z: 0.00629039650952
+    w: 0.00485169234075
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17361
+  stamp: 
+    secs: 348
+    nsecs: 480000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702223009995
+    y: 0.150343009245
+    z: -0.10862541536
+  orientation: 
+    x: -0.0267607903051
+    y: 0.999609843752
+    z: 0.0063883200077
+    w: 0.00481764922186
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17362
+  stamp: 
+    secs: 348
+    nsecs: 500000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702371714099
+    y: 0.150340199535
+    z: -0.109134362817
+  orientation: 
+    x: -0.0267468258005
+    y: 0.999609262232
+    z: 0.00637376235669
+    w: 0.00503043974013
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17363
+  stamp: 
+    secs: 348
+    nsecs: 520000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702351864634
+    y: 0.150342890146
+    z: -0.109735442309
+  orientation: 
+    x: -0.0266797900722
+    y: 0.999610801108
+    z: 0.00636002930281
+    w: 0.00509756185607
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17364
+  stamp: 
+    secs: 348
+    nsecs: 540000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701883056083
+    y: 0.150437528218
+    z: -0.110227100443
+  orientation: 
+    x: -0.0266766597521
+    y: 0.999611896164
+    z: 0.00653210743175
+    w: 0.00466309395809
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17365
+  stamp: 
+    secs: 348
+    nsecs: 560000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701861141004
+    y: 0.150409531772
+    z: -0.110730495291
+  orientation: 
+    x: -0.026727114939
+    y: 0.999610655629
+    z: 0.00649376826615
+    w: 0.00469355451953
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17366
+  stamp: 
+    secs: 348
+    nsecs: 580000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702091286967
+    y: 0.150376391682
+    z: -0.111138821836
+  orientation: 
+    x: -0.0265480612022
+    y: 0.999614256547
+    z: 0.00645093723379
+    w: 0.00499239050158
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17367
+  stamp: 
+    secs: 348
+    nsecs: 600000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.702026225391
+    y: 0.15036394025
+    z: -0.111499815072
+  orientation: 
+    x: -0.0265879820856
+    y: 0.999613311765
+    z: 0.00646369791814
+    w: 0.00495244985889
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17368
+  stamp: 
+    secs: 348
+    nsecs: 620000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701859664
+    y: 0.150359695902
+    z: -0.111927724808
+  orientation: 
+    x: -0.0266057344463
+    y: 0.999613311189
+    z: 0.00647350734761
+    w: 0.00484321090803
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17369
+  stamp: 
+    secs: 348
+    nsecs: 640000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701756096799
+    y: 0.150413856549
+    z: -0.11233319249
+  orientation: 
+    x: -0.0264765303811
+    y: 0.999616490997
+    z: 0.00658708002769
+    w: 0.00474074287997
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17370
+  stamp: 
+    secs: 348
+    nsecs: 660000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701834629307
+    y: 0.150399972324
+    z: -0.112753143067
+  orientation: 
+    x: -0.0264984572105
+    y: 0.999615305892
+    z: 0.00650119342604
+    w: 0.00498060993087
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17371
+  stamp: 
+    secs: 348
+    nsecs: 680000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.7016565929
+    y: 0.150371479265
+    z: -0.113041885015
+  orientation: 
+    x: -0.0264719027334
+    y: 0.999616870753
+    z: 0.00657291901616
+    w: 0.00470603939299
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17372
+  stamp: 
+    secs: 348
+    nsecs: 700000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70187073311
+    y: 0.150321043753
+    z: -0.113537251036
+  orientation: 
+    x: -0.0264892757542
+    y: 0.99961555336
+    z: 0.00640411658399
+    w: 0.00510402200868
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17373
+  stamp: 
+    secs: 348
+    nsecs: 720000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701440290435
+    y: 0.150520686818
+    z: -0.113716074744
+  orientation: 
+    x: -0.0262824703113
+    y: 0.999620985746
+    z: 0.00681543819984
+    w: 0.00454603261585
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17374
+  stamp: 
+    secs: 348
+    nsecs: 740000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701832750535
+    y: 0.150290924454
+    z: -0.114308959731
+  orientation: 
+    x: -0.0265538291887
+    y: 0.999613817274
+    z: 0.00640321393973
+    w: 0.00510972813144
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17375
+  stamp: 
+    secs: 348
+    nsecs: 760000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701644140185
+    y: 0.150429033849
+    z: -0.114739746548
+  orientation: 
+    x: -0.0262464474569
+    y: 0.999621240089
+    z: 0.00660103856472
+    w: 0.00499265947026
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17376
+  stamp: 
+    secs: 348
+    nsecs: 780000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701131761936
+    y: 0.150548753259
+    z: -0.11509261468
+  orientation: 
+    x: -0.0263394678922
+    y: 0.999619952062
+    z: 0.00680561576369
+    w: 0.00445729344603
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17377
+  stamp: 
+    secs: 348
+    nsecs: 800000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701310815952
+    y: 0.150402372323
+    z: -0.115448242067
+  orientation: 
+    x: -0.0264207137832
+    y: 0.999618082616
+    z: 0.00660456087414
+    w: 0.00469196828733
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17378
+  stamp: 
+    secs: 348
+    nsecs: 820000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701622458695
+    y: 0.150362043313
+    z: -0.115725230851
+  orientation: 
+    x: -0.0261615013889
+    y: 0.999623318569
+    z: 0.00655891561317
+    w: 0.00507714913933
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17379
+  stamp: 
+    secs: 348
+    nsecs: 840000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.70141358781
+    y: 0.150432522075
+    z: -0.115983158987
+  orientation: 
+    x: -0.0262904106555
+    y: 0.999620183959
+    z: 0.00667776400945
+    w: 0.00486925015325
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+header: 
+  seq: 17380
+  stamp: 
+    secs: 348
+    nsecs: 860000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701216274608
+    y: 0.150405157476
+    z: -0.116358134917
+  orientation: 
+    x: -0.0262487962117
+    y: 0.999622062257
+    z: 0.00666491046613
+    w: 0.00472359136015
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+^Cheader: 
+  seq: 17381
+  stamp: 
+    secs: 348
+    nsecs: 880000000
+  frame_id: ''
+pose: 
+  position: 
+    x: 0.701235224495
+    y: 0.150435624235
+    z: -0.116734974004
+  orientation: 
+    x: -0.0261814274211
+    y: 0.999623261863
+    z: 0.00669302111568
+    w: 0.00480319363572
+twist: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+wrench: 
+  force: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  torque: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+
