@@ -197,6 +197,10 @@ def load_gazebo_models(table_pose1=Pose(position=Point(x=1.0, y=0.5, z=0.0)),
     block_xml = ''
     with open (model_path + "block/model.urdf", "r") as block_file:
         block_xml=block_file.read().replace('\n', '')
+    # Load Block 2 URDF
+    block_xml2 = ''
+    with open (model_path + "block2/model.urdf", "r") as block_file:
+        block_xml2=block_file.read().replace('\n', '')
     # Spawn Table SDF
     rospy.wait_for_service('/gazebo/spawn_sdf_model')
     try:
@@ -223,7 +227,7 @@ def load_gazebo_models(table_pose1=Pose(position=Point(x=1.0, y=0.5, z=0.0)),
     rospy.wait_for_service('/gazebo/spawn_urdf_model')
     try:
         spawn_urdf = rospy.ServiceProxy('/gazebo/spawn_urdf_model', SpawnModel)
-        resp_urdf = spawn_urdf("block2", block_xml, "/",
+        resp_urdf = spawn_urdf("block2", block_xml2, "/",
                                block_pose2, block_reference_frame)
     except rospy.ServiceException, e:
         rospy.logerr("Spawn URDF service call failed: {0}".format(e))
