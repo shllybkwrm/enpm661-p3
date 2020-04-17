@@ -185,7 +185,7 @@ def load_gazebo_models(table_pose1=Pose(position=Point(x=1.0, y=0.5, z=0.0)),
                        table_pose2=Pose(position=Point(x=1.0, y=-0.5, z=0.0)),
                        table_reference_frame="world",
                        block_pose1=Pose(position=Point(x=0.6725, y=0.1265, z=0.7825)),
-                       block_pose2=Pose(position=Point(x=0.6725, y=-0.3735, z=0.7825)),
+                       block_pose2=Pose(position=Point(x=0.6725, y=-0.1235, z=0.7825)),
                        block_reference_frame="world"):
     # Get Models' Path
     model_path = rospkg.RosPack().get_path('baxter_sim_examples')+"/models/"
@@ -298,7 +298,7 @@ def main():
         orientation=overhead_orientation))
     # NEW - BLOCK 2 POSES
     block_poses.append(Pose(
-        position=Point(x=0.7, y=-0.35, z=-0.129),
+        position=Point(x=0.7, y=-0.1, z=-0.129),
         orientation=overhead_orientation))
     block_poses.append(Pose(
         position=Point(x=0.75, y=0.15, z=-0.129),
@@ -307,6 +307,8 @@ def main():
     pnp.move_to_start(starting_joint_angles)
     idx = 0
     while not rospy.is_shutdown():
+        #if idx!=0:
+        #    idx = (idx+1) % len(block_poses)
         print("\nPicking...")
         pnp.pick(block_poses[idx])
         print("\nPlacing...")
