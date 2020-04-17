@@ -305,7 +305,7 @@ def main():
         position=Point(x=0.7, y=-0.1, z=-0.129),
         orientation=overhead_orientation))
     block_poses.append(Pose(
-        position=Point(x=0.75, y=0.15, z=-0.129),
+        position=Point(x=0.8, y=0.15, z=-0.129),
         orientation=overhead_orientation))
     # Move to the desired starting angles
     pnp.move_to_start(starting_joint_angles)
