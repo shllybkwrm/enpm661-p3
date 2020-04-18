@@ -303,18 +303,42 @@ def main():
     # The Pose of the block in its initial location.
     # You may wish to replace these poses with estimates
     # from a perception node.
+	# PICK 1
     block_poses.append(Pose(
         position=Point(x=0.7, y=0.15, z=-0.129),
         orientation=overhead_orientation))
     # ADD WAYPOINT HERE
     block_poses.append(Pose(
+        position=Point(x=0.7, y=0.1, z=(-0.129+hover_distance)),
+        orientation=overhead_orientation))
+    block_poses.append(Pose(
+        position=Point(x=0.7, y=0.0, z=(-0.129+hover_distance)),
+        orientation=overhead_orientation))
+    block_poses.append(Pose(
+        position=Point(x=0.7, y=-0.1, z=(-0.129+hover_distance)),
+        orientation=overhead_orientation))
+	# END WAYPOINTS
+	#PLACE 1
+    block_poses.append(Pose(
         position=Point(x=0.75, y=-0.2, z=-0.129),
         orientation=overhead_orientation))
     # NEW - BLOCK 2 POSES
+	# PICK 2
     block_poses.append(Pose(
         position=Point(x=0.7, y=-0.1, z=-0.129),
         orientation=overhead_orientation))
 	# ADD WAYPOINT HERE 
+    block_poses.append(Pose(
+        position=Point(x=0.7, y=-0.0, z=(-0.129+hover_distance)),
+        orientation=overhead_orientation))
+    block_poses.append(Pose(
+        position=Point(x=0.7, y=0.05, z=(-0.129+hover_distance)),
+        orientation=overhead_orientation))
+    block_poses.append(Pose(
+        position=Point(x=0.7, y=0.1, z=(-0.129+hover_distance)),
+        orientation=overhead_orientation))
+	# END WAYPOINTS
+	# PLACE 2
     block_poses.append(Pose(
         position=Point(x=0.8, y=0.15, z=-0.129),
         orientation=overhead_orientation))
@@ -329,6 +353,10 @@ def main():
         print("\nMoving to waypoint...")
         idx = (idx+1) % len(block_poses)
         pnp.hover(block_poses[idx])
+        idx = (idx+1) % len(block_poses)
+        pnp.hover(block_poses[idx])
+        idx = (idx+1) % len(block_poses)
+        pnp.hover(block_poses[idx])
 		# END WAYPOINTS
         print("\nPlacing...")
         idx = (idx+1) % len(block_poses)
@@ -340,6 +368,12 @@ def main():
 		#  MOVING TO WAYPOINTS HERE - EDIT POINTS ABOVE
 		# Copy this section for extra waypoints
         print("\nMoving to waypoint...")
+        idx = (idx+1) % len(block_poses)
+        pnp.hover(block_poses[idx])
+        idx = (idx+1) % len(block_poses)
+        pnp.hover(block_poses[idx])
+        idx = (idx+1) % len(block_poses)
+        pnp.hover(block_poses[idx])
         idx = (idx+1) % len(block_poses)
         pnp.hover(block_poses[idx])
 		# END WAYPOINTS
